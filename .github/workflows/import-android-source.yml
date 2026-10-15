@@ -1,0 +1,67 @@
+name: Import Android source ZIP
+on:
+  workflow_dispatch:
+    inputs:
+      archive_url:
+        description: GitHub issue ZIP-attachment URL from the owner
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and validate source archive
+        env:
+          ARCHIVE_URL: ${{ inputs.archive_url }}
+        run: |
+          python3 - &lt;&lt;'PY'
+          import io, os, pathlib, stat, urllib.parse, urllib.request, zipfile
+          url = os.environ['ARCHIVE_URL'].strip()
+          parsed = urllib.parse.urlparse(url)
+          if parsed.scheme != 'https' or parsed.netloc != 'github.com' or not (parsed.path.startswith('/user-attachments/files/') or parsed.path.startswith('/user-attachments/assets/')):
+              raise SystemExit('Only GitHub-hosted issue ZIP attachments are accepted.')
+          with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'GitHub-Source-Importer'}), timeout=120) as r:
+              data = r.read(20_000_001)
+          if len(data) > 20_000_000:
+              raise SystemExit('Archive exceeds 20 MB compressed.')
+          root = pathlib.Path.cwd().resolve()
+          with zipfile.ZipFile(io.BytesIO(data)) as z:
+              members = [i for i in z.infolist() if not i.is_dir()]
+              if len(members) > 1500 or sum(i.file_size for i in members) > 50_000_000:
+                  raise SystemExit('Archive contains too many or too-large files.')
+              paths = {i.filename for i in members}
+              required = {'android/gradlew','android/app/build.gradle','android/app/src/main/AndroidManifest.xml','src/localpdf_insight/static/index.html','src/localpdf_insight/static/vendor/pdfjs/build/pdf.mjs'}
+              if not required.issubset(paths):
+                  raise SystemExit('This is not the expected LocalPDF Android source archive.')
+              for i in members:
+                  p = pathlib.PurePosixPath(i.filename)
+                  if p.is_absolute() or '..' in p.parts or '\\' in i.filename or any(ord(c) &lt; 32 for c in i.filename):
+                      raise SystemExit('Unsafe ZIP path.')
+                  if (i.external_attr &gt;&gt; 16) &amp; 0o170000 == stat.S_IFLNK:
+                      raise SystemExit('Symlinks are not permitted.')
+                  lower = i.filename.lower()
+                  if p.name in {'.env','local.properties'} or lower.endswith(('.jks','.keystore','.p12','.pfx','.pem','.key','.history.bundle')):
+                      raise SystemExit('Signing key or secret file detected.')
+                  if i.filename.startswith('.github/') and i.filename != '.github/workflows/android-ci.yml':
+                      raise SystemExit('Unexpected GitHub workflow or action file.')
+                  if p.parts[0] not in {'android','src','tests','scripts','docs','.github'} and len(p.parts) &gt; 1:
+                      raise SystemExit('Unexpected top-level directory.')
+              for i in members:
+                  out = (root / i.filename).resolve()
+                  if not out.is_relative_to(root):
+                      raise SystemExit('Unsafe output path.')
+                  out.parent.mkdir(parents=True, exist_ok=True)
+                  out.write_bytes(z.read(i))
+          os.chmod(root / 'android/gradlew', 0o755)
+          print('Validated and extracted',len(members),'source files')
+          PY
+      - name: Commit source files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Import verified LocalPDF Android source'; git push; fi
