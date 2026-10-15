@@ -49,6 +49,10 @@ jobs:
                       if not name.startswith(prefix):
                           raise SystemExit("Unexpected archive root.")
                       name = name[len(prefix):]
+                  # Workflow-file changes require permissions unavailable to the Actions token.
+                  # Import verified application source; add CI as a separate owner commit.
+                  if name.startswith(".github/workflows/"):
+                      continue
                   path = pathlib.PurePosixPath(name)
                   if not name or path.is_absolute() or ".." in path.parts or "\\" in name:
                       raise SystemExit("Unsafe source path.")
