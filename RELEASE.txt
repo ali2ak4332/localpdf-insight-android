@@ -1,0 +1,24 @@
+LocalPDF Insight Android 0.2.1-page-jump (version code 3)
+Source commit: da1b2acef46699271ae7f3d7f5252fe4746627cb
+Implementation commit: a124ce7e2106a4ae1c6a6030c0e79e10d03d13be
+Git status at packaging: clean
+APK SHA-256: 1faab9f12784cdcdf34f4ff9266ea21371c4439f8de040e6ea53945587cfdc23
+
+One improvement: page-number Enter/Go commits the jump and releases keyboard focus.
+Validated in English/Arabic, with page bounds and IME composition handling.
+19 Android reader + 17 editor/export browser workflows passed. Independent PyMuPDF
+export inspection/rendering passed; signature and Arabic/English text renders inspected.
+Signed assembleRelease and lintRelease passed (0 errors, 5 baseline warnings).
+Same application ID/certificate; code increased from 2 to 3. All 296 assets match.
+Physical Android keyboard, native Files picker and installed update not tested.
+Desktop suites were not rerun for this Android-only change.
+
+Install the APK over the existing app; do not uninstall if retaining library/notes.
+Android 10+ and current System WebView required. Offline/private operation preserved.
+Original PDF bytes and source-linked notes remain intact; edits save as a separate copy.
+Existing annotation/form editing and handwritten signature limitations remain.
+
+See ANDROID_CHANGELOG.md, android/README.md and docs/android-daily-validation/2026-10-15/.
+Build from source using android/README.md. Restore complete Git history with:
+  git clone LocalPDF_Insight_Android.history.bundle LocalPDF_Insight_Android_Git
+The private update signing key is excluded from this archive and its Git history.

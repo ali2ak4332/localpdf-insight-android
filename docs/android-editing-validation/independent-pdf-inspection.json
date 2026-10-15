@@ -1,0 +1,646 @@
+{
+  "signature-page2": {
+    "original_sha": "163e50693067e63cff2b201b599b3f7980614dded020ce25c893cc78f98365dc",
+    "exported_sha": "d5b48bc545817a255a31e2519fd7cdf6d970112fd9416fe5d2bf894cc134c543",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+        "changed_channels": 0
+      },
+      {
+        "number": 2,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Ink",
+            "rect": [
+              113.20160675048828,
+              260.44781494140625,
+              347.9233703613281,
+              344.28240966796875
+            ],
+            "vertices": [
+              [
+                [
+                  119,
+                  336.8000183105469
+                ],
+                [
+                  142.8000030517578,
+                  261.02001953125
+                ],
+                [
+                  178.5,
+                  362.05999755859375
+                ],
+                [
+                  202.29998779296875,
+                  235.760009765625
+                ],
+                [
+                  214.1999969482422,
+                  353.6399841308594
+                ],
+                [
+                  238,
+                  303.1199951171875
+                ],
+                [
+                  261.79998779296875,
+                  353.6399841308594
+                ],
+                [
+                  297.5,
+                  277.8599853515625
+                ],
+                [
+                  321.3000183105469,
+                  336.8000183105469
+                ],
+                [
+                  362.95001220703125,
+                  311.53997802734375
+                ]
+              ]
+            ],
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165437",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+        "changed_channels": 4365
+      },
+      {
+        "number": 3,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+        "changed_channels": 0
+      }
+    ],
+    "page_count": 3
+  },
+  "multi-page-delete": {
+    "original_sha": "163e50693067e63cff2b201b599b3f7980614dded020ce25c893cc78f98365dc",
+    "exported_sha": "f4a400c31dec68d68f1dc1b2a2667c0413524234e6f4b01854ee93fcd82e5fcd",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Ink",
+            "rect": [
+              113.20160675048828,
+              240.1236572265625,
+              361.8067321777344,
+              358.5028381347656
+            ],
+            "vertices": [
+              [
+                [
+                  119,
+                  336.8000183105469
+                ],
+                [
+                  126.93333435058594,
+                  311.53997802734375
+                ],
+                [
+                  134.86666870117188,
+                  286.280029296875
+                ],
+                [
+                  142.8000030517578,
+                  261.02001953125
+                ],
+                [
+                  154.6999969482422,
+                  294.70001220703125
+                ],
+                [
+                  166.60000610351562,
+                  328.3800048828125
+                ],
+                [
+                  178.5,
+                  362.05999755859375
+                ],
+                [
+                  186.43333435058594,
+                  319.96002197265625
+                ],
+                [
+                  194.36668395996094,
+                  277.8599853515625
+                ],
+                [
+                  202.29998779296875,
+                  235.760009765625
+                ],
+                [
+                  206.2666778564453,
+                  275.0533447265625
+                ],
+                [
+                  210.2333526611328,
+                  314.3466796875
+                ],
+                [
+                  214.1999969482422,
+                  353.6399841308594
+                ],
+                [
+                  222.13333129882812,
+                  336.8000183105469
+                ],
+                [
+                  230.06666564941406,
+                  319.96002197265625
+                ],
+                [
+                  238,
+                  303.1199951171875
+                ],
+                [
+                  245.93333435058594,
+                  319.96002197265625
+                ],
+                [
+                  253.86666870117188,
+                  336.8000183105469
+                ],
+                [
+                  261.79998779296875,
+                  353.6399841308594
+                ],
+                [
+                  273.6999816894531,
+                  328.3800048828125
+                ],
+                [
+                  285.6000061035156,
+                  303.1199951171875
+                ],
+                [
+                  297.5,
+                  277.8599853515625
+                ],
+                [
+                  305.433349609375,
+                  297.50665283203125
+                ],
+                [
+                  313.36663818359375,
+                  317.1533203125
+                ],
+                [
+                  321.3000183105469,
+                  336.8000183105469
+                ],
+                [
+                  335.1833190917969,
+                  328.3800048828125
+                ],
+                [
+                  349.0666809082031,
+                  319.96002197265625
+                ],
+                [
+                  362.95001220703125,
+                  311.53997802734375
+                ]
+              ]
+            ],
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165442",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+        "changed_channels": 6165
+      },
+      {
+        "number": 2,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+        "changed_channels": 0
+      },
+      {
+        "number": 3,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+        "changed_channels": 0
+      }
+    ],
+    "page_count": 3
+  },
+  "rotated-signature": {
+    "original_sha": "49c160e55162485d857fd6caf274eb4916eee975b6b2013b0f04493d62a916e3",
+    "exported_sha": "ecae271629a7a7e61ce25396161dc0de3d1a1f97b70be98bd1f9401401f9272c",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 90,
+        "annotations": [
+          {
+            "type": "Ink",
+            "rect": [
+              200.22247314453125,
+              156.44085693359375,
+              297.4480285644531,
+              324.225830078125
+            ],
+            "vertices": [
+              [
+                [
+                  280.0000305175781,
+                  320
+                ],
+                [
+                  259,
+                  314.66668701171875
+                ],
+                [
+                  238.00003051757812,
+                  309.33331298828125
+                ],
+                [
+                  217,
+                  304
+                ],
+                [
+                  244.99996948242188,
+                  296
+                ],
+                [
+                  273,
+                  288
+                ],
+                [
+                  300.9999694824219,
+                  280
+                ],
+                [
+                  266,
+                  274.6666564941406
+                ],
+                [
+                  231.00001525878906,
+                  269.33331298828125
+                ],
+                [
+                  196.00001525878906,
+                  264
+                ],
+                [
+                  228.66664123535156,
+                  261.33331298828125
+                ],
+                [
+                  261.33331298828125,
+                  258.6666564941406
+                ],
+                [
+                  294,
+                  256
+                ],
+                [
+                  280.0000305175781,
+                  250.6666717529297
+                ],
+                [
+                  266,
+                  245.33334350585938
+                ],
+                [
+                  251.99998474121094,
+                  240
+                ],
+                [
+                  266,
+                  234.6666717529297
+                ],
+                [
+                  280.0000305175781,
+                  229.3333282470703
+                ],
+                [
+                  294,
+                  224.00001525878906
+                ],
+                [
+                  273,
+                  216.00001525878906
+                ],
+                [
+                  251.99998474121094,
+                  208
+                ],
+                [
+                  231.00001525878906,
+                  200
+                ],
+                [
+                  247.33334350585938,
+                  194.66664123535156
+                ],
+                [
+                  263.66668701171875,
+                  189.33334350585938
+                ],
+                [
+                  280.0000305175781,
+                  183.99998474121094
+                ],
+                [
+                  273,
+                  174.6666717529297
+                ],
+                [
+                  266,
+                  165.33331298828125
+                ],
+                [
+                  259,
+                  156
+                ]
+              ]
+            ],
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165445",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Intrinsically rotated signature page\n",
+        "changed_channels": 4938
+      }
+    ],
+    "page_count": 1
+  },
+  "bilingual-added-text": {
+    "original_sha": "163e50693067e63cff2b201b599b3f7980614dded020ce25c893cc78f98365dc",
+    "exported_sha": "ac747f21d037f452729be773f9ce5628e8b234643432b2ff0589db72a32b4083",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Stamp",
+            "rect": [
+              74.375,
+              380.5849304199219,
+              520.625,
+              459.1328125
+            ],
+            "vertices": null,
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165446",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+        "changed_channels": 21159
+      },
+      {
+        "number": 2,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+        "changed_channels": 0
+      },
+      {
+        "number": 3,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Stamp",
+            "rect": [
+              74.375,
+              387.4338073730469,
+              520.625,
+              452.283935546875
+            ],
+            "vertices": null,
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165446",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+        "changed_channels": 19527
+      }
+    ],
+    "page_count": 3
+  },
+  "wrapped-long-text": {
+    "original_sha": "163e50693067e63cff2b201b599b3f7980614dded020ce25c893cc78f98365dc",
+    "exported_sha": "7c5371c225846966a6dd35b2e83863e708be359c892950204bf7eec1f6f742cf",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Stamp",
+            "rect": [
+              74.375,
+              318.94805908203125,
+              520.625,
+              520.7696533203125
+            ],
+            "vertices": null,
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165448",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+        "changed_channels": 81936
+      },
+      {
+        "number": 2,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+        "changed_channels": 0
+      },
+      {
+        "number": 3,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Stamp",
+            "rect": [
+              74.375,
+              334.32293701171875,
+              520.625,
+              505.3948059082031
+            ],
+            "vertices": null,
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165448",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+        "changed_channels": 49320
+      }
+    ],
+    "page_count": 3
+  },
+  "highlighted-passage": {
+    "original_sha": "163e50693067e63cff2b201b599b3f7980614dded020ce25c893cc78f98365dc",
+    "exported_sha": "bc97ddd829802e7183407e7a6c55ca9c1920c0b6ba3edac06f6347cdd583229e",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [
+          {
+            "type": "Highlight",
+            "rect": [
+              49.32550048828125,
+              88.2415771484375,
+              352.00201416015625,
+              104.4921875
+            ],
+            "vertices": [
+              [
+                49.95820617675781,
+                89.16180419921875
+              ],
+              [
+                351.4000244140625,
+                89.16180419921875
+              ],
+              [
+                49.95820617675781,
+                103.5960693359375
+              ],
+              [
+                351.4000244140625,
+                103.5960693359375
+              ]
+            ],
+            "info": {
+              "content": "",
+              "name": "",
+              "title": "",
+              "creationDate": "D:20261014165450",
+              "modDate": "",
+              "subject": "",
+              "id": ""
+            }
+          }
+        ],
+        "widgets": [],
+        "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+        "changed_channels": 8755
+      },
+      {
+        "number": 2,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+        "changed_channels": 0
+      },
+      {
+        "number": 3,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [],
+        "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+        "changed_channels": 0
+      }
+    ],
+    "page_count": 3
+  },
+  "filled-form": {
+    "original_sha": "ad2035d2eedb805bf39ed0d284716a25a2041568531427da96e2dcb818566e43",
+    "exported_sha": "95761245b1a93a26a5933eb5f916b2e2ad3a73e917ea2cbff0aed6973a496336",
+    "pages": [
+      {
+        "number": 1,
+        "rotation": 0,
+        "annotations": [],
+        "widgets": [
+          {
+            "name": "signer_name",
+            "value": "Ali Review 2026"
+          },
+          {
+            "name": "approved",
+            "value": "Yes"
+          }
+        ],
+        "text": "PDF form validation\nName:\nApproved:\nAli Review 2026\n3\n",
+        "changed_channels": 2070
+      }
+    ],
+    "page_count": 1
+  }
+}

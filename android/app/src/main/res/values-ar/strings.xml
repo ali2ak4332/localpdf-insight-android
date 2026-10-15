@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LocalPDF Insight</string>
+    <string name="invalid_pdf">اختر ملف PDF يمكن قراءته.</string>
+    <string name="picker_unavailable">لا يتوفر منتقي ملفات على هذا الجهاز.</string>
+    <string name="external_links_disabled">الروابط الخارجية معطلة في هذا القارئ المحلي.</string>
+    <string name="exit_title">إغلاق LocalPDF Insight؟</string>
+    <string name="exit_detail">تبقى ملفاتك المستوردة وملاحظاتك على هذا الجهاز.</string>
+    <string name="exit">إغلاق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="ok">موافق</string>
+    <string name="webview_error">تعذّر فتح القارئ. حدّث Android System WebView ثم أعد فتح التطبيق.</string>
+    <string name="update_webview_title">حدّث Android System WebView</string>
+    <string name="update_webview_detail">يتطلب هذا القارئ إصدارًا حديثًا من Android System WebView أو Chrome. حدّثه من متجر التطبيقات، ثم أغلق LocalPDF Insight وأعد فتحه. يوصى بنظام Android 10 أو أحدث.</string>
+    <string name="downloads_disabled">هذا القارئ لا ينزّل الملفات من الويب.</string>
+    <string name="export_busy">جارٍ حفظ نسخة أخرى. أكمل الحفظ أو ألغِه أولًا.</string>
+    <string name="export_invalid">تعذّر تجهيز نسخة PDF. حاول حفظها مجددًا.</string>
+    <string name="export_failed">تعذّر حفظ نسخة PDF. تحقق من مكان الحفظ والمساحة المتاحة، ثم حاول مجددًا.</string>
+    <string name="exit_unsaved_detail">ستُفقد التعديلات غير المحفوظة. احفظ نسخة أولًا. تبقى ملفاتك المستوردة وملاحظاتك على هذا الجهاز.</string>
+    <string name="close_without_saving">إغلاق دون حفظ</string>
+</resources>

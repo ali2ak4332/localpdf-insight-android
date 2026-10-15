@@ -1,0 +1,18 @@
+{
+  "apk": "/workspace/scratch/d1cbea1fbc26/localpdf-android/android/app/build/outputs/apk/release/app-release.apk",
+  "size": 6391437,
+  "sha256": "cffe39a71ed48bd58a9acd8693eab3795e74d5ca86e25e9b8f219e2c6a387647",
+  "source_static_files": 295,
+  "apk_static_files": 295,
+  "missing": [],
+  "extra": [],
+  "mismatched": [],
+  "signature": "APK v2 valid; RSA2048 stable development certificate",
+  "min_sdk": 29,
+  "target_sdk": 35,
+  "permissions": [],
+  "debuggable": false,
+  "allow_backup": false,
+  "uses_cleartext_traffic": false,
+  "physical_android_validation": false
+}

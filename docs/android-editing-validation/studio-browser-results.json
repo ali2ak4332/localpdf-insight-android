@@ -1,0 +1,14 @@
+{
+  "passed": 8,
+  "model": "none — excerpt mode",
+  "results": [
+    "Suggestions originate in the indexed PDF and run normal cited Q&A",
+    "Selected Explain retains text, page, document and coordinates",
+    "Executive Summary saves automatically and reopens with stable citations",
+    "Source-linked note preserves the passage and optional Arabic comment",
+    "Saved output survives server restart and opens the original PDF after switching documents",
+    "Quiz is a cited source exercise with a revealable answer key",
+    "Source picker visibly narrows selected documents and does not leak suggestions",
+    "Mobile RTL refuses garbled study prompts and preserves mixed-text notes"
+  ]
+}

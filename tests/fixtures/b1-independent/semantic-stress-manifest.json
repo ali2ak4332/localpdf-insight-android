@@ -1,0 +1,8 @@
+{
+  "sha256": "50706e162f48d27afcd0f8d8a0e79b2ae70541ffe15638db1c4e160cc57d66d9",
+  "unique_cases": 6,
+  "parameterized_executions": 36,
+  "frozen_before_querying": true,
+  "label_reviewer": "Current coding assistant; not human/external review",
+  "purpose": "Measure unrecognized semantic substitutions under deliberately false independent verification, with positive controls. Not live evidence."
+}

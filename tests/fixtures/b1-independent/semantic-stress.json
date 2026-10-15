@@ -1,0 +1,90 @@
+[
+  {
+    "id": "unrecognized-rate-en",
+    "language": "en",
+    "question": "What was the invoice rejection rate of Solace for 2041?",
+    "documents": [
+      "The customer churn rate of Solace for 2041 was 6 percent."
+    ],
+    "allowed_passages": [],
+    "expected": "UNVERIFIED",
+    "family": "unrecognized_rate",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  },
+  {
+    "id": "unrecognized-rate-ar",
+    "language": "ar",
+    "question": "ما معدل رفض الفواتير لشركة سولايس لعام 2041؟",
+    "documents": [
+      "بلغ معدل فقد العملاء لشركة سولايس لعام 2041 نسبة 6 بالمئة."
+    ],
+    "allowed_passages": [],
+    "expected": "UNVERIFIED",
+    "family": "unrecognized_rate",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  },
+  {
+    "id": "unrecognized-extremum-en",
+    "language": "en",
+    "question": "What is the maximum warranty duration?",
+    "documents": [
+      "The minimum warranty duration is fifty months."
+    ],
+    "allowed_passages": [],
+    "expected": "UNVERIFIED",
+    "family": "unrecognized_extremum",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  },
+  {
+    "id": "unrecognized-extremum-ar",
+    "language": "ar",
+    "question": "ما أقصى مدة للضمان؟",
+    "documents": [
+      "الحد الأدنى لمدة الضمان خمسون شهرا."
+    ],
+    "allowed_passages": [],
+    "expected": "UNVERIFIED",
+    "family": "unrecognized_extremum",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  },
+  {
+    "id": "unfamiliar-positive-en",
+    "language": "en",
+    "question": "What proportion of unpaid bills did Solace collect during 2041?",
+    "documents": [
+      "Solace recovered 91 percent of outstanding invoices in 2041."
+    ],
+    "allowed_passages": [
+      "Solace recovered 91 percent of outstanding invoices in 2041."
+    ],
+    "expected": "SUPPORTED",
+    "family": "unfamiliar_positive",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  },
+  {
+    "id": "unfamiliar-positive-ar",
+    "language": "ar",
+    "question": "ما نسبة الفواتير غير المدفوعة التي حصلتها سولايس في عام 2041؟",
+    "documents": [
+      "استردت سولايس 91 بالمئة من الفواتير المستحقة في عام 2041."
+    ],
+    "allowed_passages": [
+      "استردت سولايس 91 بالمئة من الفواتير المستحقة في عام 2041."
+    ],
+    "expected": "SUPPORTED",
+    "family": "unfamiliar_positive",
+    "operation": "ask",
+    "controlled": true,
+    "verifier": "all_approving"
+  }
+]

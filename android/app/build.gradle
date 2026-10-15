@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'app.localpdf.insight'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+
+    defaultConfig {
+        applicationId 'app.localpdf.insight'
+        minSdk 29
+        targetSdk 35
+        versionCode 3
+        versionName '0.2.1-page-jump'
+    }
+
+    // The release APK is for personal sideloading. A stable, private key must
+    // be supplied externally so the next APK can update this installation.
+    signingConfigs {
+        personal {
+            def keyPath = providers.environmentVariable('LOCALPDF_ANDROID_KEYSTORE').orNull
+            if (keyPath) {
+                storeFile file(keyPath)
+                storePassword providers.environmentVariable('LOCALPDF_ANDROID_STORE_PASSWORD').getOrElse('android')
+                keyAlias providers.environmentVariable('LOCALPDF_ANDROID_KEY_ALIAS').getOrElse('androiddebugkey')
+                keyPassword providers.environmentVariable('LOCALPDF_ANDROID_KEY_PASSWORD').getOrElse('android')
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            def keyPath = providers.environmentVariable('LOCALPDF_ANDROID_KEYSTORE').orNull
+            if (keyPath) signingConfig signingConfigs.personal
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.personal
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        buildConfig true
+    }
+    sourceSets {
+        main.assets.srcDir(layout.buildDirectory.dir('generated/reader-assets'))
+    }
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+}
+
+// One copy of the reader is authoritative. Sync removes stale bundled files;
+// assets are generated rather than checked into a second source directory.
+def syncReaderAssets = tasks.register('syncReaderAssets', Sync) {
+    from(rootProject.file('../src/localpdf_insight/static'))
+    into(layout.buildDirectory.dir('generated/reader-assets/static'))
+    includeEmptyDirs = false
+}
+tasks.named('preBuild').configure { dependsOn(syncReaderAssets) }
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+}

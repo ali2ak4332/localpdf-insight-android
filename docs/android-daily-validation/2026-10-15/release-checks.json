@@ -1,0 +1,20 @@
+{
+  "versionName": "0.2.1-page-jump",
+  "versionCode": 3,
+  "applicationId": "app.localpdf.insight",
+  "build": "assembleRelease passed",
+  "lint": {
+    "errors": 0,
+    "warnings": 5,
+    "sameAsRestoredBaseline": true
+  },
+  "signatureVerified": true,
+  "sameCertificateAsPrevious": true,
+  "matchingBundledAssets": 296,
+  "permissions": 0,
+  "debuggable": false,
+  "backupDisabled": true,
+  "cleartextDisabled": true,
+  "physicalAndroidTested": false,
+  "baselineRegression": "Previous code retains page field focus after Enter; focused assertion failed before the fix and passed afterward."
+}

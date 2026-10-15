@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-10-14T16:58:24.925025+00:00",
+  "apk": "/workspace/scratch/d1cbea1fbc26/localpdf-android/android/app/build/outputs/apk/release/app-release.apk",
+  "size": 6411574,
+  "sha256": "f32c11800315dff1bed3b8476eeae247f1b19a71b652706a07aa970b8ce48a6d",
+  "package": "app.localpdf.insight",
+  "version_code": 2,
+  "version_name": "0.2.0-editor",
+  "certificate_sha256": "f0c38147d5bfe371d7144578b4e952fabad9dd2fe98137ea4be630bb6537a153",
+  "same_signer_as_previous_reader_apk": true,
+  "signature": "APK v2 valid; RSA2048 stable development certificate",
+  "zip_alignment": "zipalign -c -P 16 4 passed",
+  "source_static_files": 296,
+  "apk_static_files": 296,
+  "missing": [],
+  "extra": [],
+  "mismatched": [],
+  "static_assets_equal_to_final_source": true,
+  "source_static_sha256": "67fa1e35fb5f99243cda64968b92e05fd379af7d0eb1efff2d8e4e305b811a4d",
+  "editor_asset_sha256": "72c48e53fb6f653b01fcbda605910b59e565981cb84300e76b27d34de113dd8f",
+  "app_js_sha256": "aac0d9351e8426a545236345057a58634af6c0c1e42accad661a61ae31243e5b",
+  "app_css_sha256": "28ae41891a1279639861d643e8d4d33b2c4474079361f430f97d200c9d64fc17",
+  "native_export_class_present_in_dex": true,
+  "min_sdk": 29,
+  "target_sdk": 35,
+  "permissions": [],
+  "debuggable": false,
+  "allow_backup": false,
+  "uses_cleartext_traffic": false,
+  "supports_rtl": true,
+  "release_build": "clean assembleRelease passed",
+  "build_recovery": "An incremental rebuild encountered duplicate generated androidx.lifecycle.R DEX intermediates; :app:clean then fresh assembleRelease/lintRelease succeeded without source/dependency changes.",
+  "release_lint": {
+    "errors": [],
+    "warnings": [
+      "UnusedAttribute",
+      "SetJavaScriptEnabled",
+      "ObsoleteSdkInt",
+      "MonochromeLauncherIcon"
+    ]
+  },
+  "native_export_review": {
+    "method": "source inspection plus compilation/lint; not device execution",
+    "origin": "https://appassets.androidplatform.net; main frame only",
+    "max_pdf_bytes": 230686720,
+    "max_chunk_bytes": 196608,
+    "destination": "ACTION_CREATE_DOCUMENT result only; JavaScript supplies no URI/path",
+    "chunk_integrity": "ordered index and byte-count validation; PDF header checked",
+    "staging": "private cache; cancellation/failure/restart cleanup",
+    "late_picker_result": "captured session identity; cannot target a newer export",
+    "unsaved_exit": "native Cancel/Close without saving warning after reader back handler"
+  },
+  "physical_android_validation": false,
+  "native_saf_provider_execution": false,
+  "known_native_limitations": [
+    "An interrupted process export requires retry; pending exports are not restored.",
+    "Partial/late created document deletion is best effort and depends on its provider."
+  ]
+}

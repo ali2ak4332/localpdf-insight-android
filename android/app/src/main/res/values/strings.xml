@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LocalPDF Insight</string>
+    <string name="invalid_pdf">Choose a readable PDF document.</string>
+    <string name="picker_unavailable">No document picker is available on this device.</string>
+    <string name="external_links_disabled">External links are disabled in this local reader.</string>
+    <string name="exit_title">Close LocalPDF Insight?</string>
+    <string name="exit_detail">Your imported PDFs and notes stay on this device.</string>
+    <string name="exit">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="webview_error">The reader could not open. Update Android System WebView and reopen the app.</string>
+    <string name="update_webview_title">Update Android System WebView</string>
+    <string name="update_webview_detail">This PDF reader needs a current Android System WebView or Chrome. Update it in your app store, then close and reopen LocalPDF Insight. Android 10 or later is recommended.</string>
+    <string name="downloads_disabled">This reader does not download files from the web.</string>
+    <string name="export_busy">Another PDF copy is being saved. Finish or cancel it first.</string>
+    <string name="export_invalid">The PDF copy could not be prepared. Try saving it again.</string>
+    <string name="export_failed">The PDF copy could not be saved. Check the selected location and free space, then try again.</string>
+    <string name="exit_unsaved_detail">Unsaved edits will be lost. Save a copy first. Your imported PDFs and notes stay on this device.</string>
+    <string name="close_without_saving">Close without saving</string>
+</resources>

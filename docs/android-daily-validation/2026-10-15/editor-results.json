@@ -1,0 +1,95 @@
+{
+  "environment": "Offline mobile Chromium; actual PDF.js saved bytes, mocked narrow native export transport, independent PyMuPDF export/render inspection; physical Android not tested",
+  "passed": 17,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Original PDF and source-linked note are retained before editing",
+      "status": "passed",
+      "seconds": 1.807
+    },
+    {
+      "name": "Finger-drawn signature belongs to page 2; undo and redo restore the edit",
+      "status": "passed",
+      "seconds": 0.881
+    },
+    {
+      "name": "Save copy produces a new PDF identity, real exported ink and unchanged original bytes",
+      "status": "passed",
+      "seconds": 1.243
+    },
+    {
+      "name": "Saved annotation survives reload and original note reopens original PDF/page",
+      "status": "passed",
+      "seconds": 0.707
+    },
+    {
+      "name": "Closing editing tools restores ordinary one-finger PDF scrolling",
+      "status": "passed",
+      "seconds": 1.172
+    },
+    {
+      "name": "Edits on separate pages survive zoom and viewport rotation; delete removes only selected edit",
+      "status": "passed",
+      "seconds": 2.964
+    },
+    {
+      "name": "Intrinsic page rotation maps exported ink onto the correct visible region",
+      "status": "passed",
+      "seconds": 2.18
+    },
+    {
+      "name": "English and Arabic added text retain visible appearances in the actual saved PDF",
+      "status": "passed",
+      "seconds": 2.076
+    },
+    {
+      "name": "Long English and Arabic tokens wrap without clipping their added-text annotations",
+      "status": "passed",
+      "seconds": 2.071
+    },
+    {
+      "name": "Pointer-selected text highlighting is retained in the exported PDF",
+      "status": "passed",
+      "seconds": 2.041
+    },
+    {
+      "name": "Form fields export filled values and checkbox state",
+      "status": "passed",
+      "seconds": 2.043
+    },
+    {
+      "name": "Cancelled and failed native exports never claim a successful file save",
+      "status": "passed",
+      "seconds": 1.556
+    },
+    {
+      "name": "Pending native export prevents PDF interaction and retains edits on cancellation",
+      "status": "passed",
+      "seconds": 0.146
+    },
+    {
+      "name": "Unavailable Android export channel refuses saving without discarding or importing edits",
+      "status": "passed",
+      "seconds": 0.004
+    },
+    {
+      "name": "Cancelling an import while edits are unsaved preserves the active PDF and its identity",
+      "status": "passed",
+      "seconds": 0.031
+    },
+    {
+      "name": "An unfinished ink stroke triggers the document-switch guard",
+      "status": "passed",
+      "seconds": 1.055
+    },
+    {
+      "name": "Editor works without Ollama, server or external network requests",
+      "status": "passed",
+      "seconds": 0.001
+    }
+  ],
+  "attemptedNetwork": [],
+  "browserErrors": [],
+  "tooling": "Playwright 1.62.1; Chromium 155.0.8059.79; mobile browser emulation, no Android hardware"
+}

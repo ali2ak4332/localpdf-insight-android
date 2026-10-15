@@ -1,0 +1,19 @@
+{
+  "frozen_at_utc": "2026-09-18T14:26:55.582432+00:00",
+  "starting_commit": "161d8b627bd9a84a936fcf73d0d0d960f0e943b3",
+  "corpus_sha256": "5319d924b80419bcd284f6da96baa5d98e542cb78c454e569c52752a18191414",
+  "unique_scenarios": 48,
+  "families": 24,
+  "modes": [
+    "strict",
+    "assisted"
+  ],
+  "scopes": [
+    "current",
+    "selected",
+    "library"
+  ],
+  "expected_executions": 288,
+  "expected_outcome_author": "current coding assistant, from synthetic source meanings before first execution; not human or organizationally independent review",
+  "rule": "Do not edit frozen expected outcomes to repair failures; fixes create regression evidence, not an untouched holdout."
+}

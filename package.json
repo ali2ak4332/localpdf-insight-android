@@ -1,0 +1,14 @@
+{
+  "name": "localpdf-insight-browser-tests",
+  "private": true,
+  "version": "0.2.0",
+  "scripts": {
+    "test:browser": "node tests/browser/reader.cjs",
+    "test:studio": "node tests/browser/studio.cjs",
+    "test:android": "node tests/browser/android.cjs",
+    "test:android-editor": "node tests/browser/android_editor.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
