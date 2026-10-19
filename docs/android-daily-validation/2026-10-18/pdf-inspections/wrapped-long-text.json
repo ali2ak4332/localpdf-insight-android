@@ -1,0 +1,81 @@
+{
+  "original_sha": "cad52bf5b3ff53b42cbebf461ec64efa3104278f5332cbcad8e0383f26a677c3",
+  "exported_sha": "e637348db74e8c5da843001d5f24b015b57002d1f6400807536060b54b548aca",
+  "pages": [
+    {
+      "number": 1,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Stamp",
+          "rect": [
+            74.375,
+            318.94805908203125,
+            520.625,
+            520.7696533203125
+          ],
+          "vertices": null,
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042143",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": null,
+          "colour": {
+            "stroke": [],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+      "changed_channels": 81841
+    },
+    {
+      "number": 2,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+      "changed_channels": 0
+    },
+    {
+      "number": 3,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Stamp",
+          "rect": [
+            74.375,
+            334.32293701171875,
+            520.625,
+            505.3948059082031
+          ],
+          "vertices": null,
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042143",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": null,
+          "colour": {
+            "stroke": [],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+      "changed_channels": 49185
+    }
+  ],
+  "page_count": 3
+}

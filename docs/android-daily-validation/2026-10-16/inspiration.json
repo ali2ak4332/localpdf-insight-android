@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/mozilla/pdf.js/blob/170599f1e78944f43494a7d0907e0101b3f14cd6/web/pdf_find_bar.js",
+  "commit": "170599f1e78944f43494a7d0907e0101b3f14cd6",
+  "commit_date": "2026-02-14T11:33:34Z",
+  "reviewed": "PDFFindBar.close dispatches findbarclose. Existing bundled PDFFindController handles it by cancelling pending searches and clearing temporary highlights. Upstream find-controller unit specs were reviewed as evidence of maintained search testing; they were not run here.",
+  "tests": "https://github.com/mozilla/pdf.js/blob/master/test/unit/pdf_find_controller_spec.js",
+  "license": "Apache-2.0; no upstream source copied or dependency added."
+}

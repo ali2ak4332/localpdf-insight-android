@@ -4,7 +4,7 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-build/
+/build/
 dist/
 *.egg-info/
 *.log
@@ -18,14 +18,20 @@ test-results/
 .env
 validation-artifacts/
 
-# Android signing and machine state
+# Android outputs and machine-local signing material.
+/android/.gradle/
+/android/build/
+/android/app/build/
+local.properties
 *.jks
 *.keystore
 *.p12
 *.pfx
 *.pem
 *.key
-local.properties
-**/.gradle/
-**/build/
-**/captures/
+signing/
+history.bundle
+
+# PDF.js ships executable modules in this source directory.
+!src/localpdf_insight/static/vendor/pdfjs/build/
+!src/localpdf_insight/static/vendor/pdfjs/build/**

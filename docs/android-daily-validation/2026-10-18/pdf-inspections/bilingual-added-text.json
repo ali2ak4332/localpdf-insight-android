@@ -1,0 +1,81 @@
+{
+  "original_sha": "cad52bf5b3ff53b42cbebf461ec64efa3104278f5332cbcad8e0383f26a677c3",
+  "exported_sha": "016a6e0b1aba9950371f5a9999d19348ac94c9b185112450339cf87a8d03c3e7",
+  "pages": [
+    {
+      "number": 1,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Stamp",
+          "rect": [
+            74.375,
+            380.5849304199219,
+            520.625,
+            459.1328125
+          ],
+          "vertices": null,
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042142",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": null,
+          "colour": {
+            "stroke": [],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+      "changed_channels": 21064
+    },
+    {
+      "number": 2,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+      "changed_channels": 0
+    },
+    {
+      "number": 3,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Stamp",
+          "rect": [
+            74.375,
+            387.4338073730469,
+            520.625,
+            452.283935546875
+          ],
+          "vertices": null,
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042142",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": null,
+          "colour": {
+            "stroke": [],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+      "changed_channels": 19521
+    }
+  ],
+  "page_count": 3
+}

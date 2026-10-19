@@ -16,6 +16,10 @@
     <string name="export_busy">Another PDF copy is being saved. Finish or cancel it first.</string>
     <string name="export_invalid">The PDF copy could not be prepared. Try saving it again.</string>
     <string name="export_failed">The PDF copy could not be saved. Check the selected location and free space, then try again.</string>
+    <string name="share_pdf">Share PDF</string>
+    <string name="share_unavailable">Could not open Android sharing. Try saving a PDF copy instead.</string>
     <string name="exit_unsaved_detail">Unsaved edits will be lost. Save a copy first. Your imported PDFs and notes stay on this device.</string>
     <string name="close_without_saving">Close without saving</string>
+    <string name="print_unavailable">Could not open Android printing. Try sharing or saving a PDF copy instead.</string>
+    <string name="print_protected">Password-protected PDFs cannot be sent to Android printing.</string>
 </resources>

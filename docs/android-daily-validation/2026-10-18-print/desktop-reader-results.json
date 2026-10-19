@@ -1,0 +1,18 @@
+{
+  "passed": 13,
+  "results": [
+    "Open 150-page PDF and render selectable text with bounded canvases",
+    "Page navigation and PDF outline",
+    "Native full-text search highlights and navigates matches",
+    "Single/spread layouts, zoom and persistent reading position",
+    "Strict question returns sourced excerpts and citation highlights original page",
+    "Duplicate file preserves identity",
+    "Citation opens correct PDF after document switch",
+    "Selected-document API excludes unselected evidence",
+    "Comparison has source links to both documents",
+    "Mobile viewport and Arabic RTL preserve accessible controls without horizontal overflow",
+    "Arabic PDF loads and Arabic query retrieves its source",
+    "PWA shell installed and excludes API data from cache",
+    "Offline shell opens a local PDF without uploading"
+  ]
+}

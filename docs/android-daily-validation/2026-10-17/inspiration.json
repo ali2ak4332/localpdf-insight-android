@@ -1,0 +1,9 @@
+{
+  "reviewDate": "2026-10-17",
+  "source": "https://github.com/mozilla/pdf.js/blob/master/web/signature_manager.js",
+  "tests": "https://github.com/mozilla/pdf.js/blob/925def5eacf4255c541874e2e67dac3ad7287c4f/test/integration/signature_editor_spec.mjs",
+  "issue": "https://github.com/mozilla/pdf.js/issues/22130",
+  "review": "Reviewed SignatureManager cancel/close cleanup and integration tests for cancelled dialogs and unchanged undo state. This informed reusing LocalPDF's existing Cancel handler for Android Back, with a local regression for the actual LocalPDF defect. Upstream code not copied and upstream tests not run.",
+  "license": "Apache-2.0; no dependency or engine update.",
+  "testsSnapshotSha256": "bf54d38da8ef9c1066c7561b10290c99322d344a4225c6137e54b999dfc4521a"
+}

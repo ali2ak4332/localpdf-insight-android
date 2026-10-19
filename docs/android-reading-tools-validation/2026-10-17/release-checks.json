@@ -1,0 +1,46 @@
+{
+  "version": "0.2.5-reading-tools",
+  "version_code": 7,
+  "apk_sha256": "ab22c4180b3262db83e14785ec19f167dd56aedc7d106e38939b408c01c6ecf5",
+  "apk_bytes": 6451415,
+  "app_id": "app.localpdf.insight",
+  "previous_version": "0.2.4-text-cancel",
+  "previous_version_code": 6,
+  "certificate_sha256": "f0c38147d5bfe371d7144578b4e952fabad9dd2fe98137ea4be630bb6537a153",
+  "certificate_matches_previous": true,
+  "signature_verified": true,
+  "signature_scheme": "v3; supported by min API29",
+  "zipalign_16k_check": "passed",
+  "reader_assets_verified": 298,
+  "reader_assets_identical": true,
+  "uses_permissions": [],
+  "native_elf_libraries": [],
+  "compile_sdk": 35,
+  "target_sdk": 35,
+  "min_sdk": 29,
+  "gradle_source_build": "passed",
+  "lint_errors": 0,
+  "lint_warnings": 5,
+  "lint_warning_ids": [
+    "UnusedAttribute",
+    "GradleDependency",
+    "SetJavaScriptEnabled",
+    "ObsoleteSdkInt",
+    "MonochromeLauncherIcon"
+  ],
+  "browser_tests": {
+    "android_reader": 21,
+    "android_editor": 20,
+    "reading_tools": 12,
+    "desktop_reader": 13,
+    "studio": 8
+  },
+  "native_screen_policy_assertions": 18,
+  "python_tests": {
+    "passed": 1196,
+    "skipped": 1
+  },
+  "physical_android_tested": false,
+  "installed_upgrade_tested": false,
+  "play_submission_or_aab_approval": false
+}

@@ -1,0 +1,44 @@
+{
+  "versionName": "0.2.2-search-close",
+  "versionCode": 4,
+  "applicationId": "app.localpdf.insight",
+  "build": "assembleRelease passed",
+  "lint": {
+    "errors": 0,
+    "warnings": 5,
+    "issues": [
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning"
+      },
+      {
+        "id": "GradleDependency",
+        "severity": "Warning"
+      },
+      {
+        "id": "SetJavaScriptEnabled",
+        "severity": "Warning"
+      },
+      {
+        "id": "ObsoleteSdkInt",
+        "severity": "Warning"
+      },
+      {
+        "id": "MonochromeLauncherIcon",
+        "severity": "Warning"
+      }
+    ]
+  },
+  "signatureVerified": true,
+  "sameCertificateAsPrevious": true,
+  "matchingBundledAssets": 296,
+  "permissions": 0,
+  "debuggable": false,
+  "backupDisabled": true,
+  "cleartextDisabled": true,
+  "physicalAndroidTested": false,
+  "browser": "Chrome for Testing 155.0.8059.79; Playwright 1.62.1; offline mobile emulation",
+  "apkSha256": "f96dff76e52df96eebe28c0007d638c897e4e7d357407a53a9d796b3df2f7978",
+  "baselineRegression": "The new regression times out on stale temporary highlights with previous app.js. It passes after the close-search lifecycle fix.",
+  "exportRegression": "Real user-created Highlight survives closing search and is present in saved PDF; independently inspected and rendered with PyMuPDF. Other pages have zero pixel differences."
+}

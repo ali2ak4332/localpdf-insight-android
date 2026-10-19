@@ -1,0 +1,24 @@
+{
+  "original_sha": "b95ad0c665d02f2225c2b1adbbbec8be6eaca8585e7a51aea35b2144baf78d54",
+  "exported_sha": "c7848bfbb7ff29646a612fc041b998c58b62717ef8189babf8a65180a0c07284",
+  "pages": [
+    {
+      "number": 1,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [
+        {
+          "name": "signer_name",
+          "value": "Ali Review 2026"
+        },
+        {
+          "name": "approved",
+          "value": "Yes"
+        }
+      ],
+      "text": "PDF form validation\nName:\nApproved:\nAli Review 2026\n3\n",
+      "changed_channels": 2070
+    }
+  ],
+  "page_count": 1
+}

@@ -1,0 +1,44 @@
+{
+  "versionName": "0.2.4-text-cancel",
+  "versionCode": 6,
+  "applicationId": "app.localpdf.insight",
+  "implementationCommit": "8aa53107c534e4f5deca31cad34c936c183f7f3c",
+  "build": "assembleRelease passed",
+  "lint": {
+    "errors": 0,
+    "warnings": 4,
+    "issues": [
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning"
+      },
+      {
+        "id": "SetJavaScriptEnabled",
+        "severity": "Warning"
+      },
+      {
+        "id": "ObsoleteSdkInt",
+        "severity": "Warning"
+      },
+      {
+        "id": "MonochromeLauncherIcon",
+        "severity": "Warning"
+      }
+    ]
+  },
+  "signatureVerified": true,
+  "sameCertificateAsPrevious": true,
+  "matchingBundledAssets": 297,
+  "permissions": 0,
+  "debuggable": false,
+  "backupDisabled": true,
+  "cleartextDisabled": true,
+  "physicalAndroidTested": false,
+  "browser": "Chrome Headless Shell 155.0.8059.79 / Playwright 1.62.1 offline mobile emulation",
+  "jdk": "Microsoft OpenJDK 17.0.20.1",
+  "readerWorkflows": 21,
+  "editorWorkflows": 19,
+  "apkSha256": "fe80d6cfe9107a8e81a25e90a6607c576aed700210e552ea63564033d455ac66",
+  "baselineReproduction": "Previous code closes the text dialog but leaves the tool value as text. The new check fails with text != read; it passes with the shared Cancel path.",
+  "exportInspection": "After Back cancellation in English/Arabic, existing page-2 Ink is still exported; pages 1/3 have no annotations and zero pixel differences. PyMuPDF independently inspects/renders saved bytes. Signature page-2 render visually checked."
+}

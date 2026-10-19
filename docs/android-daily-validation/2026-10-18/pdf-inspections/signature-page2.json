@@ -1,0 +1,103 @@
+{
+  "original_sha": "cad52bf5b3ff53b42cbebf461ec64efa3104278f5332cbcad8e0383f26a677c3",
+  "exported_sha": "355b406286ba7a17c3dcf635303324a78272a27cc08779aeb92163bae9ff613f",
+  "pages": [
+    {
+      "number": 1,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+      "changed_channels": 0
+    },
+    {
+      "number": 2,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Ink",
+          "rect": [
+            111.95160675048828,
+            259.19781494140625,
+            349.1733703613281,
+            345.5323791503906
+          ],
+          "vertices": [
+            [
+              [
+                119,
+                336.8000183105469
+              ],
+              [
+                142.8000030517578,
+                261.02001953125
+              ],
+              [
+                178.5,
+                362.05999755859375
+              ],
+              [
+                202.29998779296875,
+                235.760009765625
+              ],
+              [
+                214.1999969482422,
+                353.6399841308594
+              ],
+              [
+                238,
+                303.1199951171875
+              ],
+              [
+                261.79998779296875,
+                353.6399841308594
+              ],
+              [
+                297.5,
+                277.8599853515625
+              ],
+              [
+                321.3000183105469,
+                336.8000183105469
+              ],
+              [
+                362.95001220703125,
+                311.53997802734375
+              ]
+            ]
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042133",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": 4.5,
+          "colour": {
+            "stroke": [
+              0.08627451211214066,
+              0.23529411852359772,
+              0.5098039507865906
+            ],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+      "changed_channels": 7767
+    },
+    {
+      "number": 3,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+      "changed_channels": 0
+    }
+  ],
+  "page_count": 3
+}

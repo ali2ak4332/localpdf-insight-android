@@ -18,4 +18,8 @@
     <string name="export_failed">تعذّر حفظ نسخة PDF. تحقق من مكان الحفظ والمساحة المتاحة، ثم حاول مجددًا.</string>
     <string name="exit_unsaved_detail">ستُفقد التعديلات غير المحفوظة. احفظ نسخة أولًا. تبقى ملفاتك المستوردة وملاحظاتك على هذا الجهاز.</string>
     <string name="close_without_saving">إغلاق دون حفظ</string>
+    <string name="share_pdf">مشاركة PDF</string>
+    <string name="share_unavailable">تعذر فتح مشاركة أندرويد. جرّب حفظ نسخة PDF أولاً.</string>
+    <string name="print_unavailable">تعذّر فتح الطباعة في أندرويد. جرّب مشاركة المستند أو حفظ نسخة PDF بدلاً من ذلك.</string>
+    <string name="print_protected">لا يمكن إرسال ملفات PDF المحمية بكلمة مرور إلى طباعة أندرويد.</string>
 </resources>

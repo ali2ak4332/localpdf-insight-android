@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 
 
 def fixtures(root):
@@ -64,7 +64,8 @@ def inspect(original, exported, output):
             annotations = []
             for annotation in page.annots() or []:
                 annotations.append({"type": annotation.type[1], "rect": list(annotation.rect),
-                                    "vertices": annotation.vertices, "info": annotation.info})
+                                    "vertices": annotation.vertices, "info": annotation.info,
+                                    "width": annotation.border.get("width"), "colour": annotation.colors})
             widgets = [{"name": widget.field_name, "value": widget.field_value} for widget in page.widgets() or []]
             native = page.get_pixmap(matrix=fitz.Matrix(1, 1), alpha=False)
             native.save(output / f"exported-page-{number + 1}.png")

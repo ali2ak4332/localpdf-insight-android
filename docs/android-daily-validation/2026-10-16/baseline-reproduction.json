@@ -1,0 +1,38 @@
+{
+  "testEnvironment": "Offline Chromium mobile emulation; packaged WebView assets routed locally; no Python/Ollama server",
+  "passed": 4,
+  "failed": 1,
+  "results": [
+    {
+      "name": "Offline launch offers reader and notes; AI/Ollama controls are absent",
+      "status": "passed",
+      "seconds": 0.041
+    },
+    {
+      "name": "150-page PDF becomes readable offline and uses bounded page canvases",
+      "status": "passed",
+      "seconds": 1.7575999999999998
+    },
+    {
+      "name": "Page jump Enter commits and releases keyboard focus in English and Arabic",
+      "status": "passed",
+      "seconds": 0.2494
+    },
+    {
+      "name": "Page jump, outline and native highlighted search reach page 18",
+      "status": "passed",
+      "seconds": 0.4445
+    },
+    {
+      "name": "Closing search clears temporary highlights and retains the query in English and Arabic",
+      "status": "failed",
+      "error": "page.waitForFunction: Timeout 3000ms exceeded."
+    }
+  ],
+  "timings": {
+    "firstReadableSeconds": 0.267,
+    "indexingSeconds": 1.757
+  },
+  "attemptedNetwork": [],
+  "browserErrors": []
+}

@@ -1,24 +1,21 @@
-LocalPDF Insight Android 0.2.1-page-jump (version code 3)
-Source commit: da1b2acef46699271ae7f3d7f5252fe4746627cb
-Implementation commit: a124ce7e2106a4ae1c6a6030c0e79e10d03d13be
-Git status at packaging: clean
-APK SHA-256: 1faab9f12784cdcdf34f4ff9266ea21371c4439f8de040e6ea53945587cfdc23
+LocalPDF Insight Android 0.2.6-share-pdf (version code 8)
+Date: 2026-10-18
+Complete cumulative source commit: 4150aa2b79eda554b9a1168f43b0b41e6b1f9205
+Implementation commit: 7b111bd18fe5d31d671e646c704c1a21840fe472
+Previous full release source: fbe5b3766c4549586a717c6a4ebc96af4184ad46 (0.2.5 / code 7)
+APK SHA-256: 2b1000497301a5d16adb23032292d12160d28034c20863f206494625e4faa436
+Same application ID and update signing certificate as previous release.
 
-One improvement: page-number Enter/Go commits the jump and releases keyboard focus.
-Validated in English/Arabic, with page bounds and IME composition handling.
-19 Android reader + 17 editor/export browser workflows passed. Independent PyMuPDF
-export inspection/rendering passed; signature and Arabic/English text renders inspected.
-Signed assembleRelease and lintRelease passed (0 errors, 5 baseline warnings).
-Same application ID/certificate; code increased from 2 to 3. All 296 assets match.
-Physical Android keyboard, native Files picker and installed update not tested.
-Desktop suites were not rerun for this Android-only change.
+One improvement: Share PDF via Android chooser includes current unsaved edits.
+Sharing keeps originals, notes, identities and unsaved state unchanged. Printing unchanged.
+Tests: 21 reader + 23 editor/export + 12 reading-tool workflows; 26 share-policy/manifest
+and 18 screen-policy checks; signed source build and lint (0 errors, 4 existing warnings).
+Actual shared/saved PDF bytes independently inspected/rendered. All 298 reader assets match.
+Native/browser API/transport doubles do not establish actual recipient access or delivery.
+Physical Android, actual chooser/email apps, installed upgrade and TalkBack unverified.
+See ANDROID_CHANGELOG.md and docs/android-daily-validation/2026-10-18/ for evidence/limits.
+No private signing material is included. Install APK over previous version without uninstalling.
 
-Install the APK over the existing app; do not uninstall if retaining library/notes.
-Android 10+ and current System WebView required. Offline/private operation preserved.
-Original PDF bytes and source-linked notes remain intact; edits save as a separate copy.
-Existing annotation/form editing and handwritten signature limitations remain.
-
-See ANDROID_CHANGELOG.md, android/README.md and docs/android-daily-validation/2026-10-15/.
-Build from source using android/README.md. Restore complete Git history with:
-  git clone LocalPDF_Insight_Android.history.bundle LocalPDF_Insight_Android_Git
-The private update signing key is excluded from this archive and its Git history.
+Git history restore:
+  git clone history.bundle LocalPDF_Insight
+The bundle retains complete cumulative history, including the initial signing checkpoint.

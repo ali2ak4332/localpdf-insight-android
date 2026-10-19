@@ -18,6 +18,10 @@ See [workflow proof and limitations](docs/convenience-validation/README.md). The
 
 ## Android reader (no Ollama)
 
+Current Android source is **0.2.7-print-pdf (code 9)**, including Share PDF,
+Print PDF, the compact toolbar and reading tools. See
+[source reconciliation and current validation](docs/SOURCE_RECONCILIATION_2026-10-19.md).
+
 An installable personal Android reader is available separately. It works locally on Android 10+ with a current WebView, and supports reading, search, notes, handwritten signing, highlights, added Arabic/English text, supported form fields and saving edited PDF copies. It contains no AI or OCR. Originals and their note links remain unchanged. See [Android installation and build instructions](android/README.md) and [editing validation](docs/android-editing-validation/README.md).
 
 ## Run the browser application

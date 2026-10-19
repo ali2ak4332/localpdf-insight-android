@@ -1,0 +1,12 @@
+{
+  "apk": "/workspace/scratch/b6a625937fbe/work/localpdf/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+  "sha256": "402d3947e9761ee5e28838c1d66a9d410bf2f40c5506cb3fbb17e999ddec139a",
+  "bytes": 6427120,
+  "verified_asset_files": 298,
+  "dex_files": [
+    "classes.dex"
+  ],
+  "native_controller_classes": "present",
+  "androidx_webkit_classes": "present",
+  "asset_content_match": true
+}

@@ -1,3 +1,15 @@
+# Android print checkpoint — 2026-10-18
+
+Version `0.2.7-print-pdf` (code 9) adds **Print PDF** through Android's print framework (printers and Save as PDF), including unsaved edits, via the existing export channel; no permission or dependency. Browser, PDF-inspection and native policy checks passed; Java compiles cleanly. **Gradle build/lint and APK were not produced in this environment** — build with the existing private key. See `docs/android-daily-validation/2026-10-18-print/README.md`. Physical Android printing remains unverified.
+
+---
+
+# Android reading-tools checkpoint — 2026-10-17
+
+Version `0.2.5-reading-tools` (code 7) adds whole-word native search, validated remembered pen colour/thickness, optional foreground-only keep-screen-on (default off), and local per-document page bookmarks. Compact toolbar, PDF.js, offline privacy, originals, source notes and Save copy behavior remain. See `docs/android-reading-tools-validation/2026-10-17/README.md` and `docs/ANDROID_RELEASE_PREFLIGHT.md`. Physical Android and Play publication remain unverified. Earlier desktop AI gates below are historical and unchanged.
+
+---
+
 # Android page-jump checkpoint — 2026-10-15
 
 Version `0.2.1-page-jump` (code 3) adds one Android-only improvement: Enter/Go in the page-number field jumps to the requested page and releases keyboard focus. It continues from the signing checkpoint below. See `ANDROID_CHANGELOG.md` for commits, focused reproduction, executed tests and limitations. Physical Android keyboard behavior remains unverified.

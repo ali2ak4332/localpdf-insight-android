@@ -1,0 +1,45 @@
+{
+  "versionName": "0.2.3-compact-toolbar",
+  "versionCode": 5,
+  "applicationId": "app.localpdf.insight",
+  "build": "assembleRelease passed",
+  "lint": {
+    "errors": 0,
+    "warnings": 4,
+    "issues": [
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning"
+      },
+      {
+        "id": "SetJavaScriptEnabled",
+        "severity": "Warning"
+      },
+      {
+        "id": "ObsoleteSdkInt",
+        "severity": "Warning"
+      },
+      {
+        "id": "MonochromeLauncherIcon",
+        "severity": "Warning"
+      }
+    ]
+  },
+  "signatureVerified": true,
+  "sameCertificateAsPrevious": true,
+  "matchingBundledAssets": 297,
+  "permissions": 0,
+  "debuggable": false,
+  "backupDisabled": true,
+  "cleartextDisabled": true,
+  "physicalAndroidTested": false,
+  "browser": "Chrome Headless Shell 155.0.8059.79 / Playwright 1.62.1, offline mobile emulation within existing sandbox",
+  "phoneWidthsCssPx": [
+    320,
+    360,
+    412
+  ],
+  "closedToolbarHeightCssPx": 92,
+  "apkSha256": "a7bafbeb20e07eaa2ca50a2e7ff71d305aa88a6d82a4dec64499615b7bd6bc4e",
+  "visualReview": "English/Arabic compact toolbar and Arabic editor inspected; no screenshots added to deliverables."
+}

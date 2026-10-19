@@ -1,0 +1,38 @@
+{
+  "apk": "/workspace/scratch/19cb5c838a1d/localpdf-build/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+  "sha256": "ba6d9b74a224b52c307ea224e973c92564839c5e532b7b76c0e77b352d2a82e3",
+  "bytes": 6416260,
+  "verified_asset_files": 298,
+  "dex_files": [
+    "classes.dex"
+  ],
+  "native_controller_classes": "present",
+  "androidx_webkit_classes": "present",
+  "asset_content_match": true,
+  "validation_time_utc": "2026-10-17T10:47:10.148068+00:00",
+  "gradle": "8.9",
+  "android_gradle_plugin": "8.7.3",
+  "jdk": "Temurin 17.0.20.1+1",
+  "compile_sdk": 35,
+  "build_tools": "35.0.0",
+  "version_code": 7,
+  "version_name": "0.2.5-reading-tools",
+  "min_sdk": 29,
+  "target_sdk": 35,
+  "lint_errors": 0,
+  "lint_warnings": 5,
+  "lint_warning_ids": [
+    "UnusedAttribute",
+    "GradleDependency",
+    "SetJavaScriptEnabled",
+    "ObsoleteSdkInt",
+    "MonochromeLauncherIcon"
+  ],
+  "native_source_sha256": {
+    "MainActivity.java": "9889b5c7257da26bf1fa1e98a726ea5db27ab401e184d45b88cc8308b0cd364b",
+    "PdfExportController.java": "7da4777de498c9652fc285e675613d0bb7d20a6ca66f79626b8e53de97848fe1",
+    "ReadingScreenController.java": "36da8fa057b88464bc915501f184c9dcfcb2f10d31e6a5017e0543352ea018b3"
+  },
+  "merged_manifest_permissions": [],
+  "zipalign": "passed"
+}

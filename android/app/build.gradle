@@ -11,8 +11,8 @@ android {
         applicationId 'app.localpdf.insight'
         minSdk 29
         targetSdk 35
-        versionCode 3
-        versionName '0.2.1-page-jump'
+        versionCode 9
+        versionName '0.2.7-print-pdf'
     }
 
     // The release APK is for personal sideloading. A stable, private key must
@@ -60,6 +60,15 @@ def syncReaderAssets = tasks.register('syncReaderAssets', Sync) {
     from(rootProject.file('../src/localpdf_insight/static'))
     into(layout.buildDirectory.dir('generated/reader-assets/static'))
     includeEmptyDirs = false
+    // PDF.js calls its shipped JavaScript directory "build". It is source,
+    // not disposable Android output; incomplete checkouts must fail early.
+    doFirst {
+        ['pdf.mjs', 'pdf.worker.mjs', 'pdf.sandbox.mjs',
+         'pdf.min.mjs', 'pdf.worker.min.mjs', 'pdf.sandbox.min.mjs'].each { name ->
+            def module = rootProject.file("../src/localpdf_insight/static/vendor/pdfjs/build/${name}")
+            if (!module.isFile()) throw new GradleException("Missing bundled PDF.js runtime: ${module.name}")
+        }
+    }
 }
 tasks.named('preBuild').configure { dependsOn(syncReaderAssets) }
 

@@ -6,7 +6,10 @@
     "test:browser": "node tests/browser/reader.cjs",
     "test:studio": "node tests/browser/studio.cjs",
     "test:android": "node tests/browser/android.cjs",
-    "test:android-editor": "node tests/browser/android_editor.cjs"
+    "test:android-editor": "node tests/browser/android_editor.cjs",
+    "test:android-reading": "node tests/browser/android_reading_tools.cjs",
+    "test:android-screen": "python3 tests/native/reading_screen_policy.py",
+    "test:android-print": "python3 tests/native/pdf_print_policy.py"
   },
   "devDependencies": {
     "playwright": "1.62.1"

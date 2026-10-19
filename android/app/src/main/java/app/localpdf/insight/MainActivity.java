@@ -69,6 +69,7 @@ public final class MainActivity extends Activity {
     private WebView webView;
     private WebViewAssetLoader assetLoader;
     private PdfExportController pdfExport;
+    private ReadingScreenController readingScreen;
     private ValueCallback<Uri[]> fileCallback;
     private AlertDialog exitDialog;
     private boolean backPending;
@@ -127,6 +128,10 @@ public final class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
+            public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
+                if (readingScreen != null) readingScreen.reset();
+            }
+            @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 // PDF.js thumbnails and font faces may be inline data resources.
                 // CSP permits these only where appropriate; they cannot use a network.
@@ -152,7 +157,10 @@ public final class MainActivity extends Activity {
 
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                if (request.isForMainFrame()) toast(R.string.webview_error);
+                if (request.isForMainFrame()) {
+                    if (readingScreen != null) readingScreen.reset();
+                    toast(R.string.webview_error);
+                }
             }
 
             @Override
@@ -180,6 +188,7 @@ public final class MainActivity extends Activity {
         webView.setDownloadListener((url, userAgent, disposition, mime, length) ->
                 toast(R.string.downloads_disabled));
         pdfExport = PdfExportController.install(this, webView);
+        readingScreen = ReadingScreenController.install(this, webView);
 
         if (Build.VERSION.SDK_INT >= 33) {
             getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
@@ -415,6 +424,7 @@ public final class MainActivity extends Activity {
 
     @Override
     protected void onPause() {
+        if (readingScreen != null) readingScreen.setResumed(false);
         super.onPause();
         if (webView != null) webView.onPause();
     }
@@ -423,12 +433,20 @@ public final class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         if (webView != null) webView.onResume();
+        if (readingScreen != null) readingScreen.setResumed(true);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (readingScreen != null) readingScreen.setFocused(hasFocus);
     }
 
     @Override
     protected void onDestroy() {
         cancelFileCallback();
         if (pdfExport != null) pdfExport.close();
+        if (readingScreen != null) readingScreen.close();
         fileChecks.shutdownNow();
         mainHandler.removeCallbacksAndMessages(null);
         if (webView != null) {

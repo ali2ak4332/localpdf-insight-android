@@ -28,6 +28,11 @@ async function ready(filename) {
   await page.waitForFunction(name => window.__reader.state.current?.filename === name && !window.__reader.state.importing,
     filename, {timeout: 60000});
 }
+async function viewOption(id, value) {
+  if (!await page.locator('#readerOptions').isVisible()) await page.locator('#readerOptionsToggle').click();
+  await page.locator('#' + id).selectOption(value);
+  await page.locator('#readerOptionsToggle').click();
+}
 async function indexed() {
   await page.waitForFunction(() => window.__reader.state.documents.every(d => d.index.status === 'ready'), null, {timeout: 90000});
 }
@@ -122,6 +127,53 @@ async function saveSelected(comment) {
       assert(await page.evaluate(() => [...document.querySelectorAll('.pdfViewer canvas')].every(c => c.width <= 4096 && c.height <= 4096)));
       await indexed(); timings.indexingSeconds = +((performance.now() - start) / 1000).toFixed(3);
     });
+    await check('Compact icon toolbar fits two rows at phone widths and retains all actions in English and Arabic', async () => {
+      const title = await page.locator('#documentTitle').textContent();
+      for (const language of ['en', 'ar']) {
+        if (await page.locator('html').getAttribute('lang') !== language) await page.locator('#language').click();
+        for (const width of [320, 360, 412]) {
+          await page.setViewportSize({width, height:915});
+          assert(!await page.locator('.app-header').isVisible());
+          const heading = await page.locator('.document-heading').boundingBox();
+          const bar = await page.locator('.reader-toolbar').boundingBox();
+          assert.equal(heading.y, 0); assert(heading.height + bar.height <= 94);
+          assert.equal(await page.locator('#documentTitle').textContent(), title);
+          for (const id of ['libraryToggle','readerOptionsToggle','sharePdf','studioToggle','language','outlineToggle','previousPage','pageNumber','nextPage','findToggle','editToggle','saveEdited','printPdf']) {
+            const control=page.locator('#'+id),box=await control.boundingBox();
+            assert(box && box.x>=-1 && box.x+box.width<=width+1, id+' must be on screen at '+width);
+            assert(box.height>=36 && box.width>=28, id+' must remain usable');
+            assert(await control.getAttribute('aria-label'),id+' needs an accessible label');
+            if(await control.evaluate(node=>node.tagName==='BUTTON')) {
+              assert.equal((await control.textContent()).trim(),'');
+              assert.equal(await control.locator('.toolbar-glyph').count(),1);
+            }
+          }
+          assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+        }
+        await page.locator('#readerOptionsToggle').click();
+        assert(await page.locator('#readerOptions').isVisible());
+        assert.equal(await page.locator('#readerOptionsToggle').getAttribute('aria-expanded'),'true');
+        await page.locator('#zoomIn').click();
+        assert(await page.locator('#readerOptions').isVisible());
+        await page.evaluate(()=>window.localPDFBack());
+        assert(!await page.locator('#readerOptions').isVisible());
+        await page.locator('#readerOptionsToggle').click(); await page.keyboard.press('Escape');
+        assert(!await page.locator('#readerOptions').isVisible());
+        await page.locator('#readerOptionsToggle').click(); await page.locator('#documentTitle').click();
+        assert(!await page.locator('#readerOptions').isVisible());
+        await viewOption('zoom','page-width');
+        await page.locator('#libraryToggle').click();assert(await page.locator('#library').isVisible());
+        await page.evaluate(()=>window.localPDFBack());
+        await page.locator('#studioToggle').click();assert(await page.locator('#inspector').isVisible());
+        await page.locator('#closeInspector').click();
+      }
+      await page.locator('#language').click();
+      await page.setViewportSize({width:412,height:915});
+      await page.screenshot({path:path.join(artifacts,'compact-toolbar-en.png')});
+      await page.locator('#language').click();
+      await page.screenshot({path:path.join(artifacts,'compact-toolbar-ar.png')});
+      await page.locator('#language').click();
+    });
     await check('Page jump Enter commits and releases keyboard focus in English and Arabic', async () => {
       const input = page.locator('#pageNumber');
       for (const [value, expected] of [['27', 27], ['999', 150], ['0', 1]]) {
@@ -155,22 +207,60 @@ async function saveSelected(comment) {
       assert.equal(await page.evaluate(() => window.__reader.viewer.currentPageNumber), 18);
       await page.evaluate(() => window.localPDFBack());
     });
+    await check('Closing search clears temporary highlights and retains the query in English and Arabic', async () => {
+      const input = page.locator('#findInput');
+      const original = await page.evaluate(() => ({id: window.__reader.state.current.id, revision: window.__reader.state.current.revision}));
+      for (const language of ['en', 'ar']) {
+        if (await page.locator('html').getAttribute('lang') !== language) await page.locator('#language').click();
+        for (const close of ['toggle', 'back', 'escape']) {
+          await page.locator('#findToggle').click();
+          await input.fill('written notice');
+          await input.press('Enter');
+          await page.locator('.textLayer .highlight').first().waitFor();
+          assert.equal(await page.evaluate(() => window.__reader.viewer.currentPageNumber), 18);
+          if (close === 'toggle') await page.locator('#findToggle').click();
+          else if (close === 'back') assert.equal(await page.evaluate(() => window.localPDFBack()), true);
+          else await input.press('Escape');
+          assert(!await page.locator('#findBar').isVisible());
+          await page.waitForFunction(() => !document.querySelector('.textLayer .highlight'), null, {timeout: 3000});
+          assert.equal(await input.inputValue(), 'written notice');
+          assert.equal(await page.evaluate(() => window.__reader.viewer.currentPageNumber), 18);
+          assert.equal(await page.evaluate(() => window.__reader.editor.dirty), false);
+        }
+        // Closing before the debounced search finishes must not paint late highlights.
+        await page.locator('#findToggle').click();
+        await input.fill('confidential materials');
+        await page.evaluate(() => window.localPDFBack());
+        await delay(600);
+        assert.equal(await page.locator('.textLayer .highlight').count(), 0);
+        // The retained query can be searched again using the existing next-result action.
+        await page.locator('#findToggle').click();
+        assert.equal(await input.inputValue(), 'confidential materials');
+        await input.press('Enter');
+        await page.locator('.textLayer .highlight').first().waitFor();
+        await page.evaluate(() => window.localPDFBack());
+        await page.waitForFunction(() => !document.querySelector('.textLayer .highlight'));
+      }
+      await page.locator('#language').click();
+      assert.deepEqual(await page.evaluate(() => ({id: window.__reader.state.current.id, revision: window.__reader.state.current.revision})), original);
+      await page.screenshot({path: path.join(artifacts, 'android-search-closed.png')});
+    });
     await check('Lazy thumbnails, single/spread layouts and pinch zoom work', async () => {
       await page.locator('#outlineToggle').click(); await page.locator('#showThumbs').click();
       assert.equal(await page.locator('#contentsList button[data-page]').count(), 150);
       await page.locator('#contentsList canvas').first().waitFor();
       assert((await page.locator('#contentsList canvas').count()) < 20);
       await page.locator('#outlineToggle').click();
-      await page.locator('#viewMode').selectOption('single'); assert.equal(await page.evaluate(() => window.__reader.viewer.scrollMode), 3);
-      await page.locator('#viewMode').selectOption('spread'); assert.equal(await page.evaluate(() => window.__reader.viewer.spreadMode), 1);
-      await page.locator('#viewMode').selectOption('continuous');
+      await viewOption('viewMode','single'); assert.equal(await page.evaluate(() => window.__reader.viewer.scrollMode), 3);
+      await viewOption('viewMode','spread'); assert.equal(await page.evaluate(() => window.__reader.viewer.spreadMode), 1);
+      await viewOption('viewMode','continuous');
       const scale = await page.evaluate(() => window.__reader.viewer.currentScale);
       const cdp = await context.newCDPSession(page);
       await cdp.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [{x: 130, y: 400}, {x: 230, y: 400}]});
       await cdp.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: 100, y: 400}, {x: 260, y: 400}]});
       await cdp.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
       assert(await page.evaluate(() => window.__reader.viewer.currentScale) > scale);
-      await page.locator('#zoom').selectOption('page-width'); await goto(18); await delay(500);
+      await viewOption('zoom','page-width'); await goto(18); await delay(500);
     });
     await check('Saved PDF Blob, stable identity and reading position survive cold browser reload', async () => {
       await page.reload(); await page.waitForFunction(() => !!window.__reader && window.__reader.state.documents.length === 1);

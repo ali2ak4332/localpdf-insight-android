@@ -4,10 +4,17 @@ const pause=()=>new Promise(resolve=>setTimeout(resolve,30));
 
 export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocument,refreshDocuments,toast,language}){
  const T=pdfjs.AnnotationEditorType,P=pdfjs.AnnotationEditorParamsType;
+ // Store only validated tool defaults, never annotation/document content.
+ const penKey='insight-pen-v1';
+ try{const saved=JSON.parse(localStorage.getItem(penKey)||'null');
+  if(saved&&[...$('editorColour').options].some(option=>option.value===saved.colour))$('editorColour').value=saved.colour;
+  if(saved&&Number.isFinite(saved.width)&&saved.width>=1&&saved.width<=6&&saved.width*2===Math.round(saved.width*2))$('editorWidth').value=saved.width;
+ }catch{/* Corrupt or unavailable preferences keep the safe built-in defaults. */}
+ function savePen(){try{localStorage.setItem(penKey,JSON.stringify({colour:$('editorColour').value,width:Number($('editorWidth').value)}));}catch{/* Reading/editing still works if storage is full. */}}
  let manager=null,dirty=false,busy=false,generation=0,modeRequest=0,textTarget=null,operation='saving',editingState={};
  const words={en:{edit:'Edit / Sign',save:'Save copy',read:'Read / select',ink:'Sign / Draw',text:'Add text',highlight:'Highlight',
   undo:'Undo',redo:'Redo',remove:'Delete selected',hint:'Draw your signature on the page. Use Read to scroll; select a mark to move or resize it.',
-  changed:'Unsaved changes',saving:'Preparing PDF copy…',choosing:'Choose where to save the PDF…',saved:'Edited PDF copy saved.',cancelled:'Save cancelled. Your edits are still here.',
+  changed:'Unsaved changes',saving:'Preparing PDF copy…',sharing:'Preparing PDF to share…',shareOpened:'Choose an app to share the PDF. Your edits remain unsaved.',printing:'Preparing PDF to print…',printOpened:'Choose a printer, or Save as PDF. Your edits remain unsaved.',printProtected:'Password-protected PDFs cannot be sent to Android printing. Save an unprotected copy in another app first.',choosing:'Choose where to save the PDF…',saved:'Edited PDF copy saved.',cancelled:'Save cancelled. Your edits are still here.',
   leave:'This PDF has unsaved edits. Leave without saving?',busy:'Finish the current PDF operation first.',unsupported:'This PDF does not permit annotation editing.',
   addText:'Add text to this page',insert:'Add',cancel:'Cancel',textHint:'Text is added as a sharp image annotation so Arabic and English render consistently. Drag or resize it after adding.',
   adding:'Adding text…',tooLong:'Use at most 500 characters per text annotation.',tooManyLines:'Use at most 20 lines per text annotation.',
@@ -15,7 +22,7 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
   colour:'Ink colour',width:'Pen width',black:'Black',blue:'Blue'},
  ar:{edit:'تعديل / توقيع',save:'حفظ نسخة',read:'قراءة / تحديد',ink:'توقيع / رسم',text:'إضافة نص',highlight:'تظليل',
   undo:'تراجع',redo:'إعادة',remove:'حذف المحدد',hint:'ارسم توقيعك على الصفحة. اختر القراءة للتمرير؛ حدّد العلامة لتحريكها أو تغيير حجمها.',
-  changed:'تعديلات غير محفوظة',saving:'جارٍ تجهيز نسخة PDF…',choosing:'اختر مكان حفظ المستند…',saved:'حُفظت نسخة المستند المعدلة.',cancelled:'أُلغي الحفظ. تعديلاتك ما زالت موجودة.',
+  changed:'تعديلات غير محفوظة',saving:'جارٍ تجهيز نسخة PDF…',sharing:'جارٍ تجهيز المستند للمشاركة…',shareOpened:'اختر تطبيقاً لمشاركة المستند. تعديلاتك ما زالت غير محفوظة.',printing:'جارٍ تجهيز المستند للطباعة…',printOpened:'اختر طابعة أو «حفظ بتنسيق PDF». تعديلاتك ما زالت غير محفوظة.',printProtected:'لا يمكن إرسال ملفات PDF المحمية بكلمة مرور إلى طباعة أندرويد. احفظ نسخة غير محمية في تطبيق آخر أولاً.',choosing:'اختر مكان حفظ المستند…',saved:'حُفظت نسخة المستند المعدلة.',cancelled:'أُلغي الحفظ. تعديلاتك ما زالت موجودة.',
   leave:'توجد تعديلات غير محفوظة. هل تريد المغادرة دون حفظ؟',busy:'أكمل العملية الحالية على المستند أولاً.',unsupported:'لا يسمح هذا المستند بإضافة التعليقات والتوقيعات.',
   addText:'إضافة نص إلى هذه الصفحة',insert:'إضافة',cancel:'إلغاء',textHint:'يُضاف النص كصورة واضحة لضمان ظهور العربية والإنجليزية بصورة متسقة. يمكنك تحريكه أو تغيير حجمه بعد الإضافة.',
   adding:'جارٍ إضافة النص…',tooLong:'استخدم 500 حرف كحد أقصى لكل نص مضاف.',tooManyLines:'استخدم 20 سطراً كحد أقصى لكل نص مضاف.',
@@ -24,6 +31,7 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
  const t=k=>words[language()][k];
  function update(){
   $('editToggle').disabled=!state.pdf||busy;$('saveEdited').disabled=!state.pdf||busy;
+  $('sharePdf').disabled=!state.pdf||busy;$('printPdf').disabled=!state.pdf||busy;
   $('editStatus').textContent=busy?t(operation):dirty?t('changed'):'';
   $('editTool').disabled=!manager||busy||viewer.annotationEditorMode===T.DISABLE;
   // Freeze reader/forms/source controls from byte snapshot until the saved copy
@@ -34,6 +42,7 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
   $('editorRedo').disabled=busy||!editingState.hasSomethingToRedo;
   $('editorDelete').disabled=busy||!editingState.hasSelectedEditor;
   document.body.classList.toggle('pdf-drawing',viewer.annotationEditorMode===T.INK||viewer.annotationEditorMode===T.HIGHLIGHT);
+  document.dispatchEvent(new Event('localpdfeditorupdate'));
  }
  function translate(){for(const [id,key] of [['editToggle','edit'],['saveEdited','save'],['editorUndo','undo'],['editorRedo','redo'],['editorDelete','remove'],['editorHint','hint'],['textDialogTitle','addText'],['insertText','insert'],['cancelEditText','cancel'],['textHint','textHint']])$(id).textContent=t(key);
   for(const option of $('editTool').options)option.textContent=t(option.value);
@@ -124,7 +133,7 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
   }finally{busy=false;update();}
  }
 
- async function nativeSave(bytes,filename){
+ async function nativeSave(bytes,filename,purpose='save'){
   const channel=window.LocalPDFExport;
   if(!channel)throw Error(t('exportUnavailable'));
   const id=crypto.randomUUID().replaceAll('-','');let waiting=null;
@@ -137,13 +146,13 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
    waiting={resolve,reject,timer};try{channel.postMessage(JSON.stringify({...message,id}));}catch(error){clearTimeout(timer);waiting=null;reject(error);}
   });
   try{
-   const begin=await send({action:'begin',filename,size:bytes.length});if(begin.status!=='ready')throw Error('The PDF could not be prepared for saving.');
+   const begin=await send({action:'begin',filename,size:bytes.length,purpose});if(begin.status!=='ready')throw Error('The PDF could not be prepared for saving.');
    const chunkSize=196608;for(let offset=0,index=0;offset<bytes.length;offset+=chunkSize,index++){
     const result=await send({action:'chunk',index,data:bytes.subarray(offset,Math.min(bytes.length,offset+chunkSize)).toBase64()});
     if(result.status!=='chunk'||result.index!==index)throw Error('The PDF transfer was interrupted. Retry saving.');
    }
    const result=await send({action:'finish'},0);
-   if(!['saved','cancelled'].includes(result.status))throw Error('The PDF could not be saved.');return result.status;
+   if(!(purpose==='save'?['saved','cancelled']:['opened']).includes(result.status))throw Error('The PDF action could not be completed.');return result.status;
   }catch(error){channel.postMessage(JSON.stringify({action:'cancel',id}));throw error;}
   finally{channel.onmessage=null;}
  }
@@ -166,21 +175,41 @@ export function createPdfEditor({viewer,eventBus,pdfjs,state,backend,openDocumen
    toast(t('saved'));return {status,document:result.document};
   }finally{busy=false;update();}
  }
+ // Share and Print hand the current bytes (with unsaved edits) to Android without saving an app copy.
+ async function handOff(purpose){
+  if(!state.pdf||!state.current)throw Error('Open an imported PDF first.');if(busy)throw Error(t('busy'));
+  if(purpose==='print'&&state.openedPassword)throw Error(t('printProtected'));
+  const pdf=state.pdf,original=state.current,revision=generation;
+  document.activeElement?.blur();busy=true;operation=purpose==='print'?'printing':'sharing';update();
+  try{
+   if(manager&&viewer.annotationEditorMode!==T.DISABLE){await setMode(T.NONE);manager.commitOrRemove();}
+   const bytes=pdf.annotationStorage.size?await pdf.saveDocument():await pdf.getData();
+   if(state.pdf!==pdf||revision!==generation)throw Error('The open PDF changed. Try again.');
+   const filename=original.filename.replace(/\.pdf$/i,'')+(pdf.annotationStorage.size?'-edited':'')+'.pdf';
+   await nativeSave(bytes,filename,purpose);
+   // Opening Android's chooser/print screen proves neither delivery, printing nor a saved app copy.
+   toast(t(purpose==='print'?'printOpened':'shareOpened'));
+   return {status:'opened'};
+  }finally{busy=false;update();}
+ }
+ const sharePdf=()=>handOff('share'),printPdf=()=>handOff('print');
  async function documentLoaded(pdf){
   generation++;dirty=false;editingState={};textTarget=null;if($('textDialog').open)$('textDialog').close();$('editBar').hidden=true;$('editTool').value='read';
   $('editorUndo').disabled=$('editorRedo').disabled=$('editorDelete').disabled=true;
   const previous=pdf.annotationStorage.onSetModified;pdf.annotationStorage.onSetModified=()=>{previous?.();modified();};update();
  }
  function beforeLoad(editorReplacement=false){if(busy&&!editorReplacement){toast(t('busy'));return false;}return editorReplacement||!dirty||confirm(t('leave'));}
- $('editToggle').hidden=$('saveEdited').hidden=false;
+ $('editToggle').hidden=$('saveEdited').hidden=$('sharePdf').hidden=$('printPdf').hidden=false;
+ $('sharePdf').onclick=()=>sharePdf().catch(e=>toast(e.message));
+ $('printPdf').onclick=()=>printPdf().catch(e=>toast(e.message));
  $('editToggle').onclick=()=>{const closing=!$('editBar').hidden;$('editBar').hidden=closing;if(closing)chooseTool('read').catch(e=>toast(e.message));};
  $('editTool').onchange=()=>chooseTool($('editTool').value).catch(e=>toast(e.message));
  $('editorUndo').onclick=()=>action('undo').catch(e=>toast(e.message));$('editorRedo').onclick=()=>action('redo').catch(e=>toast(e.message));$('editorDelete').onclick=()=>action('delete').catch(e=>toast(e.message));
  for(const id of ['editorUndo','editorRedo','editorDelete'])$(id).onpointerdown=e=>{e.preventDefault();e.stopPropagation();};
- $('editorColour').onchange=parameters;$('editorWidth').oninput=parameters;
- $('textForm').onsubmit=event=>{event.preventDefault();addText().catch(e=>toast(e.message));};$('cancelEditText').onclick=()=>{$('textDialog').close();$('editTool').value='read';};
- $('textDialog').addEventListener('cancel',event=>{if(busy)event.preventDefault();else $('editTool').value='read';});
+ $('editorColour').onchange=()=>{savePen();parameters();};$('editorWidth').oninput=()=>{savePen();parameters();};
+ $('textForm').onsubmit=event=>{event.preventDefault();addText().catch(e=>toast(e.message));};$('cancelEditText').onclick=()=>{$('textDialog').close();$('editTool').value='read';update();};
+ $('textDialog').addEventListener('cancel',event=>{if(busy)event.preventDefault();else{$('editTool').value='read';update();}});
  $('saveEdited').onclick=()=>saveCopy().catch(e=>toast(e.message));
  translate();
- return {translate,documentLoaded,beforeLoad,chooseTool,saveCopy,get dirty(){return dirty;},get busy(){return busy;}};
+ return {translate,documentLoaded,beforeLoad,chooseTool,saveCopy,sharePdf,printPdf,get dirty(){return dirty;},get busy(){return busy;}};
 }

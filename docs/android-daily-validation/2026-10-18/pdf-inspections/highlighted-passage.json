@@ -1,0 +1,77 @@
+{
+  "original_sha": "cad52bf5b3ff53b42cbebf461ec64efa3104278f5332cbcad8e0383f26a677c3",
+  "exported_sha": "5fd135656188882baf5a1bd9e2a22ed0ab95863136c681a4e18f2b4a5afce613",
+  "pages": [
+    {
+      "number": 1,
+      "rotation": 0,
+      "annotations": [
+        {
+          "type": "Highlight",
+          "rect": [
+            49.32550048828125,
+            88.2415771484375,
+            352.00201416015625,
+            104.4921875
+          ],
+          "vertices": [
+            [
+              49.95820617675781,
+              89.16180419921875
+            ],
+            [
+              351.4000244140625,
+              89.16180419921875
+            ],
+            [
+              49.95820617675781,
+              103.5960693359375
+            ],
+            [
+              351.4000244140625,
+              103.5960693359375
+            ]
+          ],
+          "info": {
+            "content": "",
+            "name": "",
+            "title": "",
+            "creationDate": "D:20261018042145",
+            "modDate": "",
+            "subject": "",
+            "id": ""
+          },
+          "width": null,
+          "colour": {
+            "stroke": [
+              1,
+              1,
+              0.5960784554481506
+            ],
+            "fill": []
+          }
+        }
+      ],
+      "widgets": [],
+      "text": "Private agreement - Page 1\nOriginal source passage remains linked to this document.\n",
+      "changed_channels": 8755
+    },
+    {
+      "number": 2,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 2\nOriginal source passage remains linked to this document.\nSignature: __________________________\n",
+      "changed_channels": 0
+    },
+    {
+      "number": 3,
+      "rotation": 0,
+      "annotations": [],
+      "widgets": [],
+      "text": "Private agreement - Page 3\nOriginal source passage remains linked to this document.\nﺗﻮﻗﻴﻊ اﻟﻤﺴﺘﻨﺪ ﻣﻊ اﻻﺣﺘﻔﺎظ ﺑﺎﻟﻤﺼﺪر اﻷﺻﻠﻲ.\n",
+      "changed_channels": 0
+    }
+  ],
+  "page_count": 3
+}

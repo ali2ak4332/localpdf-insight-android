@@ -1,0 +1,29 @@
+{
+  "environment": "Offline mobile Chromium; actual PDF.js saved bytes, mocked narrow native export transport, independent PyMuPDF export/render inspection; physical Android not tested",
+  "passed": 3,
+  "failed": 1,
+  "results": [
+    {
+      "name": "Original PDF and source-linked note are retained before editing",
+      "status": "passed",
+      "seconds": 1.799
+    },
+    {
+      "name": "Icon editing controls expose current tool and pen colour through language changes and text cancellation",
+      "status": "passed",
+      "seconds": 1.819
+    },
+    {
+      "name": "Finger-drawn signature belongs to page 2; undo and redo restore the edit",
+      "status": "passed",
+      "seconds": 0.865
+    },
+    {
+      "name": "Back cancels Add Text through the existing Cancel action and preserves unsaved ink in English and Arabic",
+      "status": "failed",
+      "error": "Expected values to be strictly equal:\n\n'text' !== 'read'\n"
+    }
+  ],
+  "attemptedNetwork": [],
+  "browserErrors": []
+}

@@ -54,6 +54,8 @@ final class PdfExportController {
         final String id;
         final String name;
         final long size;
+        final boolean share;
+        final boolean print;
         final File file;
         final JavaScriptReplyProxy reply;
         FileOutputStream stream;
@@ -61,11 +63,13 @@ final class PdfExportController {
         int nextChunk;
         boolean choosing;
         volatile boolean cancelled;
-        Export(String id, String name, long size, File file,
+        Export(String id, String name, long size, boolean share, boolean print, File file,
                FileOutputStream stream, JavaScriptReplyProxy reply) {
             this.id = id;
             this.name = name;
             this.size = size;
+            this.share = share;
+            this.print = print;
             this.file = file;
             this.stream = stream;
             this.reply = reply;
@@ -100,6 +104,10 @@ final class PdfExportController {
             // Abandoned exports contain private document data: purge them after a process restart.
             File[] abandoned = directory.listFiles();
             if (abandoned != null) for (File file : abandoned) if (file.isFile()) file.delete();
+            // Shared files have a separate lifetime: recipient apps may read after recreation.
+            try { PdfShare.cleanOld(activity); } catch (IOException ignored) { }
+            // A print job may still be reading its copy; only stale print sessions are removed.
+            try { PdfPrint.cleanOld(activity); } catch (IOException ignored) { }
         });
     }
 
@@ -122,9 +130,15 @@ final class PdfExportController {
                 if (size < 5 || size > MAX_BYTES || ((Number) sizeValue).doubleValue() != size)
                     throw new JSONException("Invalid size");
                 String name = safeName(message.getString("filename"));
+                String purpose = message.optString("purpose", "save");
+                if (!"save".equals(purpose) && !"share".equals(purpose) && !"print".equals(purpose))
+                    throw new JSONException("Invalid purpose");
+                boolean share = "share".equals(purpose), print = "print".equals(purpose);
                 if (!directory.isDirectory() && !directory.mkdir()) throw new IOException("No cache");
-                File file = new File(directory, UUID.randomUUID() + ".pdf");
-                current = new Export(id, name, size, file, new FileOutputStream(file), reply);
+                File file = share ? PdfShare.createFile(activity, name)
+                        : print ? PdfPrint.createFile(activity, name)
+                        : new File(directory, UUID.randomUUID() + ".pdf");
+                current = new Export(id, name, size, share, print, file, new FileOutputStream(file), reply);
                 send(reply, id, "ready", -1, 0);
                 return;
             }
@@ -163,6 +177,44 @@ final class PdfExportController {
                 current.stream.close();
                 current.stream = null;
                 if (!hasPdfHeader(current.file)) throw new JSONException("Invalid PDF");
+                if (current.share) {
+                    Export completed = current;
+                    current = null;
+                    ui.post(() -> {
+                        if (closed || activity.isDestroyed()) { PdfShare.remove(completed.file); return; }
+                        try {
+                            PdfShare.open(activity, completed.file);
+                            send(completed.reply, completed.id, "opened", -1, 0);
+                        } catch (RuntimeException unavailable) {
+                            PdfShare.remove(completed.file);
+                            send(completed.reply, completed.id, "error", -1, R.string.share_unavailable);
+                        }
+                    });
+                    return;
+                }
+                if (current.print) {
+                    Export completed = current;
+                    current = null;
+                    int pages;
+                    try {
+                        pages = PdfPrint.countPages(completed.file); // Off the UI thread.
+                    } catch (SecurityException passwordProtected) {
+                        PdfPrint.remove(completed.file);
+                        send(completed.reply, completed.id, "error", -1, R.string.print_protected);
+                        return;
+                    }
+                    ui.post(() -> {
+                        if (closed || activity.isDestroyed()) { PdfPrint.remove(completed.file); return; }
+                        try {
+                            PdfPrint.open(activity, completed.file, pages);
+                            send(completed.reply, completed.id, "opened", -1, 0);
+                        } catch (RuntimeException unavailable) {
+                            PdfPrint.remove(completed.file);
+                            send(completed.reply, completed.id, "error", -1, R.string.print_unavailable);
+                        }
+                    });
+                    return;
+                }
                 current.choosing = true;
                 pickerPending = true;
                 Export completed = current;
@@ -291,7 +343,9 @@ final class PdfExportController {
         if (abandoned == null) return;
         abandoned.cancelled = true;
         if (abandoned.stream != null) try { abandoned.stream.close(); } catch (IOException ignored) { }
-        abandoned.file.delete();
+        if (abandoned.share) PdfShare.remove(abandoned.file);
+        else if (abandoned.print) PdfPrint.remove(abandoned.file);
+        else abandoned.file.delete();
     }
 
     private void send(JavaScriptReplyProxy reply, String id, String status, int index, int message) {

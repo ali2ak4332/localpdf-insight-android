@@ -1,0 +1,110 @@
+{
+  "environment": "Offline mobile Chromium; actual PDF.js saved bytes, mocked narrow native export transport, independent PyMuPDF export/render inspection; physical Android not tested",
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Original PDF and source-linked note are retained before editing",
+      "status": "passed",
+      "seconds": 1.801
+    },
+    {
+      "name": "Icon editing controls expose current tool and pen colour through language changes and text cancellation",
+      "status": "passed",
+      "seconds": 1.9
+    },
+    {
+      "name": "Restored pen defaults and original page bookmark remain independent of PDF annotations",
+      "status": "passed",
+      "seconds": 0.831
+    },
+    {
+      "name": "Finger-drawn signature belongs to page 2; undo and redo restore the edit",
+      "status": "passed",
+      "seconds": 0.905
+    },
+    {
+      "name": "Back cancels Add Text through the existing Cancel action and preserves unsaved ink in English and Arabic",
+      "status": "passed",
+      "seconds": 0.831
+    },
+    {
+      "name": "Save copy produces a new PDF identity, real exported ink and unchanged original bytes",
+      "status": "passed",
+      "seconds": 1.765
+    },
+    {
+      "name": "Saved annotation survives reload and original note reopens original PDF/page",
+      "status": "passed",
+      "seconds": 0.766
+    },
+    {
+      "name": "Closing editing tools restores ordinary one-finger PDF scrolling",
+      "status": "passed",
+      "seconds": 1.188
+    },
+    {
+      "name": "Edits on separate pages survive zoom and viewport rotation; delete removes only selected edit",
+      "status": "passed",
+      "seconds": 3.031
+    },
+    {
+      "name": "Intrinsic page rotation maps exported ink onto the correct visible region",
+      "status": "passed",
+      "seconds": 1.913
+    },
+    {
+      "name": "English and Arabic added text retain visible appearances in the actual saved PDF",
+      "status": "passed",
+      "seconds": 1.78
+    },
+    {
+      "name": "Long English and Arabic tokens wrap without clipping their added-text annotations",
+      "status": "passed",
+      "seconds": 1.86
+    },
+    {
+      "name": "Pointer-selected text highlighting is retained in the exported PDF",
+      "status": "passed",
+      "seconds": 2.074
+    },
+    {
+      "name": "Form fields export filled values and checkbox state",
+      "status": "passed",
+      "seconds": 2.558
+    },
+    {
+      "name": "Cancelled and failed native exports never claim a successful file save",
+      "status": "passed",
+      "seconds": 1.497
+    },
+    {
+      "name": "Pending native export prevents PDF interaction and retains edits on cancellation",
+      "status": "passed",
+      "seconds": 0.128
+    },
+    {
+      "name": "Unavailable Android export channel refuses saving without discarding or importing edits",
+      "status": "passed",
+      "seconds": 0.005
+    },
+    {
+      "name": "Cancelling an import while edits are unsaved preserves the active PDF and its identity",
+      "status": "passed",
+      "seconds": 0.016
+    },
+    {
+      "name": "An unfinished ink stroke triggers the document-switch guard",
+      "status": "passed",
+      "seconds": 0.829
+    },
+    {
+      "name": "Editor works without Ollama, server or external network requests",
+      "status": "passed",
+      "seconds": 0
+    }
+  ],
+  "attemptedNetwork": [],
+  "browserErrors": [],
+  "fixtureDirectory": "/tmp/localpdf-editor-f38M37"
+}

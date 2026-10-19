@@ -1,0 +1,140 @@
+{
+  "environment": "Offline mobile Chromium; actual PDF.js saved bytes, mocked narrow native export transport, independent PyMuPDF export/render inspection; physical Android not tested",
+  "passed": 26,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Original PDF and source-linked note are retained before editing",
+      "status": "passed",
+      "seconds": 1.812
+    },
+    {
+      "name": "Icon editing controls expose current tool and pen colour through language changes and text cancellation",
+      "status": "passed",
+      "seconds": 2.18
+    },
+    {
+      "name": "Share unedited PDF transfers exact original bytes without a new document or save claim",
+      "status": "passed",
+      "seconds": 0.181
+    },
+    {
+      "name": "Print unedited PDF hands exact original bytes to Android printing without a new document or save claim",
+      "status": "passed",
+      "seconds": 0.167
+    },
+    {
+      "name": "Restored pen defaults and original page bookmark remain independent of PDF annotations",
+      "status": "passed",
+      "seconds": 1.001
+    },
+    {
+      "name": "Finger-drawn signature belongs to page 2; undo and redo restore the edit",
+      "status": "passed",
+      "seconds": 1.027
+    },
+    {
+      "name": "Back cancels Add Text through the existing Cancel action and preserves unsaved ink in English and Arabic",
+      "status": "passed",
+      "seconds": 0.974
+    },
+    {
+      "name": "Share includes unsaved signature and retains dirty state, original identity, notes and bookmark",
+      "status": "passed",
+      "seconds": 0.58
+    },
+    {
+      "name": "Share failure and missing bridge preserve edits and release the busy guard for Save copy",
+      "status": "passed",
+      "seconds": 0.152
+    },
+    {
+      "name": "Print includes unsaved signature and keeps edits unsaved, original identity, notes and bookmark",
+      "status": "passed",
+      "seconds": 0.636
+    },
+    {
+      "name": "Print failure, password-protected PDF and missing bridge preserve edits and release the busy guard",
+      "status": "passed",
+      "seconds": 0.866
+    },
+    {
+      "name": "Save copy produces a new PDF identity, real exported ink and unchanged original bytes",
+      "status": "passed",
+      "seconds": 2.949
+    },
+    {
+      "name": "Saved annotation survives reload and original note reopens original PDF/page",
+      "status": "passed",
+      "seconds": 1.036
+    },
+    {
+      "name": "Closing editing tools restores ordinary one-finger PDF scrolling",
+      "status": "passed",
+      "seconds": 1.195
+    },
+    {
+      "name": "Edits on separate pages survive zoom and viewport rotation; delete removes only selected edit",
+      "status": "passed",
+      "seconds": 3.588
+    },
+    {
+      "name": "Intrinsic page rotation maps exported ink onto the correct visible region",
+      "status": "passed",
+      "seconds": 3.21
+    },
+    {
+      "name": "English and Arabic added text retain visible appearances in the actual saved PDF",
+      "status": "passed",
+      "seconds": 2.402
+    },
+    {
+      "name": "Long English and Arabic tokens wrap without clipping their added-text annotations",
+      "status": "passed",
+      "seconds": 2.505
+    },
+    {
+      "name": "Pointer-selected text highlighting is retained in the exported PDF",
+      "status": "passed",
+      "seconds": 2.714
+    },
+    {
+      "name": "Form fields export filled values and checkbox state",
+      "status": "passed",
+      "seconds": 2.371
+    },
+    {
+      "name": "Cancelled and failed native exports never claim a successful file save",
+      "status": "passed",
+      "seconds": 1.558
+    },
+    {
+      "name": "Pending native export prevents PDF interaction and retains edits on cancellation",
+      "status": "passed",
+      "seconds": 0.143
+    },
+    {
+      "name": "Unavailable Android export channel refuses saving without discarding or importing edits",
+      "status": "passed",
+      "seconds": 0.007
+    },
+    {
+      "name": "Cancelling an import while edits are unsaved preserves the active PDF and its identity",
+      "status": "passed",
+      "seconds": 0.025
+    },
+    {
+      "name": "An unfinished ink stroke triggers the document-switch guard",
+      "status": "passed",
+      "seconds": 1.134
+    },
+    {
+      "name": "Editor works without Ollama, server or external network requests",
+      "status": "passed",
+      "seconds": 0
+    }
+  ],
+  "attemptedNetwork": [],
+  "browserErrors": [],
+  "fixtureDirectory": "/tmp/localpdf-editor-7BEkDb"
+}

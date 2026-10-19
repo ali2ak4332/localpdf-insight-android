@@ -1,0 +1,9 @@
+// Build-only override: never inspect or use the application's signing settings.
+// finalizeDsl runs before AGP creates variants and their packaging tasks.
+gradle.beforeProject { project ->
+    project.pluginManager.withPlugin('com.android.application') {
+        project.extensions.getByName('androidComponents').finalizeDsl { android ->
+            android.buildTypes.getByName('release').signingConfig = null
+        }
+    }
+}

@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=LocalPDF Development, O=LocalPDF, C=AE
+Signer #1 certificate SHA-256 digest: f0c38147d5bfe371d7144578b4e952fabad9dd2fe98137ea4be630bb6537a153
+Signer #1 certificate SHA-1 digest: c9c943e7f49b846a8879e5f522b55829e37b082e
+Signer #1 certificate MD5 digest: f6b57a40027a358b63a67d9506a7b7e1
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 32a6557713155e02158b41b230f537a069f8035e1fadbe3941f634ab39d15854
+Signer #1 public key SHA-1 digest: ccecf966fbbd9cf0ecf1b0a6a8e3c57c31342d5c
+Signer #1 public key MD5 digest: 699249562c654f1823aa2f212584a1de

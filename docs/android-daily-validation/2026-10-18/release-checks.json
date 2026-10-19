@@ -1,0 +1,23 @@
+{
+  "version": "0.2.6-share-pdf",
+  "version_code": 8,
+  "application_id": "app.localpdf.insight",
+  "sha256": "2b1000497301a5d16adb23032292d12160d28034c20863f206494625e4faa436",
+  "bytes": 6424620,
+  "asset_files_matched": 298,
+  "signature_verified": true,
+  "certificate_matches_previous_apk": true,
+  "no_permissions": true,
+  "debuggable": false,
+  "backup_enabled": false,
+  "cleartext_enabled": false,
+  "provider_exported": false,
+  "provider_scope": "cache/pdf-shares/ only",
+  "native_share_and_existing_reader_classes_present": true,
+  "assembleRelease": "passed",
+  "lintRelease": "passed",
+  "lint_errors": 0,
+  "lint_warnings": ["UnusedAttribute", "SetJavaScriptEnabled", "ObsoleteSdkInt", "MonochromeLauncherIcon"],
+  "physical_android_tested": false,
+  "actual_recipient_file_access_tested": false
+}
