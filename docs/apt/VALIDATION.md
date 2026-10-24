@@ -1,12 +1,14 @@
 # Apt Reader validation — 24 October 2026
 
-**Follow-up:** use [the Hugging Face candidate report](hf-candidates/REPORT.md)
-for the latest model research, native-template diagnostics and the frozen
-20-case Qwen3.5 0.8B/2B holdout. Both Qwen variants scored 16/20 there; unsupported
-evidence remains a blocker. The earlier [Liquid comparison](liquid-comparison/REPORT.md)
-contains the corrected host-test transport and fresh Gemma baseline. Historical
-Gemma files below may be affected by newline framing. No Qwen model has been
-integrated into the app. App runtime and signing checks below are unchanged.
+**Latest follow-up:** [the five-function report](five-task/REPORT.md) tests actual
+outputs on 30 real PDFs and independently tests Verify Findings. Neither Qwen
+variant meets the requested quality checks; APK release remains blocked. The
+earlier [Hugging Face candidate report](hf-candidates/REPORT.md) and its 16/20
+result are passage-choice diagnostics, not PDF-analysis ratings. The
+[Liquid comparison](liquid-comparison/REPORT.md) contains the corrected host
+transport and fresh Gemma baseline. Historical Gemma files below may be affected
+by newline framing. No Qwen model is integrated into the app; runtime/signing
+checks below are unchanged by this test-only work.
 
 **Release decision: BLOCKED. The current model fails task-relevance diagnostics.**
 No APK or source release package is approved for delivery. A signed internal

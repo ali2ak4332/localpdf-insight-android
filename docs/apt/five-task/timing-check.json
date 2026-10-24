@@ -1,0 +1,107 @@
+{
+  "scope": "Small isolated timing/repeatability control, not Android performance or a broad latency benchmark",
+  "checks": [
+    {
+      "model": "Qwen3.5-0.8B-Q4_K_M.gguf",
+      "comparisons": [
+        {
+          "task": "summarize",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "insights",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "figures",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "risks",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        }
+      ],
+      "summary": {
+        "plannedGenerations": 4,
+        "receivedGenerations": 4,
+        "schemaValid": 4,
+        "finishedStop": 4,
+        "finishedLength": 0,
+        "http200": 4,
+        "generatedFindings": 8,
+        "exactQuotesOnCitedPages": 5,
+        "byTask": {
+          "summarize": 1,
+          "insights": 1,
+          "figures": 1,
+          "risks": 1
+        },
+        "medianRequestMilliseconds": 23168.921000000002,
+        "p95RequestMilliseconds": 24547.874,
+        "interpretation": "Technical completion and literal evidence only; no overall quality or semantic success rate is inferred."
+      },
+      "peakServerRssBytes": 1131376640,
+      "scope": "Four tasks on Apple FY2024 Q4 four-page PDF, fresh isolated server, same frozen source and task requests; no additional tuning",
+      "rawReportSha256": "d21c6f20b4d9cb376021e0be0808399ccb28e651a3a732c8c563093663982a7c"
+    },
+    {
+      "model": "Qwen3.5-2B-Q4_K_M.gguf",
+      "comparisons": [
+        {
+          "task": "summarize",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "insights",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "figures",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        },
+        {
+          "task": "risks",
+          "identicalPrompt": true,
+          "identicalRawOutput": true,
+          "identicalParsedOutput": true
+        }
+      ],
+      "summary": {
+        "plannedGenerations": 4,
+        "receivedGenerations": 4,
+        "schemaValid": 4,
+        "finishedStop": 4,
+        "finishedLength": 0,
+        "http200": 4,
+        "generatedFindings": 7,
+        "exactQuotesOnCitedPages": 1,
+        "byTask": {
+          "summarize": 1,
+          "insights": 1,
+          "figures": 1,
+          "risks": 1
+        },
+        "medianRequestMilliseconds": 40750.380999999994,
+        "p95RequestMilliseconds": 41537.085,
+        "interpretation": "Technical completion and literal evidence only; no overall quality or semantic success rate is inferred."
+      },
+      "peakServerRssBytes": 2225324032,
+      "scope": "Four tasks on Apple FY2024 Q4 four-page PDF, fresh isolated server, same frozen source and task requests; no additional tuning",
+      "rawReportSha256": "532a1f52c13e8e3a3c390760704bf20f1e7e3869b1e79a0bd1744dd6cc2a0dac"
+    }
+  ]
+}

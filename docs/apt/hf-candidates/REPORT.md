@@ -1,5 +1,10 @@
 # Hugging Face candidate evaluation — 24 October 2026
 
+**Superseded for functional quality:** [the five-function evaluation](../five-task/REPORT.md)
+now tests actual outputs on 30 real PDFs. Neither Qwen model meets the quality
+checks. Scores below are historical passage-choice diagnostics, not an overall
+PDF-analysis or release-readiness rating.
+
 **Qwen3.5 0.8B is the preferred next development candidate found in this screening, when used
 through its native Jinja chat template with thinking disabled and a finite answer
 schema.** Its Q4_K_M weights are 532,517,120 bytes (533 MB decimal). The user has
