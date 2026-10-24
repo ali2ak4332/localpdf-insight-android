@@ -1,0 +1,119 @@
+{
+  "testEnvironment": "Offline Chromium mobile emulation; packaged WebView assets routed locally; no Python/Ollama server",
+  "fixtureDirectory": "/tmp/localpdf-android-j5GFSI",
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Offline launch retains reader/notes and hides desktop server AI controls",
+      "status": "passed",
+      "seconds": 0.0334
+    },
+    {
+      "name": "150-page PDF becomes readable offline and uses bounded page canvases",
+      "status": "passed",
+      "seconds": 1.7628
+    },
+    {
+      "name": "Compact icon toolbar fits two rows at phone widths and retains all actions in English and Arabic",
+      "status": "passed",
+      "seconds": 2.2578
+    },
+    {
+      "name": "Page jump Enter commits and releases keyboard focus in English and Arabic",
+      "status": "passed",
+      "seconds": 0.2251
+    },
+    {
+      "name": "Page jump, outline and native highlighted search reach page 18",
+      "status": "passed",
+      "seconds": 0.44739999999999996
+    },
+    {
+      "name": "Closing search clears temporary highlights and retains the query in English and Arabic",
+      "status": "passed",
+      "seconds": 2.0885
+    },
+    {
+      "name": "Lazy thumbnails, single/spread layouts and pinch zoom work",
+      "status": "passed",
+      "seconds": 1.2597
+    },
+    {
+      "name": "Saved PDF Blob, stable identity and reading position survive cold browser reload",
+      "status": "passed",
+      "seconds": 0.846
+    },
+    {
+      "name": "Friendly title and duplicate detection retain original document identity",
+      "status": "passed",
+      "seconds": 0.36660000000000004
+    },
+    {
+      "name": "Android provider PDF MIME is accepted when attachment name lacks .pdf suffix",
+      "status": "passed",
+      "seconds": 0.2159
+    },
+    {
+      "name": "Selected paragraph saves note with exact document, page, text and coordinates",
+      "status": "passed",
+      "seconds": 0.29560000000000003
+    },
+    {
+      "name": "Note citation reopens correct PDF/page after switch, rename and cold reload",
+      "status": "passed",
+      "seconds": 2.6346
+    },
+    {
+      "name": "Scoped passage search cannot leak unselected document evidence",
+      "status": "passed",
+      "seconds": 0.0906
+    },
+    {
+      "name": "Native mixed Arabic/English search normalization and source-linked RTL note",
+      "status": "passed",
+      "seconds": 1.4935999999999998
+    },
+    {
+      "name": "Malformed Arabic font remains readable and exposes extraction uncertainty",
+      "status": "passed",
+      "seconds": 1.5152999999999999
+    },
+    {
+      "name": "Image-only scan remains readable with explicit no-OCR status and no invented text",
+      "status": "passed",
+      "seconds": 1.8063
+    },
+    {
+      "name": "Protected PDF reads and indexes offline with supplied password",
+      "status": "passed",
+      "seconds": 1.7934
+    },
+    {
+      "name": "Rotated unusual-size PDF search and source highlight remain on the right page",
+      "status": "passed",
+      "seconds": 1.8066
+    },
+    {
+      "name": "Rotation and Android Back close overlays before allowing app exit",
+      "status": "passed",
+      "seconds": 0.445
+    },
+    {
+      "name": "Private-storage failure shows actionable notice and disables unsafe imports",
+      "status": "passed",
+      "seconds": 0.1439
+    },
+    {
+      "name": "No API server, Ollama or external network attempts occurred",
+      "status": "passed",
+      "seconds": 0.0004
+    }
+  ],
+  "timings": {
+    "firstReadableSeconds": 0.218,
+    "indexingSeconds": 1.763
+  },
+  "attemptedNetwork": [],
+  "browserErrors": []
+}

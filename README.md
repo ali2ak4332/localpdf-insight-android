@@ -1,5 +1,14 @@
 # LocalPDF Insight 0.2.0
 
+**Apt Reader development branch — not approved for release.** This branch adds
+an offline Gemma 3 270M analysis implementation to the existing Android reader.
+The signed internal build works, but the current model failed relevance diagnostics;
+the required representative-PDF and Android device gates are unpassed. See
+[`docs/apt/VALIDATION.md`](docs/apt/VALIDATION.md) for measured results and
+[`docs/apt/README.md`](docs/apt/README.md) for development setup. The LocalPDF
+release on `main` is separate and unchanged. The material below describes that
+inherited application and its historical validations.
+
 
 Release remediation: **BLOCKED — no release candidate or production approval**. See [current remediation operations](docs/REMEDIATION_OPERATIONS.md) and `RELEASE_REMEDIATION_REPORT.md`. The prior reports are historical evidence, retained unchanged.
 

@@ -1,0 +1,485 @@
+{
+  "scope": "32 synthetic source-selection diagnostics with the actual Gemma model; not representative PDFs or a human-reviewed benchmark",
+  "modelBytes": 241410624,
+  "modelFineTuned": false,
+  "host": "x64",
+  "peakProcessRssBytes": null,
+  "exactSelectionRate": 0,
+  "relevantPassageRecall": 0.125,
+  "releasedExtracts": 16,
+  "rejectedSelections": 28,
+  "exactCopyIntegrity": true,
+  "medianMs": 3998,
+  "p95Ms": 4639,
+  "results": [
+    {
+      "case": 0,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4612
+    },
+    {
+      "case": 1,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3840
+    },
+    {
+      "case": 2,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3649
+    },
+    {
+      "case": 3,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3842
+    },
+    {
+      "case": 4,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3926
+    },
+    {
+      "case": 5,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3687
+    },
+    {
+      "case": 6,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3854
+    },
+    {
+      "case": 7,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4075
+    },
+    {
+      "case": 8,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3843
+    },
+    {
+      "case": 9,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4069
+    },
+    {
+      "case": 10,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3893
+    },
+    {
+      "case": 11,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4027
+    },
+    {
+      "case": 12,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3888
+    },
+    {
+      "case": 13,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 4,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 615
+    },
+    {
+      "case": 14,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3773
+    },
+    {
+      "case": 15,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 4,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 685
+    },
+    {
+      "case": 16,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4361
+    },
+    {
+      "case": 17,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3930
+    },
+    {
+      "case": 18,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3909
+    },
+    {
+      "case": 19,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4196
+    },
+    {
+      "case": 20,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4093
+    },
+    {
+      "case": 21,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4135
+    },
+    {
+      "case": 22,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4112
+    },
+    {
+      "case": 23,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4731
+    },
+    {
+      "case": 24,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4576
+    },
+    {
+      "case": 25,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4639
+    },
+    {
+      "case": 26,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4422
+    },
+    {
+      "case": 27,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4352
+    },
+    {
+      "case": 28,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 3998
+    },
+    {
+      "case": 29,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 4,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 668
+    },
+    {
+      "case": 30,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "selected": [],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 0,
+      "rejected": 1,
+      "correctTextCopies": true,
+      "milliseconds": 4298
+    },
+    {
+      "case": 31,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 4,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 624
+    }
+  ],
+  "memoryMeasurement": "Host /proc memory reading unavailable; no zero-memory claim."
+}

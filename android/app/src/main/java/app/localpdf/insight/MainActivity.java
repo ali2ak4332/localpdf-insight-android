@@ -70,6 +70,7 @@ public final class MainActivity extends Activity {
     private WebViewAssetLoader assetLoader;
     private PdfExportController pdfExport;
     private ReadingScreenController readingScreen;
+    private AptAiController aptAi;
     private ValueCallback<Uri[]> fileCallback;
     private AlertDialog exitDialog;
     private boolean backPending;
@@ -130,6 +131,7 @@ public final class MainActivity extends Activity {
             @Override
             public void onPageStarted(WebView view, String url, android.graphics.Bitmap favicon) {
                 if (readingScreen != null) readingScreen.reset();
+                if (aptAi != null) aptAi.cancel();
             }
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
@@ -189,6 +191,7 @@ public final class MainActivity extends Activity {
                 toast(R.string.downloads_disabled));
         pdfExport = PdfExportController.install(this, webView);
         readingScreen = ReadingScreenController.install(this, webView);
+        aptAi = AptAiController.install(this, webView);
 
         if (Build.VERSION.SDK_INT >= 33) {
             getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
@@ -325,6 +328,7 @@ public final class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (pdfExport != null && pdfExport.onActivityResult(requestCode, resultCode, data)) return;
+        if (aptAi != null && aptAi.onActivityResult(requestCode, resultCode, data)) return;
         if (requestCode != PICK_PDFS || fileCallback == null) return;
         if (resultCode != RESULT_OK || data == null) {
             cancelFileCallback();
@@ -425,6 +429,7 @@ public final class MainActivity extends Activity {
     @Override
     protected void onPause() {
         if (readingScreen != null) readingScreen.setResumed(false);
+        if (aptAi != null) aptAi.cancel();
         super.onPause();
         if (webView != null) webView.onPause();
     }
@@ -447,6 +452,7 @@ public final class MainActivity extends Activity {
         cancelFileCallback();
         if (pdfExport != null) pdfExport.close();
         if (readingScreen != null) readingScreen.close();
+        if (aptAi != null) aptAi.close();
         fileChecks.shutdownNow();
         mainHandler.removeCallbacksAndMessages(null);
         if (webView != null) {

@@ -35,3 +35,4 @@ history.bundle
 # PDF.js ships executable modules in this source directory.
 !src/localpdf_insight/static/vendor/pdfjs/build/
 !src/localpdf_insight/static/vendor/pdfjs/build/**
+/android/app/.cxx/

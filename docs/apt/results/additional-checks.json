@@ -1,0 +1,13 @@
+{
+  "independentEvidenceTransportTests": 19,
+  "offlineAnalysisBrowserWorkflows": 7,
+  "nativeTransportInBrowserTests": "mocked",
+  "printPolicyChecks": 33,
+  "sharePolicyChecks": 26,
+  "screenPolicyChecks": 18,
+  "policyEnvironment": "production Java helpers with API doubles, not Android framework",
+  "modelFileChecks": "corrupt/cancelled import, atomic retention, cleanup, real-model digest/install passed",
+  "nativeEngineChecks": "real-model inference/missing-file and prestart/inflight cancellation passed; correctness not established",
+  "pinnedDependencyDownloadConfigure": "passed with CMake 3.22.1 and checksum-verified source archive",
+  "physicalAndroidValidation": false
+}

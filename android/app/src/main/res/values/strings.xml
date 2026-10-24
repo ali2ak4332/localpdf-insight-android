@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LocalPDF Insight</string>
+    <string name="app_name">Apt Reader</string>
     <string name="invalid_pdf">Choose a readable PDF document.</string>
     <string name="picker_unavailable">No document picker is available on this device.</string>
     <string name="external_links_disabled">External links are disabled in this local reader.</string>

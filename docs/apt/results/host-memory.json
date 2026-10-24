@@ -1,0 +1,8 @@
+{
+  "host": "x86_64",
+  "rawOutput": "ERROR: Incomplete model selection; findings withheld",
+  "exitCode": 0,
+  "peakChildRssBytes": 505860096,
+  "memoryMeasurement": "getrusage(RUSAGE_CHILDREN), Linux; null means unavailable",
+  "deviceMeasurement": false
+}

@@ -1,0 +1,37 @@
+{
+  "artifact": "internal signed development candidate; withheld from delivery",
+  "package": "app.localpdf.insight",
+  "versionCode": 10,
+  "versionName": "0.3.0-apt-dev",
+  "apkBytes": 19443398,
+  "apkSha256": "8782941f7cfc2aecee545213d3096d18c2b51c08ce18f98766f58a64d2bbb0df",
+  "signerCertificateSha256": "f0c38147d5bfe371d7144578b4e952fabad9dd2fe98137ea4be630bb6537a153",
+  "modelBytes": 241410624,
+  "apkPlusModelBytes": 260854022,
+  "installedFootprintBytes": null,
+  "androidDeviceVerified": false,
+  "fineTuned": false,
+  "representativePdfBenchmarkComplete": false,
+  "releaseApproved": false,
+  "staticAssetCount": 300,
+  "assetMismatches": [],
+  "nativeLibraries": [
+    {
+      "path": "lib/arm64-v8a/libapt_reader.so",
+      "bytes": 6248072
+    },
+    {
+      "path": "lib/x86_64/libapt_reader.so",
+      "bytes": 6723000
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": [
+    "RequiresFeature",
+    "RequiresFeature",
+    "UnusedAttribute",
+    "SetJavaScriptEnabled",
+    "ObsoleteSdkInt",
+    "MonochromeLauncherIcon"
+  ]
+}

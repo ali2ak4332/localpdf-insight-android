@@ -109,10 +109,10 @@ async function saveSelected(comment) {
     await page.goto(appUrl);
     await page.waitForFunction(() => !!window.__reader);
 
-    await check('Offline launch offers reader and notes; AI/Ollama controls are absent', async () => {
+    await check('Offline launch retains reader/notes and hides desktop server AI controls', async () => {
       for (const id of ['askToggle', 'question', 'operation', 'submitAsk', 'compare', 'createOutput', 'tables']) assert(!await page.locator('#' + id).isVisible(), id);
       assert(await page.locator('#studioToggle').isVisible());
-      assert.match(await page.locator('#privacyText').textContent(), /no AI, upload, computer server or OCR/i);
+      assert.match(await page.locator('#privacyText').textContent(), /no upload, computer server or OCR/i);
       assert(await page.evaluate(() => window.__reader.state.online));
     });
     await check('150-page PDF becomes readable offline and uses bounded page canvases', async () => {

@@ -199,5 +199,10 @@ export async function createMobileBackend(pdfjs){
  }
  // Never silently leave interrupted work looking live after a process restart.
  for(const doc of await read('documents'))if(doc.index.status==='indexing')await modify(doc.id,d=>({...d,index:{...d.index,status:'error',warning:'Text indexing was interrupted. Reopen the PDF and choose Retry indexing.'}}));
- return {request,documentUrl,resume:async(id,password='')=>{const doc=await item(id);if(doc.index.status!=='ready')launchIndex(doc,password);}};
+ async function analysisSnapshot(id){
+  const document=await item(id);if(document.index.status!=='ready')throw Error('Wait for this PDF to finish indexing.');
+  const sources=await read('sources',id,'document_id');
+  return {document,sources};
+ }
+ return {request,documentUrl,analysisSnapshot,resume:async(id,password='')=>{const doc=await item(id);if(doc.index.status!=='ready')launchIndex(doc,password);}};
 }

@@ -67,3 +67,13 @@
 .android-reader #contentsList #bookmarkCurrent{border:1px solid var(--line);min-height:48px;background:var(--paper)}
 .android-reader #contentsList #bookmarkCurrent[aria-pressed=true]{background:#e0eae3}
 .android-reader .bookmark-note{margin:8px 0 12px}
+/* Apt Reader analysis is a single optional dialog; existing reader geometry is retained. */
+#aptAnalysisDialog{width:min(620px,94vw);max-height:90dvh;overflow:auto;padding:20px;border:1px solid #c4cfc7;border-radius:12px;background:#fbfcf8;color:#203b35;box-sizing:border-box}
+#aptAnalysisDialog::backdrop{background:#162d2880}
+#aptAnalysisDialog h2{font-size:1.2rem;margin:0 0 10px}
+#aptAnalysisDialog p{font-size:.86rem;line-height:1.5}
+#aptAnalysisDialog select,#aptAnalysisDialog textarea{display:block;width:100%;box-sizing:border-box;margin:8px 0;padding:10px;font:inherit}
+#aptAnalysisDialog [hidden]{display:none!important}
+.apt-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.apt-finding{border-top:1px solid #d6ded7;padding:10px 0}
+.apt-finding blockquote{margin:0 0 8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.92rem;line-height:1.5}

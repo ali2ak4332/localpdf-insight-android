@@ -1,5 +1,13 @@
 # LocalPDF Insight — Android reader and signing
 
+**Apt Reader branch:** Android development version `0.3.0-apt-dev`, code 10,
+display name Apt Reader, same package/data identity as this reader. Optional
+Gemma analysis is implemented through **View options → Analyze PDF**, but the
+current model failed quality diagnostics and this is not an approved release.
+See [`../docs/apt/README.md`](../docs/apt/README.md) and the
+[current validation report](../docs/apt/VALIDATION.md). The inherited instructions
+below describe the previous LocalPDF release.
+
 Personal Android reader, version `0.2.7-print-pdf` (version code 9), extending `0.2.6-share-pdf`, `0.2.5-reading-tools` and signing checkpoint `4320b11c01fbb50b5f883c37a5314f6bf76486f2`. Cumulative updates are in `../ANDROID_CHANGELOG.md`.
 
 ## Install and use

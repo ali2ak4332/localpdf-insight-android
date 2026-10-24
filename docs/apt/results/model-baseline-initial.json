@@ -1,0 +1,561 @@
+{
+  "scope": "32 synthetic source-selection diagnostics with the actual Gemma model; not representative PDFs or a human-reviewed benchmark",
+  "modelBytes": 241410624,
+  "modelFineTuned": false,
+  "host": "x64",
+  "peakProcessRssBytes": null,
+  "exactSelectionRate": 0,
+  "relevantPassageRecall": 0.5,
+  "releasedExtracts": 64,
+  "rejectedSelections": 0,
+  "exactCopyIntegrity": true,
+  "medianMs": 524,
+  "p95Ms": 14696,
+  "results": [
+    {
+      "case": 0,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 983
+    },
+    {
+      "case": 1,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 610
+    },
+    {
+      "case": 2,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 755
+    },
+    {
+      "case": 3,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 504
+    },
+    {
+      "case": 4,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 595
+    },
+    {
+      "case": 5,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 721
+    },
+    {
+      "case": 6,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 537
+    },
+    {
+      "case": 7,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 4191
+    },
+    {
+      "case": 8,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 8331
+    },
+    {
+      "case": 9,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 3956
+    },
+    {
+      "case": 10,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 15796
+    },
+    {
+      "case": 11,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 437
+    },
+    {
+      "case": 12,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 445
+    },
+    {
+      "case": 13,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 443
+    },
+    {
+      "case": 14,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 424
+    },
+    {
+      "case": 15,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 489
+    },
+    {
+      "case": 16,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 469
+    },
+    {
+      "case": 17,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 441
+    },
+    {
+      "case": 18,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 477
+    },
+    {
+      "case": 19,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 452
+    },
+    {
+      "case": 20,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 456
+    },
+    {
+      "case": 21,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 485
+    },
+    {
+      "case": 22,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 479
+    },
+    {
+      "case": 23,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 4595
+    },
+    {
+      "case": 24,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 14696
+    },
+    {
+      "case": 25,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 9032
+    },
+    {
+      "case": 26,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 622
+    },
+    {
+      "case": 27,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": true,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 691
+    },
+    {
+      "case": 28,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 524
+    },
+    {
+      "case": 29,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 389
+    },
+    {
+      "case": 30,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 419
+    },
+    {
+      "case": 31,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "selected": [
+        0,
+        2
+      ],
+      "exactSelection": false,
+      "relevantSelected": false,
+      "released": 2,
+      "rejected": 0,
+      "correctTextCopies": true,
+      "milliseconds": 422
+    }
+  ],
+  "memoryMeasurement": "Host /proc memory reading unavailable; no zero-memory claim."
+}

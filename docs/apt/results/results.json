@@ -1,0 +1,55 @@
+{
+  "environment": "Offline Chromium; native screen channel mocked, actual bundled PDF.js and IndexedDB",
+  "results": [
+    {
+      "name": "Keep-screen preference defaults off and cannot wake an empty reader",
+      "status": "passed"
+    },
+    {
+      "name": "Keep-screen resumes only with loaded PDF; releases on hiding and preference off",
+      "status": "passed"
+    },
+    {
+      "name": "English whole-word search excludes substrings and keeps close/Back cleanup",
+      "status": "passed"
+    },
+    {
+      "name": "Arabic whole-word search uses bundled PDF.js word boundaries",
+      "status": "passed"
+    },
+    {
+      "name": "Bookmarks toggle idempotently, sort, jump and survive language/layout changes",
+      "status": "passed"
+    },
+    {
+      "name": "Pen defaults persist across reopen and saved bookmark identity survives app reload",
+      "status": "passed"
+    },
+    {
+      "name": "Bookmarks separate same-page numbers in distinct PDFs and duplicate imports share original",
+      "status": "passed"
+    },
+    {
+      "name": "Narrow viewport, large font and Arabic controls remain bounded and named",
+      "status": "passed"
+    },
+    {
+      "name": "Late outline results cannot replace a newly selected Bookmarks panel",
+      "status": "passed"
+    },
+    {
+      "name": "Bookmark storage failure is reported without a false saved state",
+      "status": "passed"
+    },
+    {
+      "name": "Persisted keep-screen choice stays off until reopening and releases after PDF load failure",
+      "status": "passed"
+    },
+    {
+      "name": "Corrupt stored settings/bookmarks fall back safely without breaking reading",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "network": []
+}

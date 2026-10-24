@@ -1,5 +1,12 @@
 # Apt Reader — development preflight
 
+**Historical initial preflight.** Development continued after this checkpoint.
+The signing backup has now been recovered and matched to the existing certificate;
+the toolchain has been installed and a signed internal build/lint passes.
+The current blocker is model quality plus uncompleted representative-PDF/device
+validation. See [`apt/VALIDATION.md`](apt/VALIDATION.md) for authoritative current
+results. The original preflight below is retained as history, not current status.
+
 Date: 24 October 2026 (Asia/Dubai). **BLOCKED: no Apt Reader release candidate.**
 
 ## Branch and compatibility
