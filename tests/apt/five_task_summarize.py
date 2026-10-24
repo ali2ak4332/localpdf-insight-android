@@ -135,10 +135,14 @@ def validate_report(report, model_id, docs, corpus_hash, issues):
     expected = {(d, t) for d in docs for t in TASKS}
     plans = keyed(report.get('plan'), case_key, f'{model_id} plan')
     require(set(plans) == expected, f'{model_id}: expected exactly 120 planned document/task cases')
+    cite = is_cite(report)
     for (doc_id, task), row in plans.items():
         require(row.get('sectionId') == 'main', f'{model_id}/{doc_id}/{task}: section differs')
         validate_coverage(row.get('coverage'), docs[doc_id]['pages'], f'{model_id}/{doc_id}/{task}')
         require(row.get('inputSha256') == inputs[doc_id], f'{model_id}/{doc_id}/{task}: input fingerprint differs')
+        if cite:
+            validate_cite_plan(row, task, docs[doc_id]['pages'], f'{model_id}/{doc_id}/{task}')
+            continue
         validate_request_schema(row.get('request', {}), task, docs[doc_id]['pages'])
         prompt = prompt_text(row.get('request'))
         require(row.get('promptSha256') == sha(prompt), f'{model_id}/{doc_id}/{task}: prompt fingerprint mismatch')
@@ -150,9 +154,15 @@ def validate_report(report, model_id, docs, corpus_hash, issues):
         plan = plans[key]
         for field in ('request', 'coverage', 'inputSha256', 'promptSha256', 'sectionId'):
             require(row.get(field) == plan.get(field), f'{model_id}/{key}: response {field} differs from frozen plan')
-        require(row.get('prompt') == prompt_text(plan['request']), f'{model_id}/{key}: raw prompt differs from request')
         assessment = row.get('assessment')
         require(isinstance(assessment, dict), f'{model_id}/{key}: missing assessment')
+        if cite and plan.get('deterministicSkip') is True:
+            require(row.get('deterministicSkip') is True and assessment.get('deterministicSkip') is True and
+                    row.get('rawContent') == '' and row.get('parsedContent') is None and
+                    row.get('materialized') == {'findings': []} and assessment.get('findingsCount') == 0,
+                    f'{model_id}/{key}: deterministic abstention row is not empty')
+            continue
+        require(row.get('prompt') == prompt_text(plan['request']), f'{model_id}/{key}: raw prompt differs from request')
         for field in ('schemaValid', 'httpSuccessful', 'completedWithinBudget'):
             require(type(assessment.get(field)) is bool, f'{model_id}/{key}: assessment {field} is not boolean')
         require(assessment['httpSuccessful'] == (row.get('api', {}).get('httpStatus') == 200),
@@ -164,16 +174,62 @@ def validate_report(report, model_id, docs, corpus_hash, issues):
         except (ValueError, TypeError):
             parsed_raw = None
         require(parsed_raw == row.get('parsedContent'), f'{model_id}/{key}: parsed content differs from raw output')
-        schema = validate_request_schema(plan['request'], key[1], docs[key[0]]['pages'])
+        schema = (plan['request']['response_format']['json_schema']['schema'] if cite
+                  else validate_request_schema(plan['request'], key[1], docs[key[0]]['pages']))
         require(assessment['schemaValid'] == schema_matches(parsed_raw, schema),
                 f'{model_id}/{key}: schema-valid flag differs from actual raw output/schema')
         findings = parsed_findings(row)
+        if cite:
+            pages = {p['page']: p['text'] for p in docs[key[0]]['pages']}
+            require(all(record_valid(f, key[1], pages) and f['quote'] in pages[f['page']] for f in findings),
+                    f'{model_id}/{key}: code-built finding is invalid or its quote is not on the cited page')
         nonnegative_integer(assessment.get('findingsCount'), f'{model_id}/{key}/findingsCount')
         nonnegative_integer(assessment.get('exactQuoteCount'), f'{model_id}/{key}/exactQuoteCount')
         require(assessment.get('findingsCount') == len(findings), f'{model_id}/{key}: finding count differs')
     if report.get('status') != 'completed' or len(rows) != 120:
         issues.append(f'{model_id}: generation report {report.get("status")}, {len(rows)}/120 responses')
     return plans, rows
+
+
+def is_cite(report):
+    protocol = report.get('protocol')
+    return isinstance(protocol, dict) and protocol.get('evidence') == 'cited-lines'
+
+
+CITE_MODEL_FIELDS = {'summarize': ('claim', 'from', 'to'), 'insights': ('claim', 'from', 'to'),
+                     'figures': ('line', 'value', 'metric', 'entity'),
+                     'risks': ('obligation', 'party', 'deadline', 'exception', 'from', 'to')}
+
+
+def validate_cite_plan(row, task, pages, label):
+    """cite-v1: numbered source lines in the prompt, bounded line-citation schema, or a figures abstention."""
+    if row.get('deterministicSkip') is True:
+        require(task == 'figures' and row.get('request') is None and row.get('promptSha256') is None,
+                f'{label}: only Key Figures may abstain without a model call')
+        return
+    request = row.get('request') or {}
+    prompt = prompt_text(request)
+    require(row.get('promptSha256') == sha(prompt), f'{label}: prompt fingerprint mismatch')
+    for p in pages:
+        lines = [line for line in p['text'].split('\n') if line.strip()]
+        require(not lines or f"[PAGE {p['page']}]" in prompt, f'{label}: prompt omits a source page')
+        require(all(f'] {line}\n' in prompt + '\n' for line in lines), f'{label}: prompt omits authoritative PDF lines')
+    wrapper = request.get('response_format', {}).get('json_schema', {})
+    schema = wrapper.get('schema', {})
+    require(wrapper.get('strict') is True and wrapper.get('name') == task + '_cited', f'{label}: missing strict cited-line schema')
+    array = schema.get('properties', {}).get('findings', {})
+    item = array.get('items', {})
+    require(schema.get('required') == ['findings'] and schema.get('additionalProperties') is False and
+            type(array.get('maxItems')) is int and 0 < array['maxItems'] <= 2 and item.get('additionalProperties') is False and
+            set(item.get('required', [])) == set(CITE_MODEL_FIELDS[task]) == set(item.get('properties', {})),
+            f'{label}: cited-line schema differs from the protocol')
+    for field, rules in item['properties'].items():
+        if field in ('from', 'to', 'line'):
+            require(rules.get('type') == 'integer' and isinstance(rules.get('enum'), list) and rules['enum'],
+                    f'{label}: line fields must be bounded integers')
+        else:
+            require(rules.get('type') == 'string' and type(rules.get('maxLength')) is int and 0 < rules['maxLength'] <= LENGTHS[field],
+                    f'{label}: string fields must have bounded lengths')
 
 
 def schema_matches(value, schema):
@@ -225,7 +281,9 @@ def validate_request_schema(request, task, pages):
 
 
 def parsed_findings(row):
-    parsed = row.get('parsedContent')
+    # cite-v1 rows keep the true model output in parsedContent and the code-built
+    # findings (original five-task fields, exact copied quotes) in materialized.
+    parsed = row.get('materialized') if isinstance(row.get('materialized'), dict) else row.get('parsedContent')
     return parsed['findings'] if isinstance(parsed, dict) and isinstance(parsed.get('findings'), list) else []
 
 
@@ -247,13 +305,14 @@ def raw_case_metadata(row, doc):
     return {'rawOutputSha256': sha(raw), 'rawOutputCharacters': len(raw),
             'rawOutputUtf8Bytes': len(raw.encode('utf-8')), 'parsedFindings': len(findings),
             'validFindingRecords': len(valid), 'literalExactQuoteRecords': exact,
+            'materializationRejected': len(row.get('materializationRejected') or []),
             'fieldLengths': [{'findingIndex': i, 'page': f.get('page') if type(f.get('page')) is int else None,
                              'characters': {k: len(v) for k, v in f.items() if k in FIELDS[task] and isinstance(v, str)}}
                             for i, f in enumerate(findings) if isinstance(f, dict)],
             'finishReason': row.get('finish_reason'), 'httpStatus': row.get('api', {}).get('httpStatus'),
             'milliseconds': row.get('milliseconds'),
-            'technicalComplete': all(flags[k] for k in ('schemaValid', 'httpSuccessful', 'completedWithinBudget')),
-            'tokenUsage': {k: v for k, v in row.get('tokenUsage', {}).items() if k in ('completion_tokens', 'prompt_tokens', 'total_tokens') and type(v) in (int, float)}}
+            'technicalComplete': flags.get('deterministicSkip') is True or all(flags[k] for k in ('schemaValid', 'httpSuccessful', 'completedWithinBudget')),
+            'tokenUsage': {k: v for k, v in (row.get('tokenUsage') or {}).items() if k in ('completion_tokens', 'prompt_tokens', 'total_tokens') and type(v) in (int, float)}}
 
 
 def validate_grade(grade, metadata, label):
@@ -306,6 +365,8 @@ def summarize_cases(cases, denominator):
               **{k: ratio(v, denominator) for k, v in counts.items()},
               'emptyResponses': sum(c['raw']['parsedFindings'] == 0 for c in cases),
               'correctAbstentions': sum(c['correctAbstention'] for c in cases),
+              'materializationRejected': sum(c['raw']['materializationRejected'] for c in cases),
+              'responsesWithRejections': sum(c['raw']['materializationRejected'] > 0 for c in cases),
               'unsupportedFindings': sum(c['grade']['unsupportedFindings'] for c in cases),
               'quotes': {'records': q_records,
                          'literalExactOnPage': ratio(sum(c['raw']['literalExactQuoteRecords'] for c in cases), q_records),
@@ -587,7 +648,8 @@ def aggregate(workdir, allow_partial=False):
         for row in report['responses']:
             sensitive.update(v for f in parsed_findings(row) if isinstance(f, dict) for v in f.values() if isinstance(v, str))
             sensitive.update(row.get(k, '') for k in ('prompt', 'renderedPrompt', 'rawContent') if isinstance(row.get(k), str))
-            sensitive.add(prompt_text(row['request']))
+            if row.get('request') is not None or not is_cite(report):  # cite-v1 figures abstentions send no request
+                sensitive.add(prompt_text(row['request']))
             if isinstance(row.get('api', {}).get('rawResponse'), str):
                 sensitive.add(row['api']['rawResponse'])
     sensitive.update(' '.join(text.split()) for text in list(sensitive))
@@ -602,7 +664,7 @@ def aggregate(workdir, allow_partial=False):
         validate_grade(grade, metadata, f'{doc_id}/{candidate}/{task}')
         absence = gold_docs[doc_id]['tasks'][task]['absenceExpected']
         content = all(grade[k] for k in ('technicalComplete', 'factualCorrect', 'relevant', 'adequateCoverage'))
-        correct_abstention = metadata['parsedFindings'] == 0 and absence and content
+        correct_abstention = metadata['parsedFindings'] == 0 and metadata['materializationRejected'] == 0 and absence and content
         eligible = metadata['validFindingRecords'] > 0 or correct_abstention
         if grade['quotes']['exactOnPage'] != metadata['literalExactQuoteRecords']:
             discrepancies.append({'documentId': doc_id, 'modelId': model_id, 'task': task,

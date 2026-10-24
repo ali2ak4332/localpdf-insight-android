@@ -289,7 +289,8 @@ if(modelReportPaths.length){
     throw Error(`An original indexed source is absent from its authoritative frozen page: ${documentId}`);
    const checkedRow={rowIndex,documentId,sectionId:row.sectionId??null,task:row.task,finishReason:row.finish_reason??row.finishReason??null,findings:[]};
    file.rows.push(checkedRow);inc('responseRows');
-   let parsed=row.parsedContent??row.parsed_content??row.result;
+   // cite-v1: verify the code-built findings whose quotes were copied from cited lines.
+   let parsed=row.materialized??row.parsedContent??row.parsed_content??row.result;
    if(typeof parsed==='string'){try{parsed=JSON.parse(parsed);}catch{parsed=null;}}
    if(!parsed||!Array.isArray(parsed.findings)){checkedRow.parseStatus='missing-or-malformed-findings';inc('malformedRows');continue;}
    checkedRow.parseStatus='findings-array';

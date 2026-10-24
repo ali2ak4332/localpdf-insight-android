@@ -15,7 +15,8 @@ for category in ['financial','contractual','technical']:
   for label,report in reports.items():
    rs=[r for r in report['responses'] if r['documentId']==doc['id']]
    if len(rs)!=4:continue
-   candidates[label]=[{k:r.get(k) for k in ['task','rawContent','parsedContent','finish_reason','assessment']} for r in rs]
+   # cite-v1 rows add code-built findings (materialized) with exact copied quotes; review those against the source.
+   candidates[label]=[{k:r.get(k) for k in ['task','rawContent','parsedContent','materialized','materializationRejected','deterministicSkip','finish_reason','assessment'] if k in r} for r in rs]
   docs.append({'id':doc['id'],'title':doc['title'],'pages':doc['pages'],'gold':gold[doc['id']]['tasks'],'candidates':candidates})
  pack={'scope':'Blinded source-based review; gold is non-exhaustive and agent-authored','documents':docs}
  dest=root/f'blind-{category}.json';temp=dest.with_suffix('.tmp');temp.write_text(json.dumps(pack,indent=2,ensure_ascii=False)+'\n');temp.replace(dest)
