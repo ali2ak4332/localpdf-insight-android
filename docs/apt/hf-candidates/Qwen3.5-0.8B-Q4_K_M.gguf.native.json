@@ -1,0 +1,761 @@
+{
+  "scope": "Separate 8-case synthetic compatibility diagnostic plus 4 literal-output controls",
+  "interpretation": "Prompt, schema and native Jinja template path change together; not an apples-to-apples improvement or whole-model score",
+  "createdAt": "2026-10-24T15:08:35.383936+00:00",
+  "model": {
+    "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+    "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+    "filename": "Qwen3.5-0.8B-Q4_K_M.gguf",
+    "bytes": 532517120,
+    "sha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+    "quantization": "Q4_K_M"
+  },
+  "verifiedModelSha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+  "additionalFineTuningPerformed": false,
+  "expectedRuntimeCommit": "df9beac7153166550571c70cc667f270b745da49",
+  "serverVersion": "version: 0.7.0-dev (build 1, commit df9beac)\nbuilt with GNU 13.3.0 for Linux x86_64",
+  "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+  "host": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "fixtureSha256": "d34a864de2220a1e33e3c07e7a61fa89a36f0c1542ea6ac6bec6032b6f4ce267",
+  "sourceCaseIds": [
+    0,
+    5,
+    10,
+    15,
+    16,
+    21,
+    26,
+    31
+  ],
+  "parameters": {
+    "serverArguments": [
+      "--model",
+      "<verified-local-model>",
+      "--alias",
+      "native-diagnostic",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "36771",
+      "--offline",
+      "--jinja",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--ctx-size",
+      "4096",
+      "--batch-size",
+      "256",
+      "--ubatch-size",
+      "128",
+      "--parallel",
+      "1",
+      "--device",
+      "none",
+      "--gpu-layers",
+      "0",
+      "--no-kv-offload",
+      "--fit",
+      "off",
+      "--no-cache-prompt",
+      "--reasoning",
+      "off",
+      "--no-webui",
+      "--no-slots",
+      "--timeout",
+      "60"
+    ],
+    "contextTokens": 4096,
+    "cpuThreads": 4,
+    "batchTokens": 256,
+    "ubatchTokens": 128,
+    "parallel": 1,
+    "temperature": 0,
+    "seed": 0,
+    "maximumOutputTokens": 96,
+    "chatTemplateKwargs": {
+      "enable_thinking": false
+    },
+    "reasoning": "off",
+    "choiceSchema": {
+      "type": "object",
+      "properties": {
+        "choice": {
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "required": [
+        "choice"
+      ],
+      "additionalProperties": false
+    },
+    "promptCaching": false,
+    "startupTimeoutSeconds": 120,
+    "requestTimeoutSeconds": 60,
+    "templateTimeoutSeconds": 15,
+    "network": "127.0.0.1 HTTP only; server --offline; local verified model; no downloader or remote API",
+    "memoryScope": "One fresh server per invocation; separate requests with prompt caching disabled",
+    "timingScope": "API request wall time, excluding template inspection and startup; checksum reads warm filesystem cache"
+  },
+  "status": "completed",
+  "startupMilliseconds": 607.746,
+  "serverExitCode": 0,
+  "finishedAt": "2026-10-24T15:08:47.110085+00:00",
+  "responses": [
+    {
+      "kind": "source-selection",
+      "case": 0,
+      "task": "figures",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Choose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 125.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 125.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1157.166,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854517,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 143,
+          "total_tokens": 154,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-0OO0vWV5YUzR0RnCRSGBiDx7VqwFMDoq",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 143,
+          "prompt_ms": 744.024,
+          "prompt_per_token_ms": 5.202965034965035,
+          "prompt_per_second": 192.19810113652247,
+          "predicted_n": 11,
+          "predicted_ms": 407.945,
+          "predicted_per_token_ms": 40.7945,
+          "predicted_per_second": 24.513108384708723
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 5,
+      "task": "risks",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Choose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 31 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 31 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1185.24,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792854518,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 129,
+          "total_tokens": 140,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-XurNClfncMDP17FmR3LIyuWjBaBgbciK",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 129,
+          "prompt_ms": 691.255,
+          "prompt_per_token_ms": 5.358565891472868,
+          "prompt_per_second": 186.61709499388795,
+          "predicted_n": 11,
+          "predicted_ms": 392.146,
+          "predicted_per_token_ms": 39.214600000000004,
+          "predicted_per_second": 25.500706369566437
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 10,
+      "task": "insights",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Choose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1079.127,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792854519,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 125,
+          "total_tokens": 136,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-BCCpeOaG768HJ5KerGI6iyET2Wd4T0lc",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 125,
+          "prompt_ms": 619.433,
+          "prompt_per_token_ms": 4.955464,
+          "prompt_per_second": 201.79745024885662,
+          "predicted_n": 11,
+          "predicted_ms": 395.719,
+          "predicted_per_token_ms": 39.5719,
+          "predicted_per_second": 25.27045706675697
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 15,
+      "task": "summarize",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Choose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1113.416,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854520,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 134,
+          "total_tokens": 145,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-4wvreKSXKWw5smB9lkNs7DMHM9n7W4cM",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 134,
+          "prompt_ms": 731.268,
+          "prompt_per_token_ms": 5.457223880597015,
+          "prompt_per_second": 183.24335264225974,
+          "predicted_n": 11,
+          "predicted_ms": 345.329,
+          "predicted_per_token_ms": 34.5329,
+          "predicted_per_second": 28.957892328764743
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 16,
+      "task": "figures",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Choose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 129.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 129.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1265.23,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854521,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 143,
+          "total_tokens": 154,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-SSgLDIiFgE53nUcmvM435IPifVe8x5UE",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 143,
+          "prompt_ms": 757.697,
+          "prompt_per_token_ms": 5.29858041958042,
+          "prompt_per_second": 188.72979568349882,
+          "predicted_n": 11,
+          "predicted_ms": 299.463,
+          "predicted_per_token_ms": 29.9463,
+          "predicted_per_second": 33.39310699485412
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 21,
+      "task": "risks",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Choose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 35 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 35 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 907.001,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792854522,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 129,
+          "total_tokens": 140,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-OSIaB9xfxVuYsdaQuyIS2aXQQ5pJ36YH",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 129,
+          "prompt_ms": 586.181,
+          "prompt_per_token_ms": 4.544038759689923,
+          "prompt_per_second": 220.06854538103417,
+          "predicted_n": 11,
+          "predicted_ms": 294.06,
+          "predicted_per_token_ms": 29.406,
+          "predicted_per_second": 34.00666530640005
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 26,
+      "task": "insights",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Choose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 972.522,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792854523,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 125,
+          "total_tokens": 136,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-s81DfToD2lP5rt7AJNYE6vCcRtpYnNmV",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 125,
+          "prompt_ms": 670.884,
+          "prompt_per_token_ms": 5.367072,
+          "prompt_per_second": 186.321331258459,
+          "predicted_n": 11,
+          "predicted_ms": 288.091,
+          "predicted_per_token_ms": 28.8091,
+          "predicted_per_second": 34.71125443002384
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 31,
+      "task": "summarize",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Choose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.",
+      "renderedPrompt": "<|im_start|>user\nChoose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 990.735,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854524,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 134,
+          "total_tokens": 145,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-jmBbD0GDvsS7LVEt2ObVeE4hIiOkJZaU",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 134,
+          "prompt_ms": 704.423,
+          "prompt_per_token_ms": 5.256888059701493,
+          "prompt_per_second": 190.22661099935692,
+          "predicted_n": 11,
+          "predicted_ms": 240.329,
+          "predicted_per_token_ms": 24.0329,
+          "predicted_per_second": 41.6096268032572
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-0",
+      "task": "control",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Return the number 0 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>user\nReturn the number 0 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 433.699,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854525,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 32,
+          "total_tokens": 43,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-kmlpEOEuigF4Ps2aHWRQ2G3AldocrDsl",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 32,
+          "prompt_ms": 175.081,
+          "prompt_per_token_ms": 5.47128125,
+          "prompt_per_second": 182.77254527904228,
+          "predicted_n": 11,
+          "predicted_ms": 219.602,
+          "predicted_per_token_ms": 21.9602,
+          "predicted_per_second": 45.5369258932068
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-1",
+      "task": "control",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Return the number 1 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>user\nReturn the number 1 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 544.559,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792854525,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 32,
+          "total_tokens": 43,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-KKzU4JosmkH0jjyHvvvJujnvsRwbmBLR",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 32,
+          "prompt_ms": 162.39,
+          "prompt_per_token_ms": 5.0746875,
+          "prompt_per_second": 197.05646899439623,
+          "predicted_n": 11,
+          "predicted_ms": 304.781,
+          "predicted_per_token_ms": 30.4781,
+          "predicted_per_second": 32.8104442206043
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-2",
+      "task": "control",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Return the number 2 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>user\nReturn the number 2 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 677.073,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792854526,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 32,
+          "total_tokens": 43,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-mKyWjercK3yP9Qmq0bYB9zx57oCy9g8N",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 32,
+          "prompt_ms": 192.974,
+          "prompt_per_token_ms": 6.0304375,
+          "prompt_per_second": 165.82544798781183,
+          "predicted_n": 11,
+          "predicted_ms": 259.327,
+          "predicted_per_token_ms": 25.9327,
+          "predicted_per_second": 38.56135304075549
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-3",
+      "task": "control",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Return the number 3 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>user\nReturn the number 3 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 620.456,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854526,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 32,
+          "total_tokens": 43,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-noPyHISYErFEqAsg97c5mqo3uZMXVgVP",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 32,
+          "prompt_ms": 201.834,
+          "prompt_per_token_ms": 6.3073125,
+          "prompt_per_second": 158.5461319698366,
+          "predicted_n": 11,
+          "predicted_ms": 305.263,
+          "predicted_per_token_ms": 30.5263,
+          "predicted_per_second": 32.758637633778086
+        }
+      }
+    }
+  ],
+  "diagnosticSummary": {
+    "model": "Qwen3.5-0.8B-Q4_K_M.gguf",
+    "modelBytes": 532517120,
+    "selectionCorrect": 8,
+    "selectionCases": 8,
+    "controlCorrect": 4,
+    "controlCases": 4,
+    "medianSelectionRequestMs": 1096.2714999999998
+  }
+}

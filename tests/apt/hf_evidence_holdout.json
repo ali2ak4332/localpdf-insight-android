@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "scope": "Synthetic, agent-authored English text-only source-evidence holdout; not extracted from PDFs",
+    "authoredAndGoldCheckedBeforeModelExecution": true,
+    "frozenAtUtc": "2026-10-24T15:17:08.995518+00:00",
+    "authoringMethod": "Twenty fresh cases authored by one agent; all gold labels and abstentions independently reviewed by the primary agent and a second agent before model execution. No human expert annotation.",
+    "limitations": "Measures passage selection and abstention only, not numerical calculation, real-world truth, page citations, OCR, document coverage, or representative-PDF performance",
+    "answerConvention": "Choose the sole passage supplying the evidence requested by the question; -1 means no passage supplies that evidence",
+    "balance": "Five cases per task; one no-support case per task; the remaining sixteen answers use each position 0 through 3 four times"
+  },
+  "cases": [
+    {
+      "id": "figures-restated-operating-result",
+      "task": "figures",
+      "question": "Which passage states the final restated operating result for 2024 in EUR millions?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The original 2024 release reported an operating profit of EUR 5.1 million. That operating-result figure was superseded by the subsequent correction."
+        },
+        {
+          "number": 1,
+          "text": "Revenue for the year ended 31 December 2025 was EUR 62 million, including EUR 4 million from the new service division."
+        },
+        {
+          "number": 2,
+          "text": "Correction approved on 18 March: the final restated 2024 operating result is a loss of EUR 1.8 million, replacing the previously reported profit of EUR 5.1 million."
+        },
+        {
+          "number": 3,
+          "text": "The final restated net result for 2024 was a loss of EUR 2.4 million after financing costs and tax."
+        }
+      ],
+      "expected": 2,
+      "goldReason": "Only passage 2 gives the final restated operating result; the net result is a different metric."
+    },
+    {
+      "id": "figures-quarter-shipped-units",
+      "task": "figures",
+      "question": "Which passage reports the number of units actually shipped in the second quarter of 2026?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "At 30 June 2026, the order backlog was 18,400 units. Backlog counts orders awaiting shipment, rather than completed shipments."
+        },
+        {
+          "number": 1,
+          "text": "During the second quarter of 2026, from 1 April through 30 June, the warehouse shipped 1,840 units to customers."
+        },
+        {
+          "number": 2,
+          "text": "Shipments during the first quarter of 2026 totaled 1,590 units, following the February packaging-line shutdown."
+        },
+        {
+          "number": 3,
+          "text": "Second-quarter 2026 product revenue was USD 1.84 million. This amount excludes installation services."
+        }
+      ],
+      "expected": 1,
+      "goldReason": "Only passage 1 reports completed unit shipments for the requested quarter."
+    },
+    {
+      "id": "figures-final-negative-cashflow",
+      "task": "figures",
+      "question": "Which passage gives the final net cash flow from financing for the six months ended 30 September 2025, in USD thousands?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "An unaudited early schedule listed financing cash flow of -320 in USD thousands for the six months ended 30 September 2025; that schedule was withdrawn."
+        },
+        {
+          "number": 1,
+          "text": "For the full year ended 31 March 2025, net cash flow from financing was -860 in USD thousands."
+        },
+        {
+          "number": 2,
+          "text": "The final six-month statement for the period ended 30 September 2025 reports net cash flow from investing of -410 in USD thousands."
+        },
+        {
+          "number": 3,
+          "text": "The approved final statement reports net cash flow from financing of -275 in USD thousands for the six months ended 30 September 2025. The negative sign denotes an outflow."
+        }
+      ],
+      "expected": 3,
+      "goldReason": "Only passage 3 matches final status, financing metric, six-month period, and units."
+    },
+    {
+      "id": "figures-no-audited-current-year-revenue",
+      "task": "figures",
+      "question": "Which passage provides an audited revenue figure for fiscal 2026 in JPY millions? Choose -1 if none does.",
+      "passages": [
+        {
+          "number": 0,
+          "text": "Audited revenue for fiscal 2025 was JPY 480 million. The fiscal year ended on 31 March 2025."
+        },
+        {
+          "number": 1,
+          "text": "The unapproved fiscal 2026 planning draft estimates revenue between JPY 500 million and JPY 520 million; these estimates have not been audited."
+        },
+        {
+          "number": 2,
+          "text": "The fiscal 2026 audited financial highlights report operating profit of JPY 41 million. Revenue is not included in these highlights."
+        },
+        {
+          "number": 3,
+          "text": "Management's forecast for fiscal 2027 assumes revenue of JPY 550 million, subject to the new plant opening on time."
+        }
+      ],
+      "expected": -1,
+      "goldReason": "No passage supplies both the requested fiscal year and an audited revenue figure."
+    },
+    {
+      "id": "figures-measured-maximum-not-mean",
+      "task": "figures",
+      "question": "Which passage gives the maximum cabinet temperature measured during the night trial?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "In the night trial, the highest measured cabinet temperature was 47.6 degrees Celsius at sensor C7, recorded at 02:14."
+        },
+        {
+          "number": 1,
+          "text": "The night-trial mean cabinet temperature across all samples was 42.1 degrees Celsius; this statistic is not the maximum."
+        },
+        {
+          "number": 2,
+          "text": "The daytime trial reached a maximum cabinet temperature of 51.8 degrees Celsius while the room heaters were running."
+        },
+        {
+          "number": 3,
+          "text": "The cabinet's specified operating limit is 50.0 degrees Celsius. This is a manufacturer rating, not a measured trial result."
+        }
+      ],
+      "expected": 0,
+      "goldReason": "Only passage 0 states the night trial's measured maximum."
+    },
+    {
+      "id": "risks-disputed-invoice-exception",
+      "task": "risks",
+      "question": "Which passage in the executed terms permits withholding a disputed invoice amount and states the condition for doing so?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "Executed supply terms, clause 8: the customer may withhold only a disputed invoice amount if written notice identifies the dispute within five business days of receipt. Undisputed amounts remain due within fifteen business days."
+        },
+        {
+          "number": 1,
+          "text": "An unsigned procurement draft proposed paying every invoice within thirty calendar days. The parties did not adopt that draft."
+        },
+        {
+          "number": 2,
+          "text": "The supplier's help page asks customers to submit complaints within seven days. The page states that it does not amend signed payment terms."
+        },
+        {
+          "number": 3,
+          "text": "Executed supply terms, clause 9: late fees accrue on overdue undisputed amounts at the rate shown on the order form."
+        }
+      ],
+      "expected": 0,
+      "goldReason": "Passage 0 alone supplies the executed withholding permission and its written-notice condition."
+    },
+    {
+      "id": "risks-planned-outage-business-days",
+      "task": "risks",
+      "question": "Which passage states the signed maintenance contract's advance-notice deadline for a planned outage?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The first negotiation draft proposed forty-eight hours of notice before planned outages. This proposal was not accepted."
+        },
+        {
+          "number": 1,
+          "text": "The signed incident procedure requires an initial report within four hours after an unexpected service interruption is detected."
+        },
+        {
+          "number": 2,
+          "text": "The signed maintenance contract requires the provider to give the customer at least ten business days of advance notice before a planned outage."
+        },
+        {
+          "number": 3,
+          "text": "The signed maintenance contract limits each planned outage to eight hours unless the customer approves a longer maintenance window."
+        }
+      ],
+      "expected": 2,
+      "goldReason": "Only passage 2 gives the binding advance-notice deadline for planned outages."
+    },
+    {
+      "id": "risks-no-binding-service-credit",
+      "task": "risks",
+      "question": "Which passage establishes a binding duty to pay a service credit for missing the availability target? Choose -1 if none does.",
+      "passages": [
+        {
+          "number": 0,
+          "text": "A document headed NON-BINDING NEGOTIATION DRAFT proposes a three-percent service credit if monthly availability falls below 99.5 percent. The document is unsigned."
+        },
+        {
+          "number": 1,
+          "text": "The executed service agreement describes 99.5 percent availability as a target, not a guarantee, and expressly provides no service credits for missing that target."
+        },
+        {
+          "number": 2,
+          "text": "After last month's interruption, the account manager offered a one-time courtesy discount. The offer says it creates no continuing entitlement."
+        },
+        {
+          "number": 3,
+          "text": "The outage register records two maintenance interruptions and their durations. It does not set payment obligations or remedies."
+        }
+      ],
+      "expected": -1,
+      "goldReason": "The only proposed service-credit duty is explicitly non-binding; the executed agreement denies such credits."
+    },
+    {
+      "id": "risks-sample-return-calendar-exception",
+      "task": "risks",
+      "question": "Which signed provision sets the deadline for returning samples after a written request and gives the hazardous-material exception?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "An unsigned laboratory proposal suggests returning samples within seven calendar days after testing. It contains no hazardous-material provision."
+        },
+        {
+          "number": 1,
+          "text": "The signed replacement-parts order requires shipment of replacement components within twenty business days after a warranty claim is approved."
+        },
+        {
+          "number": 2,
+          "text": "The signed laboratory agreement makes testing fees payable within thirty calendar days of the invoice date."
+        },
+        {
+          "number": 3,
+          "text": "Signed laboratory agreement, clause 12: samples must be returned within twelve calendar days after receipt of the customer's written request, except hazardous samples, which must instead be destroyed and documented by a destruction certificate."
+        }
+      ],
+      "expected": 3,
+      "goldReason": "Only passage 3 states both the requested signed deadline and the hazardous-sample exception."
+    },
+    {
+      "id": "risks-rent-review-calendar-notice",
+      "task": "risks",
+      "question": "Which passage states the executed lease's notice period for an increase at an annual rent review?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The tenant may exercise the executed lease's break option by giving ninety business days of notice before the break date."
+        },
+        {
+          "number": 1,
+          "text": "The executed lease requires at least sixty calendar days of notice before a rent increase takes effect at an annual review. No increase is permitted during the fixed first-year period."
+        },
+        {
+          "number": 2,
+          "text": "The landlord's earlier draft required sixty business days of notice for rent changes. This wording was replaced before execution."
+        },
+        {
+          "number": 3,
+          "text": "A property manager's informal email asks occupants to respond to a rent survey within ten days. It says it is not a formal rent-review notice."
+        }
+      ],
+      "expected": 1,
+      "goldReason": "Only passage 1 gives the executed annual rent-review notice period."
+    },
+    {
+      "id": "insights-pilot-promise-durability-limit",
+      "task": "insights",
+      "question": "Which passage reports promising field-pilot warning results while explicitly leaving long-term durability unestablished?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "A laboratory rig completed one hundred accelerated pressure cycles. The test did not evaluate warning performance on field-installed pumps."
+        },
+        {
+          "number": 1,
+          "text": "In a six-week field pilot on eighteen pumps, vibration alerts preceded four observed bearing failures. The authors call the warning results promising but say the short pilot does not establish long-term sensor durability."
+        },
+        {
+          "number": 2,
+          "text": "The distributor's durability certificate covers the pump housing under its standard storage conditions; it does not cover the new vibration sensor."
+        },
+        {
+          "number": 3,
+          "text": "The rollout proposal budgets for sensors at two hundred sites next year. It states a deployment ambition rather than reporting pilot results."
+        }
+      ],
+      "expected": 1,
+      "goldReason": "Only passage 1 contains both the field-pilot result and the explicit durability limitation."
+    },
+    {
+      "id": "insights-mean-lower-peak-higher",
+      "task": "insights",
+      "question": "Which passage explicitly reports lower mean energy use but higher peak power draw, and attributes the higher peak to startup bursts?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The specification lists a peak power limit for the previous controller. It provides no comparison of measured mean energy use."
+        },
+        {
+          "number": 1,
+          "text": "A separate overnight test found lower mean room temperature after the ventilation schedule changed. Controller power draw was not measured in that test."
+        },
+        {
+          "number": 2,
+          "text": "The design proposal hypothesizes that pulsed operation could reduce average energy use; the proposed design has not been tested."
+        },
+        {
+          "number": 3,
+          "text": "In the controlled comparison of twenty-four units, the new controller reduced mean energy use by six percent but raised peak power draw by eleven percent. The recorded startup bursts caused the higher peak."
+        }
+      ],
+      "expected": 3,
+      "goldReason": "Only passage 3 reports both opposite-direction results and their stated peak-power cause."
+    },
+    {
+      "id": "insights-observational-not-causal",
+      "task": "insights",
+      "question": "Which passage reports an observed association while explicitly saying it does not establish causation?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "In the observational sensor logs, warmer enclosure temperatures were associated with longer message delays. No temperature intervention was performed, so the analysts say the association does not establish that heat caused the delays."
+        },
+        {
+          "number": 1,
+          "text": "In a separate randomized scheduling experiment, switching the batch scheduler reduced message delays by eight percent under the tested workload."
+        },
+        {
+          "number": 2,
+          "text": "The capacity forecast assumes warmer summer conditions and reserves additional message-buffer capacity. It is a planning assumption, not a reported association."
+        },
+        {
+          "number": 3,
+          "text": "A proposed experiment would randomly vary enclosure temperature next winter. Recruitment and hardware preparation have not begun."
+        }
+      ],
+      "expected": 0,
+      "goldReason": "Passage 0 alone reports an association and expressly rejects a causal conclusion from it."
+    },
+    {
+      "id": "insights-no-yearlong-outdoor-proof",
+      "task": "insights",
+      "question": "Which passage establishes that the new seal prevents leaks after a full year of outdoor service? Choose -1 if none does.",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The new seal showed no leaks in a six-week outdoor pilot. The investigators caution that this duration cannot establish one-year outdoor performance."
+        },
+        {
+          "number": 1,
+          "text": "The new seal passed a twenty-hour laboratory compression test without a leak. The test chamber did not simulate outdoor exposure."
+        },
+        {
+          "number": 2,
+          "text": "A one-year outdoor trial of the new seal is planned. Its first installation has not yet taken place."
+        },
+        {
+          "number": 3,
+          "text": "An older seal design was followed for one year in outdoor service, during which two percent of installations developed leaks."
+        }
+      ],
+      "expected": -1,
+      "goldReason": "No completed test supplies one full year of outdoor evidence for the new seal."
+    },
+    {
+      "id": "insights-launch-postponement-cause",
+      "task": "insights",
+      "question": "Which passage explicitly identifies the review board's reason for postponing the product launch?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "Component costs rose during the quarter. The finance note lists a possible future margin effect but does not discuss a launch decision."
+        },
+        {
+          "number": 1,
+          "text": "A staff survey found a preference for a winter launch event. The survey results were collected before the review board met."
+        },
+        {
+          "number": 2,
+          "text": "The review board postponed the launch because the radio-interference audit failed. Its decision note says the customer-demand forecast remained unchanged."
+        },
+        {
+          "number": 3,
+          "text": "The advertising plan still displays the original launch date. The document was not updated after the board meeting."
+        }
+      ],
+      "expected": 2,
+      "goldReason": "Only passage 2 states the board's actual reason for postponement."
+    },
+    {
+      "id": "summary-water-reuse-qualified-pilot",
+      "task": "summarize",
+      "question": "Which passage best summarizes the water-reuse feasibility review's purpose, main result, limits, and recommended next step?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The cost appendix lists pump purchase prices, filter replacement intervals, and estimated electrician hours for three possible layouts."
+        },
+        {
+          "number": 1,
+          "text": "A marketing leaflet calls water reuse ready for immediate deployment at every factory. The feasibility review did not adopt that claim."
+        },
+        {
+          "number": 2,
+          "text": "An early scoping draft proposed comparing potable-water treatment methods. It predates the final review's focus on non-potable wash water."
+        },
+        {
+          "number": 3,
+          "text": "The review assesses reuse of non-potable wash water. Bench tests on two process batches reduced fresh-water use by thirty percent, but long-term fouling was not assessed; the review recommends a controlled site pilot before wider rollout."
+        }
+      ],
+      "expected": 3,
+      "goldReason": "Passage 3 supplies the final review's scope, result, limitation, and conditional recommendation."
+    },
+    {
+      "id": "summary-ridership-observational-review",
+      "task": "summarize",
+      "question": "Which passage best summarizes the bus-ridership review's analysis, qualification, and recommendation?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The review examines 2022–2025 bus ticket counts: weekday ridership declined alongside remote-work indicators, while weekend ridership stayed stable. It does not establish a causal effect of remote work and recommends route pilots before permanent service changes."
+        },
+        {
+          "number": 1,
+          "text": "The dashboard appendix gives monthly weekday ticket counts for each depot, with separate columns for cash and prepaid tickets."
+        },
+        {
+          "number": 2,
+          "text": "A campaign statement says remote work has been proved to cause every route's decline. The review explicitly does not endorse that causal claim."
+        },
+        {
+          "number": 3,
+          "text": "A budget memo proposes immediate network-wide service cuts. Its proposal was written before the ridership review was completed."
+        }
+      ],
+      "expected": 0,
+      "goldReason": "Only passage 0 covers the review's findings, causal limitation, and staged recommendation."
+    },
+    {
+      "id": "summary-api-policy-temporary-exception",
+      "task": "summarize",
+      "question": "Which passage best summarizes the current external-API policy memo, including its approval rule and temporary exception?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The technical appendix lists TLS versions, certificate rotation intervals, and the log fields collected for outbound API requests."
+        },
+        {
+          "number": 1,
+          "text": "An obsolete 2023 memo prohibited all external API calls. The current memo replaces that blanket rule."
+        },
+        {
+          "number": 2,
+          "text": "The current memo reviews external API use and requires approval before adding a new vendor. The existing emergency-weather feed receives a temporary exception pending a review within sixty days; the memo does not impose an immediate blanket ban."
+        },
+        {
+          "number": 3,
+          "text": "A meeting note suggests one possible migration date for the weather feed. The date remains unapproved and does not state the vendor-approval policy."
+        }
+      ],
+      "expected": 2,
+      "goldReason": "Only passage 2 summarizes the current policy and the specific temporary exception."
+    },
+    {
+      "id": "summary-electrolyte-lab-scale-limit",
+      "task": "summarize",
+      "question": "Which passage best summarizes the electrolyte study's purpose, result, tradeoff, and scale limitation?",
+      "passages": [
+        {
+          "number": 0,
+          "text": "A sponsor's brochure calls the electrolyte production-ready. The study contains no production-scale validation supporting that description."
+        },
+        {
+          "number": 1,
+          "text": "The study compares three solid-electrolyte recipes in laboratory coin cells. Recipe B gave the best low-temperature capacity but increased impedance; because larger-format cells were not tested, the authors request larger-format validation before adoption."
+        },
+        {
+          "number": 2,
+          "text": "A results-table note gives one capacity measurement for recipe B at minus ten degrees Celsius, without discussing impedance or validation scale."
+        },
+        {
+          "number": 3,
+          "text": "The previous project evaluated liquid electrolytes in room-temperature pouch cells. Its results are background material rather than this study's conclusions."
+        }
+      ],
+      "expected": 1,
+      "goldReason": "Passage 1 alone integrates the study's comparison, benefit, tradeoff, and untested scale."
+    },
+    {
+      "id": "summary-no-unrestricted-release-conclusion",
+      "task": "summarize",
+      "question": "Which passage supports summarizing the final tool review as having validated every production flow and recommended unrestricted release? Choose -1 if none does.",
+      "passages": [
+        {
+          "number": 0,
+          "text": "The completed review exercised five of the twelve planned workflows and found two critical gaps. The remaining workflows were not evaluated."
+        },
+        {
+          "number": 1,
+          "text": "The final recommendation is a limited staff trial only after the critical gaps are fixed. Unrestricted release is not recommended."
+        },
+        {
+          "number": 2,
+          "text": "The review's scope excludes production-system integrations. Tests used a sandbox with fabricated records."
+        },
+        {
+          "number": 3,
+          "text": "The program owner asks the team to complete full production-flow validation in the next phase. That work is still pending."
+        }
+      ],
+      "expected": -1,
+      "goldReason": "All passages describe incomplete validation or a restricted recommendation, so none supports the proposed summary."
+    }
+  ]
+}

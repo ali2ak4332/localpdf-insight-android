@@ -1,0 +1,1213 @@
+{
+  "scope": "Twenty frozen synthetic English source-evidence cases; selection and abstention only",
+  "limitations": "Not a representative-PDF benchmark, numerical-calculation test, or real-world verification; prompt/schema/Jinja path differ from production adapter",
+  "createdAt": "2026-10-24T15:19:04.295249+00:00",
+  "fixtureSha256": "500101192f7819a50d08693a344182922bb79667bf77a47be2b964d635dd1fd2",
+  "fixtureProvenance": {
+    "scope": "Synthetic, agent-authored English text-only source-evidence holdout; not extracted from PDFs",
+    "authoredAndGoldCheckedBeforeModelExecution": true,
+    "frozenAtUtc": "2026-10-24T15:17:08.995518+00:00",
+    "authoringMethod": "Twenty fresh cases authored by one agent; all gold labels and abstentions independently reviewed by the primary agent and a second agent before model execution. No human expert annotation.",
+    "limitations": "Measures passage selection and abstention only, not numerical calculation, real-world truth, page citations, OCR, document coverage, or representative-PDF performance",
+    "answerConvention": "Choose the sole passage supplying the evidence requested by the question; -1 means no passage supplies that evidence",
+    "balance": "Five cases per task; one no-support case per task; the remaining sixteen answers use each position 0 through 3 four times"
+  },
+  "model": {
+    "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+    "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+    "filename": "Qwen3.5-0.8B-Q4_K_M.gguf",
+    "bytes": 532517120,
+    "sha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+    "quantization": "Q4_K_M"
+  },
+  "verifiedModelSha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+  "additionalFineTuningPerformed": false,
+  "expectedRuntimeCommit": "df9beac7153166550571c70cc667f270b745da49",
+  "serverVersion": "version: 0.7.0-dev (build 1, commit df9beac)\nbuilt with GNU 13.3.0 for Linux x86_64",
+  "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+  "host": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "parameters": {
+    "serverArguments": [
+      "--model",
+      "<verified-local-model>",
+      "--alias",
+      "native-diagnostic",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "52429",
+      "--offline",
+      "--jinja",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--ctx-size",
+      "4096",
+      "--batch-size",
+      "256",
+      "--ubatch-size",
+      "128",
+      "--parallel",
+      "1",
+      "--device",
+      "none",
+      "--gpu-layers",
+      "0",
+      "--no-kv-offload",
+      "--fit",
+      "off",
+      "--no-cache-prompt",
+      "--reasoning",
+      "off",
+      "--no-webui",
+      "--no-slots",
+      "--timeout",
+      "60"
+    ],
+    "contextTokens": 4096,
+    "cpuThreads": 4,
+    "batchTokens": 256,
+    "ubatchTokens": 128,
+    "parallel": 1,
+    "temperature": 0,
+    "seed": 0,
+    "maximumOutputTokens": 96,
+    "chatTemplateKwargs": {
+      "enable_thinking": false
+    },
+    "reasoning": "off",
+    "choiceSchema": {
+      "type": "object",
+      "properties": {
+        "choice": {
+          "type": "integer",
+          "enum": [
+            -1,
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "required": [
+        "choice"
+      ],
+      "additionalProperties": false
+    },
+    "promptCaching": false,
+    "startupTimeoutSeconds": 120,
+    "requestTimeoutSeconds": 60,
+    "templateTimeoutSeconds": 15,
+    "network": "Local 127.0.0.1 HTTP; --offline; verified local model; no downloader or remote API",
+    "timingScope": "API wall time excludes template inspection and startup; checksum read warms filesystem cache"
+  },
+  "memoryScope": "Fresh runner/server process; getrusage(RUSAGE_CHILDREN).ru_maxrss after server termination, Linux KiB multiplied by 1024; includes small --version child; host, not Android",
+  "status": "completed",
+  "startupMilliseconds": 609.708,
+  "serverExitCode": 0,
+  "peakProcessRssBytes": 2043953152,
+  "summary": {
+    "definition": "Exact means HTTP 200 with a parsed object containing only an integer choice equal to the frozen gold; failed or missing responses count as unsuccessful",
+    "exactCases": 16,
+    "totalCases": 20,
+    "responsesReceived": 20,
+    "exactSelectionRate": 0.8,
+    "supportedCases": 16,
+    "supportedExactCases": 15,
+    "abstention": {
+      "expectedCases": 4,
+      "correctAbstentions": 1,
+      "falseAbstentions": 0,
+      "unsupportedSelections": 3
+    },
+    "validChoiceObjects": 20,
+    "byTask": {
+      "figures": {
+        "exactCases": 5,
+        "totalCases": 5
+      },
+      "risks": {
+        "exactCases": 4,
+        "totalCases": 5
+      },
+      "insights": {
+        "exactCases": 4,
+        "totalCases": 5
+      },
+      "summarize": {
+        "exactCases": 3,
+        "totalCases": 5
+      }
+    },
+    "medianRequestMs": 1404.274,
+    "p95RequestMs": 1958.6
+  },
+  "finishedAt": "2026-10-24T15:19:33.483794+00:00",
+  "responses": [
+    {
+      "id": "figures-restated-operating-result",
+      "task": "figures",
+      "expected": 2,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the final restated operating result for 2024 in EUR millions?\n\nPASSAGES:\n0: The original 2024 release reported an operating profit of EUR 5.1 million. That operating-result figure was superseded by the subsequent correction.\n\n1: Revenue for the year ended 31 December 2025 was EUR 62 million, including EUR 4 million from the new service division.\n\n2: Correction approved on 18 March: the final restated 2024 operating result is a loss of EUR 1.8 million, replacing the previously reported profit of EUR 5.1 million.\n\n3: The final restated net result for 2024 was a loss of EUR 2.4 million after financing costs and tax.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the final restated operating result for 2024 in EUR millions?\n\nPASSAGES:\n0: The original 2024 release reported an operating profit of EUR 5.1 million. That operating-result figure was superseded by the subsequent correction.\n\n1: Revenue for the year ended 31 December 2025 was EUR 62 million, including EUR 4 million from the new service division.\n\n2: Correction approved on 18 March: the final restated 2024 operating result is a loss of EUR 1.8 million, replacing the previously reported profit of EUR 5.1 million.\n\n3: The final restated net result for 2024 was a loss of EUR 2.4 million after financing costs and tax.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1465.826,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "validChoiceObject": true,
+      "choice": 2,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792855146,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 251,
+          "total_tokens": 262,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-8etH2ULk8OHHzVj4p0OxcYMJZ7yaIIpd",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 251,
+          "prompt_ms": 1114.897,
+          "prompt_per_token_ms": 4.441820717131474,
+          "prompt_per_second": 225.13290465397253,
+          "predicted_n": 11,
+          "predicted_ms": 346.848,
+          "predicted_per_token_ms": 34.6848,
+          "predicted_per_second": 28.83107297721192
+        }
+      }
+    },
+    {
+      "id": "figures-quarter-shipped-units",
+      "task": "figures",
+      "expected": 1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports the number of units actually shipped in the second quarter of 2026?\n\nPASSAGES:\n0: At 30 June 2026, the order backlog was 18,400 units. Backlog counts orders awaiting shipment, rather than completed shipments.\n\n1: During the second quarter of 2026, from 1 April through 30 June, the warehouse shipped 1,840 units to customers.\n\n2: Shipments during the first quarter of 2026 totaled 1,590 units, following the February packaging-line shutdown.\n\n3: Second-quarter 2026 product revenue was USD 1.84 million. This amount excludes installation services.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports the number of units actually shipped in the second quarter of 2026?\n\nPASSAGES:\n0: At 30 June 2026, the order backlog was 18,400 units. Backlog counts orders awaiting shipment, rather than completed shipments.\n\n1: During the second quarter of 2026, from 1 April through 30 June, the warehouse shipped 1,840 units to customers.\n\n2: Shipments during the first quarter of 2026 totaled 1,590 units, following the February packaging-line shutdown.\n\n3: Second-quarter 2026 product revenue was USD 1.84 million. This amount excludes installation services.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1413.18,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855147,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 239,
+          "total_tokens": 250,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-sZRycfUrl5YkKYVvDhA5zIDYHWaBxGZp",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 239,
+          "prompt_ms": 1109.785,
+          "prompt_per_token_ms": 4.643451882845189,
+          "prompt_per_second": 215.35702861365039,
+          "predicted_n": 11,
+          "predicted_ms": 274.982,
+          "predicted_per_token_ms": 27.498200000000004,
+          "predicted_per_second": 36.36601668472845
+        }
+      }
+    },
+    {
+      "id": "figures-final-negative-cashflow",
+      "task": "figures",
+      "expected": 3,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage gives the final net cash flow from financing for the six months ended 30 September 2025, in USD thousands?\n\nPASSAGES:\n0: An unaudited early schedule listed financing cash flow of -320 in USD thousands for the six months ended 30 September 2025; that schedule was withdrawn.\n\n1: For the full year ended 31 March 2025, net cash flow from financing was -860 in USD thousands.\n\n2: The final six-month statement for the period ended 30 September 2025 reports net cash flow from investing of -410 in USD thousands.\n\n3: The approved final statement reports net cash flow from financing of -275 in USD thousands for the six months ended 30 September 2025. The negative sign denotes an outflow.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage gives the final net cash flow from financing for the six months ended 30 September 2025, in USD thousands?\n\nPASSAGES:\n0: An unaudited early schedule listed financing cash flow of -320 in USD thousands for the six months ended 30 September 2025; that schedule was withdrawn.\n\n1: For the full year ended 31 March 2025, net cash flow from financing was -860 in USD thousands.\n\n2: The final six-month statement for the period ended 30 September 2025 reports net cash flow from investing of -410 in USD thousands.\n\n3: The approved final statement reports net cash flow from financing of -275 in USD thousands for the six months ended 30 September 2025. The negative sign denotes an outflow.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1521.056,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "validChoiceObject": true,
+      "choice": 3,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792855149,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 267,
+          "total_tokens": 278,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-xXPyUb55uOxS9fR3hFKg0jMC9UAGLUZZ",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 267,
+          "prompt_ms": 1192.877,
+          "prompt_per_token_ms": 4.467704119850187,
+          "prompt_per_second": 223.82860932015623,
+          "predicted_n": 11,
+          "predicted_ms": 302.262,
+          "predicted_per_token_ms": 30.2262,
+          "predicted_per_second": 33.08388087156176
+        }
+      }
+    },
+    {
+      "id": "figures-no-audited-current-year-revenue",
+      "task": "figures",
+      "expected": -1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage provides an audited revenue figure for fiscal 2026 in JPY millions? Choose -1 if none does.\n\nPASSAGES:\n0: Audited revenue for fiscal 2025 was JPY 480 million. The fiscal year ended on 31 March 2025.\n\n1: The unapproved fiscal 2026 planning draft estimates revenue between JPY 500 million and JPY 520 million; these estimates have not been audited.\n\n2: The fiscal 2026 audited financial highlights report operating profit of JPY 41 million. Revenue is not included in these highlights.\n\n3: Management's forecast for fiscal 2027 assumes revenue of JPY 550 million, subject to the new plant opening on time.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage provides an audited revenue figure for fiscal 2026 in JPY millions? Choose -1 if none does.\n\nPASSAGES:\n0: Audited revenue for fiscal 2025 was JPY 480 million. The fiscal year ended on 31 March 2025.\n\n1: The unapproved fiscal 2026 planning draft estimates revenue between JPY 500 million and JPY 520 million; these estimates have not been audited.\n\n2: The fiscal 2026 audited financial highlights report operating profit of JPY 41 million. Revenue is not included in these highlights.\n\n3: Management's forecast for fiscal 2027 assumes revenue of JPY 550 million, subject to the new plant opening on time.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1531.098,
+      "rawContent": "{\n  \"choice\": -1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": -1
+      },
+      "validChoiceObject": true,
+      "choice": -1,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": -1\n}"
+            }
+          }
+        ],
+        "created": 1792855150,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 256,
+          "total_tokens": 267,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-nJqhhTnie5AjNbrJtc5lA7bUtrNA5uuv",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 256,
+          "prompt_ms": 1266.65,
+          "prompt_per_token_ms": 4.9478515625,
+          "prompt_per_second": 202.1079224726641,
+          "predicted_n": 11,
+          "predicted_ms": 236.546,
+          "predicted_per_token_ms": 23.6546,
+          "predicted_per_second": 42.2750754610097
+        }
+      }
+    },
+    {
+      "id": "figures-measured-maximum-not-mean",
+      "task": "figures",
+      "expected": 0,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage gives the maximum cabinet temperature measured during the night trial?\n\nPASSAGES:\n0: In the night trial, the highest measured cabinet temperature was 47.6 degrees Celsius at sensor C7, recorded at 02:14.\n\n1: The night-trial mean cabinet temperature across all samples was 42.1 degrees Celsius; this statistic is not the maximum.\n\n2: The daytime trial reached a maximum cabinet temperature of 51.8 degrees Celsius while the room heaters were running.\n\n3: The cabinet's specified operating limit is 50.0 degrees Celsius. This is a manufacturer rating, not a measured trial result.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage gives the maximum cabinet temperature measured during the night trial?\n\nPASSAGES:\n0: In the night trial, the highest measured cabinet temperature was 47.6 degrees Celsius at sensor C7, recorded at 02:14.\n\n1: The night-trial mean cabinet temperature across all samples was 42.1 degrees Celsius; this statistic is not the maximum.\n\n2: The daytime trial reached a maximum cabinet temperature of 51.8 degrees Celsius while the room heaters were running.\n\n3: The cabinet's specified operating limit is 50.0 degrees Celsius. This is a manufacturer rating, not a measured trial result.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1217.984,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "validChoiceObject": true,
+      "choice": 0,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792855152,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 218,
+          "total_tokens": 229,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-8J4XZzOeNXMfCw0ITBhP2yHKPHDOWGDy",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 218,
+          "prompt_ms": 894.197,
+          "prompt_per_token_ms": 4.101821100917431,
+          "prompt_per_second": 243.79415274262828,
+          "predicted_n": 11,
+          "predicted_ms": 291.892,
+          "predicted_per_token_ms": 29.1892,
+          "predicted_per_second": 34.25924657064942
+        }
+      }
+    },
+    {
+      "id": "risks-disputed-invoice-exception",
+      "task": "risks",
+      "expected": 0,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage in the executed terms permits withholding a disputed invoice amount and states the condition for doing so?\n\nPASSAGES:\n0: Executed supply terms, clause 8: the customer may withhold only a disputed invoice amount if written notice identifies the dispute within five business days of receipt. Undisputed amounts remain due within fifteen business days.\n\n1: An unsigned procurement draft proposed paying every invoice within thirty calendar days. The parties did not adopt that draft.\n\n2: The supplier's help page asks customers to submit complaints within seven days. The page states that it does not amend signed payment terms.\n\n3: Executed supply terms, clause 9: late fees accrue on overdue undisputed amounts at the rate shown on the order form.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage in the executed terms permits withholding a disputed invoice amount and states the condition for doing so?\n\nPASSAGES:\n0: Executed supply terms, clause 8: the customer may withhold only a disputed invoice amount if written notice identifies the dispute within five business days of receipt. Undisputed amounts remain due within fifteen business days.\n\n1: An unsigned procurement draft proposed paying every invoice within thirty calendar days. The parties did not adopt that draft.\n\n2: The supplier's help page asks customers to submit complaints within seven days. The page states that it does not amend signed payment terms.\n\n3: Executed supply terms, clause 9: late fees accrue on overdue undisputed amounts at the rate shown on the order form.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1404.274,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "validChoiceObject": true,
+      "choice": 0,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792855153,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 233,
+          "total_tokens": 244,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-NT00s3UhOqQ5RlBGZ8tQNKnQqLC9sDqi",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 233,
+          "prompt_ms": 1103.562,
+          "prompt_per_token_ms": 4.736317596566523,
+          "prompt_per_second": 211.13448995162938,
+          "predicted_n": 11,
+          "predicted_ms": 272.27,
+          "predicted_per_token_ms": 27.226999999999997,
+          "predicted_per_second": 36.72824769530246
+        }
+      }
+    },
+    {
+      "id": "risks-planned-outage-business-days",
+      "task": "risks",
+      "expected": 2,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the signed maintenance contract's advance-notice deadline for a planned outage?\n\nPASSAGES:\n0: The first negotiation draft proposed forty-eight hours of notice before planned outages. This proposal was not accepted.\n\n1: The signed incident procedure requires an initial report within four hours after an unexpected service interruption is detected.\n\n2: The signed maintenance contract requires the provider to give the customer at least ten business days of advance notice before a planned outage.\n\n3: The signed maintenance contract limits each planned outage to eight hours unless the customer approves a longer maintenance window.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the signed maintenance contract's advance-notice deadline for a planned outage?\n\nPASSAGES:\n0: The first negotiation draft proposed forty-eight hours of notice before planned outages. This proposal was not accepted.\n\n1: The signed incident procedure requires an initial report within four hours after an unexpected service interruption is detected.\n\n2: The signed maintenance contract requires the provider to give the customer at least ten business days of advance notice before a planned outage.\n\n3: The signed maintenance contract limits each planned outage to eight hours unless the customer approves a longer maintenance window.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1139.314,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "validChoiceObject": true,
+      "choice": 2,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792855154,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 198,
+          "total_tokens": 209,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-Nzbqs8rDJkoQ4JcW4Co0DXjEKetKcjeg",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 198,
+          "prompt_ms": 849.924,
+          "prompt_per_token_ms": 4.292545454545454,
+          "prompt_per_second": 232.96200601465543,
+          "predicted_n": 11,
+          "predicted_ms": 255.976,
+          "predicted_per_token_ms": 25.5976,
+          "predicted_per_second": 39.06616245272994
+        }
+      }
+    },
+    {
+      "id": "risks-no-binding-service-credit",
+      "task": "risks",
+      "expected": -1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage establishes a binding duty to pay a service credit for missing the availability target? Choose -1 if none does.\n\nPASSAGES:\n0: A document headed NON-BINDING NEGOTIATION DRAFT proposes a three-percent service credit if monthly availability falls below 99.5 percent. The document is unsigned.\n\n1: The executed service agreement describes 99.5 percent availability as a target, not a guarantee, and expressly provides no service credits for missing that target.\n\n2: After last month's interruption, the account manager offered a one-time courtesy discount. The offer says it creates no continuing entitlement.\n\n3: The outage register records two maintenance interruptions and their durations. It does not set payment obligations or remedies.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage establishes a binding duty to pay a service credit for missing the availability target? Choose -1 if none does.\n\nPASSAGES:\n0: A document headed NON-BINDING NEGOTIATION DRAFT proposes a three-percent service credit if monthly availability falls below 99.5 percent. The document is unsigned.\n\n1: The executed service agreement describes 99.5 percent availability as a target, not a guarantee, and expressly provides no service credits for missing that target.\n\n2: After last month's interruption, the account manager offered a one-time courtesy discount. The offer says it creates no continuing entitlement.\n\n3: The outage register records two maintenance interruptions and their durations. It does not set payment obligations or remedies.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1312.279,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": false,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855155,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 233,
+          "total_tokens": 244,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-Nho0O8pJy6GHJUfcz5hes4gjfRH5Vi2I",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 233,
+          "prompt_ms": 1015.997,
+          "prompt_per_token_ms": 4.360502145922746,
+          "prompt_per_second": 229.33138582102114,
+          "predicted_n": 11,
+          "predicted_ms": 266.634,
+          "predicted_per_token_ms": 26.663400000000003,
+          "predicted_per_second": 37.50459431280332
+        }
+      }
+    },
+    {
+      "id": "risks-sample-return-calendar-exception",
+      "task": "risks",
+      "expected": 3,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich signed provision sets the deadline for returning samples after a written request and gives the hazardous-material exception?\n\nPASSAGES:\n0: An unsigned laboratory proposal suggests returning samples within seven calendar days after testing. It contains no hazardous-material provision.\n\n1: The signed replacement-parts order requires shipment of replacement components within twenty business days after a warranty claim is approved.\n\n2: The signed laboratory agreement makes testing fees payable within thirty calendar days of the invoice date.\n\n3: Signed laboratory agreement, clause 12: samples must be returned within twelve calendar days after receipt of the customer's written request, except hazardous samples, which must instead be destroyed and documented by a destruction certificate.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich signed provision sets the deadline for returning samples after a written request and gives the hazardous-material exception?\n\nPASSAGES:\n0: An unsigned laboratory proposal suggests returning samples within seven calendar days after testing. It contains no hazardous-material provision.\n\n1: The signed replacement-parts order requires shipment of replacement components within twenty business days after a warranty claim is approved.\n\n2: The signed laboratory agreement makes testing fees payable within thirty calendar days of the invoice date.\n\n3: Signed laboratory agreement, clause 12: samples must be returned within twelve calendar days after receipt of the customer's written request, except hazardous samples, which must instead be destroyed and documented by a destruction certificate.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1382.954,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "validChoiceObject": true,
+      "choice": 3,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792855157,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 218,
+          "total_tokens": 229,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-4KNXoIxoa6wHLGqi9bJtcOjbK8qWK3T7",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 218,
+          "prompt_ms": 964.721,
+          "prompt_per_token_ms": 4.425325688073395,
+          "prompt_per_second": 225.97206860843707,
+          "predicted_n": 11,
+          "predicted_ms": 253.991,
+          "predicted_per_token_ms": 25.3991,
+          "predicted_per_second": 39.37147379237847
+        }
+      }
+    },
+    {
+      "id": "risks-rent-review-calendar-notice",
+      "task": "risks",
+      "expected": 1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the executed lease's notice period for an increase at an annual rent review?\n\nPASSAGES:\n0: The tenant may exercise the executed lease's break option by giving ninety business days of notice before the break date.\n\n1: The executed lease requires at least sixty calendar days of notice before a rent increase takes effect at an annual review. No increase is permitted during the fixed first-year period.\n\n2: The landlord's earlier draft required sixty business days of notice for rent changes. This wording was replaced before execution.\n\n3: A property manager's informal email asks occupants to respond to a rent survey within ten days. It says it is not a formal rent-review notice.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage states the executed lease's notice period for an increase at an annual rent review?\n\nPASSAGES:\n0: The tenant may exercise the executed lease's break option by giving ninety business days of notice before the break date.\n\n1: The executed lease requires at least sixty calendar days of notice before a rent increase takes effect at an annual review. No increase is permitted during the fixed first-year period.\n\n2: The landlord's earlier draft required sixty business days of notice for rent changes. This wording was replaced before execution.\n\n3: A property manager's informal email asks occupants to respond to a rent survey within ten days. It says it is not a formal rent-review notice.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1270.917,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855158,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 221,
+          "total_tokens": 232,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-g3veU6V3CVTvXrnwU42C8SNDP9oxgdcm",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 221,
+          "prompt_ms": 949.499,
+          "prompt_per_token_ms": 4.29637556561086,
+          "prompt_per_second": 232.7543262288849,
+          "predicted_n": 11,
+          "predicted_ms": 287.455,
+          "predicted_per_token_ms": 28.7455,
+          "predicted_per_second": 34.78805378233115
+        }
+      }
+    },
+    {
+      "id": "insights-pilot-promise-durability-limit",
+      "task": "insights",
+      "expected": 1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports promising field-pilot warning results while explicitly leaving long-term durability unestablished?\n\nPASSAGES:\n0: A laboratory rig completed one hundred accelerated pressure cycles. The test did not evaluate warning performance on field-installed pumps.\n\n1: In a six-week field pilot on eighteen pumps, vibration alerts preceded four observed bearing failures. The authors call the warning results promising but say the short pilot does not establish long-term sensor durability.\n\n2: The distributor's durability certificate covers the pump housing under its standard storage conditions; it does not cover the new vibration sensor.\n\n3: The rollout proposal budgets for sensors at two hundred sites next year. It states a deployment ambition rather than reporting pilot results.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports promising field-pilot warning results while explicitly leaving long-term durability unestablished?\n\nPASSAGES:\n0: A laboratory rig completed one hundred accelerated pressure cycles. The test did not evaluate warning performance on field-installed pumps.\n\n1: In a six-week field pilot on eighteen pumps, vibration alerts preceded four observed bearing failures. The authors call the warning results promising but say the short pilot does not establish long-term sensor durability.\n\n2: The distributor's durability certificate covers the pump housing under its standard storage conditions; it does not cover the new vibration sensor.\n\n3: The rollout proposal budgets for sensors at two hundred sites next year. It states a deployment ambition rather than reporting pilot results.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1287.84,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855159,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 225,
+          "total_tokens": 236,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-kERq117H2BHZLlJCPSrKtNAohEVk2mFe",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 225,
+          "prompt_ms": 1008.927,
+          "prompt_per_token_ms": 4.48412,
+          "prompt_per_second": 223.0091968992801,
+          "predicted_n": 11,
+          "predicted_ms": 256.414,
+          "predicted_per_token_ms": 25.641399999999997,
+          "predicted_per_second": 38.99943060831312
+        }
+      }
+    },
+    {
+      "id": "insights-mean-lower-peak-higher",
+      "task": "insights",
+      "expected": 3,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage explicitly reports lower mean energy use but higher peak power draw, and attributes the higher peak to startup bursts?\n\nPASSAGES:\n0: The specification lists a peak power limit for the previous controller. It provides no comparison of measured mean energy use.\n\n1: A separate overnight test found lower mean room temperature after the ventilation schedule changed. Controller power draw was not measured in that test.\n\n2: The design proposal hypothesizes that pulsed operation could reduce average energy use; the proposed design has not been tested.\n\n3: In the controlled comparison of twenty-four units, the new controller reduced mean energy use by six percent but raised peak power draw by eleven percent. The recorded startup bursts caused the higher peak.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage explicitly reports lower mean energy use but higher peak power draw, and attributes the higher peak to startup bursts?\n\nPASSAGES:\n0: The specification lists a peak power limit for the previous controller. It provides no comparison of measured mean energy use.\n\n1: A separate overnight test found lower mean room temperature after the ventilation schedule changed. Controller power draw was not measured in that test.\n\n2: The design proposal hypothesizes that pulsed operation could reduce average energy use; the proposed design has not been tested.\n\n3: In the controlled comparison of twenty-four units, the new controller reduced mean energy use by six percent but raised peak power draw by eleven percent. The recorded startup bursts caused the higher peak.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1368.869,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "validChoiceObject": true,
+      "choice": 3,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792855161,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 228,
+          "total_tokens": 239,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-kuF7jLf4hRdtdXhR2uGg0gHMDxhrefJg",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 228,
+          "prompt_ms": 1003.694,
+          "prompt_per_token_ms": 4.402166666666666,
+          "prompt_per_second": 227.16086775451484,
+          "predicted_n": 11,
+          "predicted_ms": 243.079,
+          "predicted_per_token_ms": 24.3079,
+          "predicted_per_second": 41.13888900316358
+        }
+      }
+    },
+    {
+      "id": "insights-observational-not-causal",
+      "task": "insights",
+      "expected": 0,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports an observed association while explicitly saying it does not establish causation?\n\nPASSAGES:\n0: In the observational sensor logs, warmer enclosure temperatures were associated with longer message delays. No temperature intervention was performed, so the analysts say the association does not establish that heat caused the delays.\n\n1: In a separate randomized scheduling experiment, switching the batch scheduler reduced message delays by eight percent under the tested workload.\n\n2: The capacity forecast assumes warmer summer conditions and reserves additional message-buffer capacity. It is a planning assumption, not a reported association.\n\n3: A proposed experiment would randomly vary enclosure temperature next winter. Recruitment and hardware preparation have not begun.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage reports an observed association while explicitly saying it does not establish causation?\n\nPASSAGES:\n0: In the observational sensor logs, warmer enclosure temperatures were associated with longer message delays. No temperature intervention was performed, so the analysts say the association does not establish that heat caused the delays.\n\n1: In a separate randomized scheduling experiment, switching the batch scheduler reduced message delays by eight percent under the tested workload.\n\n2: The capacity forecast assumes warmer summer conditions and reserves additional message-buffer capacity. It is a planning assumption, not a reported association.\n\n3: A proposed experiment would randomly vary enclosure temperature next winter. Recruitment and hardware preparation have not begun.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1199.437,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "validChoiceObject": true,
+      "choice": 0,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792855162,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 216,
+          "total_tokens": 227,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-r52QPsF4WEZB3uIrhLVwRZwp6bxmz2EO",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 216,
+          "prompt_ms": 914.927,
+          "prompt_per_token_ms": 4.235773148148148,
+          "prompt_per_second": 236.08440892005592,
+          "predicted_n": 11,
+          "predicted_ms": 251.556,
+          "predicted_per_token_ms": 25.1556,
+          "predicted_per_second": 39.75257994243827
+        }
+      }
+    },
+    {
+      "id": "insights-no-yearlong-outdoor-proof",
+      "task": "insights",
+      "expected": -1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage establishes that the new seal prevents leaks after a full year of outdoor service? Choose -1 if none does.\n\nPASSAGES:\n0: The new seal showed no leaks in a six-week outdoor pilot. The investigators caution that this duration cannot establish one-year outdoor performance.\n\n1: The new seal passed a twenty-hour laboratory compression test without a leak. The test chamber did not simulate outdoor exposure.\n\n2: A one-year outdoor trial of the new seal is planned. Its first installation has not yet taken place.\n\n3: An older seal design was followed for one year in outdoor service, during which two percent of installations developed leaks.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage establishes that the new seal prevents leaks after a full year of outdoor service? Choose -1 if none does.\n\nPASSAGES:\n0: The new seal showed no leaks in a six-week outdoor pilot. The investigators caution that this duration cannot establish one-year outdoor performance.\n\n1: The new seal passed a twenty-hour laboratory compression test without a leak. The test chamber did not simulate outdoor exposure.\n\n2: A one-year outdoor trial of the new seal is planned. Its first installation has not yet taken place.\n\n3: An older seal design was followed for one year in outdoor service, during which two percent of installations developed leaks.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1285.174,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": false,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855163,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 213,
+          "total_tokens": 224,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-PdTA2KPkpfXh7vMTjSNkEzMnfK3ajBy8",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 213,
+          "prompt_ms": 956.47,
+          "prompt_per_token_ms": 4.490469483568075,
+          "prompt_per_second": 222.69386389536527,
+          "predicted_n": 11,
+          "predicted_ms": 286.816,
+          "predicted_per_token_ms": 28.681599999999996,
+          "predicted_per_second": 34.86555840678345
+        }
+      }
+    },
+    {
+      "id": "insights-launch-postponement-cause",
+      "task": "insights",
+      "expected": 2,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage explicitly identifies the review board's reason for postponing the product launch?\n\nPASSAGES:\n0: Component costs rose during the quarter. The finance note lists a possible future margin effect but does not discuss a launch decision.\n\n1: A staff survey found a preference for a winter launch event. The survey results were collected before the review board met.\n\n2: The review board postponed the launch because the radio-interference audit failed. Its decision note says the customer-demand forecast remained unchanged.\n\n3: The advertising plan still displays the original launch date. The document was not updated after the board meeting.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage explicitly identifies the review board's reason for postponing the product launch?\n\nPASSAGES:\n0: Component costs rose during the quarter. The finance note lists a possible future margin effect but does not discuss a launch decision.\n\n1: A staff survey found a preference for a winter launch event. The survey results were collected before the review board met.\n\n2: The review board postponed the launch because the radio-interference audit failed. Its decision note says the customer-demand forecast remained unchanged.\n\n3: The advertising plan still displays the original launch date. The document was not updated after the board meeting.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1234.439,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "validChoiceObject": true,
+      "choice": 2,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792855164,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 205,
+          "total_tokens": 216,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-eSUJ5JEImVfJ7SnTSWGzZXQzle9rfJCA",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 205,
+          "prompt_ms": 903.416,
+          "prompt_per_token_ms": 4.406907317073171,
+          "prompt_per_second": 226.91650358196003,
+          "predicted_n": 11,
+          "predicted_ms": 267.095,
+          "predicted_per_token_ms": 26.709500000000002,
+          "predicted_per_second": 37.439862221307024
+        }
+      }
+    },
+    {
+      "id": "summary-water-reuse-qualified-pilot",
+      "task": "summarize",
+      "expected": 3,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the water-reuse feasibility review's purpose, main result, limits, and recommended next step?\n\nPASSAGES:\n0: The cost appendix lists pump purchase prices, filter replacement intervals, and estimated electrician hours for three possible layouts.\n\n1: A marketing leaflet calls water reuse ready for immediate deployment at every factory. The feasibility review did not adopt that claim.\n\n2: An early scoping draft proposed comparing potable-water treatment methods. It predates the final review's focus on non-potable wash water.\n\n3: The review assesses reuse of non-potable wash water. Bench tests on two process batches reduced fresh-water use by thirty percent, but long-term fouling was not assessed; the review recommends a controlled site pilot before wider rollout.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the water-reuse feasibility review's purpose, main result, limits, and recommended next step?\n\nPASSAGES:\n0: The cost appendix lists pump purchase prices, filter replacement intervals, and estimated electrician hours for three possible layouts.\n\n1: A marketing leaflet calls water reuse ready for immediate deployment at every factory. The feasibility review did not adopt that claim.\n\n2: An early scoping draft proposed comparing potable-water treatment methods. It predates the final review's focus on non-potable wash water.\n\n3: The review assesses reuse of non-potable wash water. Bench tests on two process batches reduced fresh-water use by thirty percent, but long-term fouling was not assessed; the review recommends a controlled site pilot before wider rollout.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1583.434,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "validChoiceObject": true,
+      "choice": 3,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792855166,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 241,
+          "total_tokens": 252,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-1jLsxyDMLJEsP7eW4oDf6B5LVEFfK7Lu",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 241,
+          "prompt_ms": 1056.184,
+          "prompt_per_token_ms": 4.38250622406639,
+          "prompt_per_second": 228.17993834407642,
+          "predicted_n": 11,
+          "predicted_ms": 284.423,
+          "predicted_per_token_ms": 28.4423,
+          "predicted_per_second": 35.15890065149443
+        }
+      }
+    },
+    {
+      "id": "summary-ridership-observational-review",
+      "task": "summarize",
+      "expected": 0,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the bus-ridership review's analysis, qualification, and recommendation?\n\nPASSAGES:\n0: The review examines 2022–2025 bus ticket counts: weekday ridership declined alongside remote-work indicators, while weekend ridership stayed stable. It does not establish a causal effect of remote work and recommends route pilots before permanent service changes.\n\n1: The dashboard appendix gives monthly weekday ticket counts for each depot, with separate columns for cash and prepaid tickets.\n\n2: A campaign statement says remote work has been proved to cause every route's decline. The review explicitly does not endorse that causal claim.\n\n3: A budget memo proposes immediate network-wide service cuts. Its proposal was written before the ridership review was completed.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the bus-ridership review's analysis, qualification, and recommendation?\n\nPASSAGES:\n0: The review examines 2022–2025 bus ticket counts: weekday ridership declined alongside remote-work indicators, while weekend ridership stayed stable. It does not establish a causal effect of remote work and recommends route pilots before permanent service changes.\n\n1: The dashboard appendix gives monthly weekday ticket counts for each depot, with separate columns for cash and prepaid tickets.\n\n2: A campaign statement says remote work has been proved to cause every route's decline. The review explicitly does not endorse that causal claim.\n\n3: A budget memo proposes immediate network-wide service cuts. Its proposal was written before the ridership review was completed.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1506.746,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": false,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855168,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 237,
+          "total_tokens": 248,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-L8Ii7G1nNmAplgKO9pGiGi5jdC9g7qtI",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 237,
+          "prompt_ms": 936.866,
+          "prompt_per_token_ms": 3.9530210970464132,
+          "prompt_per_second": 252.97107590626624,
+          "predicted_n": 11,
+          "predicted_ms": 243.282,
+          "predicted_per_token_ms": 24.328200000000002,
+          "predicted_per_second": 41.104561784266814
+        }
+      }
+    },
+    {
+      "id": "summary-api-policy-temporary-exception",
+      "task": "summarize",
+      "expected": 2,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the current external-API policy memo, including its approval rule and temporary exception?\n\nPASSAGES:\n0: The technical appendix lists TLS versions, certificate rotation intervals, and the log fields collected for outbound API requests.\n\n1: An obsolete 2023 memo prohibited all external API calls. The current memo replaces that blanket rule.\n\n2: The current memo reviews external API use and requires approval before adding a new vendor. The existing emergency-weather feed receives a temporary exception pending a review within sixty days; the memo does not impose an immediate blanket ban.\n\n3: A meeting note suggests one possible migration date for the weather feed. The date remains unapproved and does not state the vendor-approval policy.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the current external-API policy memo, including its approval rule and temporary exception?\n\nPASSAGES:\n0: The technical appendix lists TLS versions, certificate rotation intervals, and the log fields collected for outbound API requests.\n\n1: An obsolete 2023 memo prohibited all external API calls. The current memo replaces that blanket rule.\n\n2: The current memo reviews external API use and requires approval before adding a new vendor. The existing emergency-weather feed receives a temporary exception pending a review within sixty days; the memo does not impose an immediate blanket ban.\n\n3: A meeting note suggests one possible migration date for the weather feed. The date remains unapproved and does not state the vendor-approval policy.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1958.6,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "validChoiceObject": true,
+      "choice": 2,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792855170,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 230,
+          "total_tokens": 241,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-F1QswZJ31woEtTHTVqyVS52aGd28t9kQ",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 230,
+          "prompt_ms": 1106.802,
+          "prompt_per_token_ms": 4.812182608695652,
+          "prompt_per_second": 207.80591289137536,
+          "predicted_n": 11,
+          "predicted_ms": 254.646,
+          "predicted_per_token_ms": 25.464599999999997,
+          "predicted_per_second": 39.270202555704785
+        }
+      }
+    },
+    {
+      "id": "summary-electrolyte-lab-scale-limit",
+      "task": "summarize",
+      "expected": 1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the electrolyte study's purpose, result, tradeoff, and scale limitation?\n\nPASSAGES:\n0: A sponsor's brochure calls the electrolyte production-ready. The study contains no production-scale validation supporting that description.\n\n1: The study compares three solid-electrolyte recipes in laboratory coin cells. Recipe B gave the best low-temperature capacity but increased impedance; because larger-format cells were not tested, the authors request larger-format validation before adoption.\n\n2: A results-table note gives one capacity measurement for recipe B at minus ten degrees Celsius, without discussing impedance or validation scale.\n\n3: The previous project evaluated liquid electrolytes in room-temperature pouch cells. Its results are background material rather than this study's conclusions.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage best summarizes the electrolyte study's purpose, result, tradeoff, and scale limitation?\n\nPASSAGES:\n0: A sponsor's brochure calls the electrolyte production-ready. The study contains no production-scale validation supporting that description.\n\n1: The study compares three solid-electrolyte recipes in laboratory coin cells. Recipe B gave the best low-temperature capacity but increased impedance; because larger-format cells were not tested, the authors request larger-format validation before adoption.\n\n2: A results-table note gives one capacity measurement for recipe B at minus ten degrees Celsius, without discussing impedance or validation scale.\n\n3: The previous project evaluated liquid electrolytes in room-temperature pouch cells. Its results are background material rather than this study's conclusions.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1891.819,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": true,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855171,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 234,
+          "total_tokens": 245,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-SfHnRolCDWS4TPG9aDEYT658A5bxN2kx",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 234,
+          "prompt_ms": 1094.717,
+          "prompt_per_token_ms": 4.678277777777778,
+          "prompt_per_second": 213.75387428897147,
+          "predicted_n": 11,
+          "predicted_ms": 242.828,
+          "predicted_per_token_ms": 24.2828,
+          "predicted_per_second": 41.18141235771822
+        }
+      }
+    },
+    {
+      "id": "summary-no-unrestricted-release-conclusion",
+      "task": "summarize",
+      "expected": -1,
+      "prompt": "Read the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage supports summarizing the final tool review as having validated every production flow and recommended unrestricted release? Choose -1 if none does.\n\nPASSAGES:\n0: The completed review exercised five of the twelve planned workflows and found two critical gaps. The remaining workflows were not evaluated.\n\n1: The final recommendation is a limited staff trial only after the critical gaps are fixed. Unrestricted release is not recommended.\n\n2: The review's scope excludes production-system integrations. Tests used a sandbox with fabricated records.\n\n3: The program owner asks the team to complete full production-flow validation in the next phase. That work is still pending.",
+      "renderedPrompt": "<|im_start|>user\nRead the question and choose the single numbered passage that supplies the requested evidence. Use only the supplied text. If no passage supplies the requested evidence, choose -1.\nReturn only a JSON object with the key \"choice\" and an integer: -1, 0, 1, 2, or 3.\n\nQUESTION:\nWhich passage supports summarizing the final tool review as having validated every production flow and recommended unrestricted release? Choose -1 if none does.\n\nPASSAGES:\n0: The completed review exercised five of the twelve planned workflows and found two critical gaps. The remaining workflows were not evaluated.\n\n1: The final recommendation is a limited staff trial only after the critical gaps are fixed. Unrestricted release is not recommended.\n\n2: The review's scope excludes production-system integrations. Tests used a sandbox with fabricated records.\n\n3: The program owner asks the team to complete full production-flow validation in the next phase. That work is still pending.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "milliseconds": 1409.595,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "validChoiceObject": true,
+      "choice": 1,
+      "exact": false,
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792855173,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 11,
+          "prompt_tokens": 211,
+          "total_tokens": 222,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-VzoYsaZaWdnSSkRu7zNVx1sT8wAfdKb7",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 211,
+          "prompt_ms": 1031.546,
+          "prompt_per_token_ms": 4.888843601895735,
+          "prompt_per_second": 204.5473493184017,
+          "predicted_n": 11,
+          "predicted_ms": 252.462,
+          "predicted_per_token_ms": 25.246199999999998,
+          "predicted_per_second": 39.6099214931356
+        }
+      }
+    }
+  ]
+}

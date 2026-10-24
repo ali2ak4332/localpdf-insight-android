@@ -1,0 +1,570 @@
+{
+  "scope": "32 synthetic source-selection cases, repeated templates/positions; not a representative-PDF benchmark",
+  "model": {
+    "repo": "unsloth/granite-4.0-350m-GGUF",
+    "revision": "d6a88cd56438020200760fd8bc03670db0e13fa0",
+    "filename": "granite-4.0-350m-Q4_K_M.gguf",
+    "bytes": 236986144,
+    "sha256": "84f8ee2d191f49a26dee7928039ecbca7079403ccd6817652bd5e834ca40b6d5",
+    "quantization": "Q4_K_M"
+  },
+  "additionalFineTuningPerformed": false,
+  "runtimeCommit": "df9beac7153166550571c70cc667f270b745da49",
+  "host": "x86_64",
+  "contextTokens": 4096,
+  "maximumCpuThreads": 4,
+  "sampler": "greedy plus production JSON array grammar",
+  "maximumOutputTokens": 96,
+  "promptAndCaseSha256": "d34a864de2220a1e33e3c07e7a61fa89a36f0c1542ea6ac6bec6032b6f4ce267",
+  "peakProcessRssBytes": 545579008,
+  "memoryScope": "fresh-process getrusage of native child; host, not Android",
+  "responses": [
+    {
+      "case": 0,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "milliseconds": 899.656,
+      "sequence": 1,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 1,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "milliseconds": 462.158,
+      "sequence": 2,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 2,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "milliseconds": 444.98,
+      "sequence": 3,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 3,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "milliseconds": 456.614,
+      "sequence": 4,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 4,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "milliseconds": 488.32,
+      "sequence": 5,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 5,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "milliseconds": 459.876,
+      "sequence": 6,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 6,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "milliseconds": 379.424,
+      "sequence": 7,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 7,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "milliseconds": 420.455,
+      "sequence": 8,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 8,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "milliseconds": 704.122,
+      "sequence": 9,
+      "ok": true,
+      "text": "[0, 1, 2]",
+      "parsed": [
+        0,
+        1,
+        2
+      ],
+      "acceptedIndices": [
+        0,
+        1,
+        2
+      ],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 9,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "milliseconds": 450.599,
+      "sequence": 10,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 10,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "milliseconds": 433.696,
+      "sequence": 11,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 11,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "milliseconds": 412.004,
+      "sequence": 12,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 12,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "milliseconds": 425.816,
+      "sequence": 13,
+      "ok": true,
+      "text": "[ ]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 13,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "milliseconds": 412.809,
+      "sequence": 14,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 14,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "milliseconds": 344.313,
+      "sequence": 15,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 15,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "milliseconds": 333.755,
+      "sequence": 16,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 16,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "milliseconds": 368.054,
+      "sequence": 17,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 17,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "milliseconds": 358.041,
+      "sequence": 18,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 18,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "milliseconds": 368.701,
+      "sequence": 19,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 19,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "milliseconds": 411.225,
+      "sequence": 20,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 20,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "milliseconds": 507.175,
+      "sequence": 21,
+      "ok": true,
+      "text": "[0, 1]",
+      "parsed": [
+        0,
+        1
+      ],
+      "acceptedIndices": [
+        0,
+        1
+      ],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 21,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "milliseconds": 354.133,
+      "sequence": 22,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 22,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "milliseconds": 360.577,
+      "sequence": 23,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 23,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "milliseconds": 338.521,
+      "sequence": 24,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 24,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "milliseconds": 694.323,
+      "sequence": 25,
+      "ok": true,
+      "text": "[ ]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 25,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "milliseconds": 520.936,
+      "sequence": 26,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 26,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "milliseconds": 407.483,
+      "sequence": 27,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 27,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "milliseconds": 429.125,
+      "sequence": 28,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 28,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "milliseconds": 680.959,
+      "sequence": 29,
+      "ok": true,
+      "text": "[0, 1, 2]",
+      "parsed": [
+        0,
+        1,
+        2
+      ],
+      "acceptedIndices": [
+        0,
+        1,
+        2
+      ],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 29,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "milliseconds": 493.713,
+      "sequence": 30,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 30,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "milliseconds": 408.919,
+      "sequence": 31,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 31,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "milliseconds": 433.04,
+      "sequence": 32,
+      "ok": true,
+      "text": "[]",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    }
+  ],
+  "summary": {
+    "model": "granite-4.0-350m-Q4_K_M.gguf",
+    "exactCases": 0,
+    "totalCases": 32,
+    "screeningScoreOutOf10": 0,
+    "exactSelectionRate": 0,
+    "acceptedPassagePrecision": 0.25,
+    "relevantPassageRecall": 0.0625,
+    "validArrayResponses": 32,
+    "failedResponses": 0,
+    "acceptedQuotes": 8,
+    "rejectedSelections": 0,
+    "invalidAcceptedCitations": 0,
+    "firstRequestMs": 899.656,
+    "medianRequestMs": 429.125,
+    "p95RequestMs": 704.122,
+    "peakProcessRssBytes": 545579008,
+    "modelBytes": 236986144,
+    "byTask": {
+      "figures": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 2,
+        "falsePositives": 6
+      },
+      "risks": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "insights": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "summarize": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      }
+    }
+  }
+}

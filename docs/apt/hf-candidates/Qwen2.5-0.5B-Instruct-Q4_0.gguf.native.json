@@ -1,0 +1,761 @@
+{
+  "scope": "Separate 8-case synthetic compatibility diagnostic plus 4 literal-output controls",
+  "interpretation": "Prompt, schema and native Jinja template path change together; not an apples-to-apples improvement or whole-model score",
+  "createdAt": "2026-10-24T15:08:27.805357+00:00",
+  "model": {
+    "repo": "bartowski/Qwen2.5-0.5B-Instruct-GGUF",
+    "revision": "41ba88dbac95fed2528c92514c131d73eb5a174b",
+    "filename": "Qwen2.5-0.5B-Instruct-Q4_0.gguf",
+    "bytes": 352972352,
+    "sha256": "c8cd5f37dd1235fb010c45316d4ff8af875e1a4e0ff368b4bf6cacb9053d4919",
+    "quantization": "Q4_0"
+  },
+  "verifiedModelSha256": "c8cd5f37dd1235fb010c45316d4ff8af875e1a4e0ff368b4bf6cacb9053d4919",
+  "additionalFineTuningPerformed": false,
+  "expectedRuntimeCommit": "df9beac7153166550571c70cc667f270b745da49",
+  "serverVersion": "version: 0.7.0-dev (build 1, commit df9beac)\nbuilt with GNU 13.3.0 for Linux x86_64",
+  "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+  "host": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "fixtureSha256": "d34a864de2220a1e33e3c07e7a61fa89a36f0c1542ea6ac6bec6032b6f4ce267",
+  "sourceCaseIds": [
+    0,
+    5,
+    10,
+    15,
+    16,
+    21,
+    26,
+    31
+  ],
+  "parameters": {
+    "serverArguments": [
+      "--model",
+      "<verified-local-model>",
+      "--alias",
+      "native-diagnostic",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "54757",
+      "--offline",
+      "--jinja",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--ctx-size",
+      "4096",
+      "--batch-size",
+      "256",
+      "--ubatch-size",
+      "128",
+      "--parallel",
+      "1",
+      "--device",
+      "none",
+      "--gpu-layers",
+      "0",
+      "--no-kv-offload",
+      "--fit",
+      "off",
+      "--no-cache-prompt",
+      "--reasoning",
+      "off",
+      "--no-webui",
+      "--no-slots",
+      "--timeout",
+      "60"
+    ],
+    "contextTokens": 4096,
+    "cpuThreads": 4,
+    "batchTokens": 256,
+    "ubatchTokens": 128,
+    "parallel": 1,
+    "temperature": 0,
+    "seed": 0,
+    "maximumOutputTokens": 96,
+    "chatTemplateKwargs": {
+      "enable_thinking": false
+    },
+    "reasoning": "off",
+    "choiceSchema": {
+      "type": "object",
+      "properties": {
+        "choice": {
+          "type": "integer",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "required": [
+        "choice"
+      ],
+      "additionalProperties": false
+    },
+    "promptCaching": false,
+    "startupTimeoutSeconds": 120,
+    "requestTimeoutSeconds": 60,
+    "templateTimeoutSeconds": 15,
+    "network": "127.0.0.1 HTTP only; server --offline; local verified model; no downloader or remote API",
+    "memoryScope": "One fresh server per invocation; separate requests with prompt caching disabled",
+    "timingScope": "API request wall time, excluding template inspection and startup; checksum reads warm filesystem cache"
+  },
+  "status": "completed",
+  "startupMilliseconds": 405.679,
+  "serverExitCode": 0,
+  "finishedAt": "2026-10-24T15:08:34.948556+00:00",
+  "responses": [
+    {
+      "kind": "source-selection",
+      "case": 0,
+      "task": "figures",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Choose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 125.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 125.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 684.862,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854508,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 153,
+          "total_tokens": 167,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-3GgtSlIUJDoUtvikHv26WA8joWBWsQdF",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 153,
+          "prompt_ms": 434.327,
+          "prompt_per_token_ms": 2.8387385620915033,
+          "prompt_per_second": 352.2691428347766,
+          "predicted_n": 14,
+          "predicted_ms": 243.694,
+          "predicted_per_token_ms": 18.745692307692305,
+          "predicted_per_second": 53.34558914047946
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 5,
+      "task": "risks",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Choose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 31 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 31 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 545.9,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854509,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 139,
+          "total_tokens": 153,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-fLGkWE3lRm9utyeJv1DZSZB04nUE4RLq",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 139,
+          "prompt_ms": 384.86,
+          "prompt_per_token_ms": 2.768776978417266,
+          "prompt_per_second": 361.17029569193994,
+          "predicted_n": 14,
+          "predicted_ms": 153.032,
+          "predicted_per_token_ms": 11.771692307692309,
+          "predicted_per_second": 84.9495530346594
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 10,
+      "task": "insights",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Choose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 548.836,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854509,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 135,
+          "total_tokens": 149,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-uKta6wYRd77Uq5MnEhhn4gVN3WwQV3YC",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 135,
+          "prompt_ms": 386.03,
+          "prompt_per_token_ms": 2.859481481481481,
+          "prompt_per_second": 349.7137528171386,
+          "predicted_n": 14,
+          "predicted_ms": 159.158,
+          "predicted_per_token_ms": 12.242923076923075,
+          "predicted_per_second": 81.67984015883589
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 15,
+      "task": "summarize",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Choose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 626.49,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854510,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 144,
+          "total_tokens": 158,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-HfQ72jTKrwPHtzaqcWwZU5Yxm1XW8Poe",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 144,
+          "prompt_ms": 467.067,
+          "prompt_per_token_ms": 3.243520833333333,
+          "prompt_per_second": 308.306945256248,
+          "predicted_n": 14,
+          "predicted_ms": 155.723,
+          "predicted_per_token_ms": 11.97869230769231,
+          "predicted_per_second": 83.48156662792265
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 16,
+      "task": "figures",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Choose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 129.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage with the most important numerical result or amount.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: Revenue for Atlas Ltd was USD 129.25 million in 2025, compared with USD 110 million in 2024.\n\n1: The appendix contains a list of abbreviations.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 678.558,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854511,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 153,
+          "total_tokens": 167,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-kwu5BRDnuAYYP4OxU9zbjN8bOfK0Tl1d",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 153,
+          "prompt_ms": 502.079,
+          "prompt_per_token_ms": 3.281562091503268,
+          "prompt_per_second": 304.7329205164924,
+          "predicted_n": 14,
+          "predicted_ms": 171.659,
+          "predicted_per_token_ms": 13.20453846153846,
+          "predicted_per_second": 75.73153752497684
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 21,
+      "task": "risks",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Choose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 35 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage stating a risk, duty, payment requirement, or deadline.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: The buyer shall pay the invoice within 35 days unless the invoice is disputed in writing.\n\n2: This page is intentionally left blank.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 579.724,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854511,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 139,
+          "total_tokens": 153,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-whNS8aTtb9Es5AeftRwPqoHstIof3w9o",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 139,
+          "prompt_ms": 420.898,
+          "prompt_per_token_ms": 3.028043165467626,
+          "prompt_per_second": 330.2462829474124,
+          "predicted_n": 14,
+          "predicted_ms": 152.609,
+          "predicted_per_token_ms": 11.739153846153847,
+          "predicted_per_second": 85.18501530053929
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 26,
+      "task": "insights",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Choose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage stating an important finding, cause, or implication.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The report attributes the decline in output to unplanned maintenance, rather than weaker demand.\n\n3: The document was formatted in a standard typeface.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 665.769,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854512,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 135,
+          "total_tokens": 149,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-WlXegg9NtiBcselMHlgCdT9YXwb3VRk6",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 135,
+          "prompt_ms": 440.809,
+          "prompt_per_token_ms": 3.265251851851852,
+          "prompt_per_second": 306.2550900730248,
+          "predicted_n": 14,
+          "predicted_ms": 221.027,
+          "predicted_per_token_ms": 17.00207692307692,
+          "predicted_per_second": 58.81634370461528
+        }
+      }
+    },
+    {
+      "kind": "source-selection",
+      "case": 31,
+      "task": "summarize",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Choose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nChoose the passage that best states the document's main purpose and conclusions.\nSelect exactly one best passage from the numbered passages below.\nReturn only a JSON object with the key \"choice\" and the passage number (0, 1, 2, or 3).\n\nPASSAGES:\n0: The appendix contains a list of abbreviations.\n\n1: This page is intentionally left blank.\n\n2: The document was formatted in a standard typeface.\n\n3: This report evaluates a battery cooling system. The experiment found that forced airflow reduced peak battery temperature and recommends field trials before deployment.<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 761.578,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854513,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 144,
+          "total_tokens": 158,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-ZqIWdhRzp0R2diepkWu1Xd687goWmupZ",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 144,
+          "prompt_ms": 581.066,
+          "prompt_per_token_ms": 4.035180555555556,
+          "prompt_per_second": 247.82038529186013,
+          "predicted_n": 14,
+          "predicted_ms": 176.111,
+          "predicted_per_token_ms": 13.546999999999999,
+          "predicted_per_second": 73.81708127260649
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-0",
+      "task": "control",
+      "expected": {
+        "choice": 0
+      },
+      "prompt": "Return the number 0 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nReturn the number 0 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 391.431,
+      "rawContent": "{\n  \"choice\": 0\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 0
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 0\n}"
+            }
+          }
+        ],
+        "created": 1792854513,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 49,
+          "total_tokens": 63,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-LyR70wnu1LjtyXM8hGmYXeQkzCA6IT6e",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 49,
+          "prompt_ms": 175.405,
+          "prompt_per_token_ms": 3.5796938775510205,
+          "prompt_per_second": 279.35349619452126,
+          "predicted_n": 14,
+          "predicted_ms": 213.472,
+          "predicted_per_token_ms": 16.420923076923078,
+          "predicted_per_second": 60.897916354369656
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-1",
+      "task": "control",
+      "expected": {
+        "choice": 1
+      },
+      "prompt": "Return the number 1 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nReturn the number 1 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 360.12,
+      "rawContent": "{\n  \"choice\": 1\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 1
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 1\n}"
+            }
+          }
+        ],
+        "created": 1792854514,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 49,
+          "total_tokens": 63,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-j0S8GNhGbEgdpgTuhfOjoIyTqRdIDi1H",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 49,
+          "prompt_ms": 147.75,
+          "prompt_per_token_ms": 3.0153061224489797,
+          "prompt_per_second": 331.64128595600675,
+          "predicted_n": 14,
+          "predicted_ms": 210.035,
+          "predicted_per_token_ms": 16.15653846153846,
+          "predicted_per_second": 61.894446163734614
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-2",
+      "task": "control",
+      "expected": {
+        "choice": 2
+      },
+      "prompt": "Return the number 2 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nReturn the number 2 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 384.628,
+      "rawContent": "{\n  \"choice\": 2\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 2
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 2\n}"
+            }
+          }
+        ],
+        "created": 1792854514,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 49,
+          "total_tokens": 63,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-w4qobO7pWfhqlsfyRO5U3aBR7B77ftq4",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 49,
+          "prompt_ms": 184.502,
+          "prompt_per_token_ms": 3.7653469387755103,
+          "prompt_per_second": 265.57977691298737,
+          "predicted_n": 14,
+          "predicted_ms": 196.677,
+          "predicted_per_token_ms": 15.129,
+          "predicted_per_second": 66.09822195782934
+        }
+      }
+    },
+    {
+      "kind": "literal-output-control",
+      "case": "control-3",
+      "task": "control",
+      "expected": {
+        "choice": 3
+      },
+      "prompt": "Return the number 3 in \"choice\". Return only a JSON object with the key \"choice\".",
+      "renderedPrompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nReturn the number 3 in \"choice\". Return only a JSON object with the key \"choice\".<|im_end|>\n<|im_start|>assistant\n",
+      "milliseconds": 397.903,
+      "rawContent": "{\n  \"choice\": 3\n}",
+      "finish_reason": "stop",
+      "parsedContent": {
+        "choice": 3
+      },
+      "httpStatus": 200,
+      "apiResponse": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"choice\": 3\n}"
+            }
+          }
+        ],
+        "created": 1792854514,
+        "model": "native-diagnostic",
+        "system_fingerprint": "b1-df9beac",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 14,
+          "prompt_tokens": 49,
+          "total_tokens": 63,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "id": "chatcmpl-qoL3sZ2PtFJqIwBckEPwA8ikoONKyEFN",
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 49,
+          "prompt_ms": 188.929,
+          "prompt_per_token_ms": 3.8556938775510203,
+          "prompt_per_second": 259.35668955004263,
+          "predicted_n": 14,
+          "predicted_ms": 206.556,
+          "predicted_per_token_ms": 15.888923076923078,
+          "predicted_per_second": 62.93692751602471
+        }
+      }
+    }
+  ],
+  "diagnosticSummary": {
+    "model": "Qwen2.5-0.5B-Instruct-Q4_0.gguf",
+    "modelBytes": 352972352,
+    "selectionCorrect": 2,
+    "selectionCases": 8,
+    "controlCorrect": 4,
+    "controlCases": 4,
+    "medianSelectionRequestMs": 646.1295
+  }
+}

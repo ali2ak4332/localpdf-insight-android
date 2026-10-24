@@ -1,0 +1,340 @@
+{
+  "date": "2026-10-24",
+  "additionalFineTuningPerformed": false,
+  "productionAdapter": [
+    {
+      "model": "Qwen2.5-0.5B-Instruct-Q4_0.gguf",
+      "exactCases": 0,
+      "totalCases": 32,
+      "screeningScoreOutOf10": 0,
+      "exactSelectionRate": 0,
+      "acceptedPassagePrecision": 0.27586206896551724,
+      "relevantPassageRecall": 0.75,
+      "validArrayResponses": 32,
+      "failedResponses": 0,
+      "acceptedQuotes": 87,
+      "rejectedSelections": 0,
+      "invalidAcceptedCitations": 0,
+      "firstRequestMs": 1148.395,
+      "medianRequestMs": 746.665,
+      "p95RequestMs": 1001.484,
+      "peakProcessRssBytes": 696127488,
+      "modelBytes": 352972352,
+      "byTask": {
+        "figures": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 4,
+          "falsePositives": 11
+        },
+        "risks": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        },
+        "insights": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        },
+        "summarize": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 8,
+          "falsePositives": 16
+        }
+      }
+    },
+    {
+      "model": "Qwen3.5-0.8B-Q4_K_M.gguf",
+      "exactCases": 2,
+      "totalCases": 32,
+      "screeningScoreOutOf10": 0.625,
+      "exactSelectionRate": 0.0625,
+      "acceptedPassagePrecision": 0.2608695652173913,
+      "relevantPassageRecall": 0.75,
+      "validArrayResponses": 32,
+      "failedResponses": 0,
+      "acceptedQuotes": 92,
+      "rejectedSelections": 0,
+      "invalidAcceptedCitations": 0,
+      "firstRequestMs": 2012.965,
+      "medianRequestMs": 1229.144,
+      "p95RequestMs": 1598.696,
+      "peakProcessRssBytes": 936448000,
+      "modelBytes": 532517120,
+      "byTask": {
+        "figures": {
+          "cases": 8,
+          "exact": 2,
+          "truePositives": 6,
+          "falsePositives": 14
+        },
+        "risks": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        },
+        "insights": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        },
+        "summarize": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        }
+      }
+    },
+    {
+      "model": "SmolLM2-360M-Instruct-Q4_K_M.gguf",
+      "exactCases": 0,
+      "totalCases": 32,
+      "screeningScoreOutOf10": 0,
+      "exactSelectionRate": 0,
+      "acceptedPassagePrecision": 0.26881720430107525,
+      "relevantPassageRecall": 0.78125,
+      "validArrayResponses": 32,
+      "failedResponses": 0,
+      "acceptedQuotes": 93,
+      "rejectedSelections": 0,
+      "invalidAcceptedCitations": 0,
+      "firstRequestMs": 1449.906,
+      "medianRequestMs": 1165.961,
+      "p95RequestMs": 1471.246,
+      "peakProcessRssBytes": 508129280,
+      "modelBytes": 270590880,
+      "byTask": {
+        "figures": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 20
+        },
+        "risks": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 7,
+          "falsePositives": 16
+        },
+        "insights": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 18
+        },
+        "summarize": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 6,
+          "falsePositives": 14
+        }
+      }
+    },
+    {
+      "model": "granite-4.0-350m-Q4_K_M.gguf",
+      "exactCases": 0,
+      "totalCases": 32,
+      "screeningScoreOutOf10": 0,
+      "exactSelectionRate": 0,
+      "acceptedPassagePrecision": 0.25,
+      "relevantPassageRecall": 0.0625,
+      "validArrayResponses": 32,
+      "failedResponses": 0,
+      "acceptedQuotes": 8,
+      "rejectedSelections": 0,
+      "invalidAcceptedCitations": 0,
+      "firstRequestMs": 899.656,
+      "medianRequestMs": 429.125,
+      "p95RequestMs": 704.122,
+      "peakProcessRssBytes": 545579008,
+      "modelBytes": 236986144,
+      "byTask": {
+        "figures": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 2,
+          "falsePositives": 6
+        },
+        "risks": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 0,
+          "falsePositives": 0
+        },
+        "insights": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 0,
+          "falsePositives": 0
+        },
+        "summarize": {
+          "cases": 8,
+          "exact": 0,
+          "truePositives": 0,
+          "falsePositives": 0
+        }
+      }
+    }
+  ],
+  "nativeDiagnostic": [
+    {
+      "model": "LFM2-350M-Extract-Q4_K_M.gguf",
+      "modelBytes": 229310080,
+      "selectionCorrect": 2,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 568.928
+    },
+    {
+      "model": "LFM2.5-350M-Q4_K_M.gguf",
+      "modelBytes": 229312224,
+      "selectionCorrect": 4,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 387.7745
+    },
+    {
+      "model": "Qwen2.5-0.5B-Instruct-Q4_0.gguf",
+      "modelBytes": 352972352,
+      "selectionCorrect": 2,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 646.1295
+    },
+    {
+      "model": "Qwen3.5-0.8B-Q4_K_M.gguf",
+      "modelBytes": 532517120,
+      "selectionCorrect": 8,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 1096.2714999999998
+    },
+    {
+      "model": "Qwen3.5-2B-Q4_K_M.gguf",
+      "modelBytes": 1280835840,
+      "selectionCorrect": 8,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 1785.3229999999999
+    },
+    {
+      "model": "SmolLM2-360M-Instruct-Q4_K_M.gguf",
+      "modelBytes": 270590880,
+      "selectionCorrect": 2,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 769.1179999999999
+    },
+    {
+      "model": "gemma-3-270m-it-qat-Q4_0.gguf",
+      "modelBytes": 241410624,
+      "selectionCorrect": 0,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 344.556
+    },
+    {
+      "model": "granite-4.0-350m-Q4_K_M.gguf",
+      "modelBytes": 236986144,
+      "selectionCorrect": 2,
+      "selectionCases": 8,
+      "controlCorrect": 4,
+      "controlCases": 4,
+      "medianSelectionRequestMs": 388.1095
+    }
+  ],
+  "evidenceHoldout": [
+    {
+      "model": "Qwen3.5-0.8B-Q4_K_M.gguf",
+      "modelBytes": 532517120,
+      "peakProcessRssBytes": 2043953152,
+      "definition": "Exact means HTTP 200 with a parsed object containing only an integer choice equal to the frozen gold; failed or missing responses count as unsuccessful",
+      "exactCases": 16,
+      "totalCases": 20,
+      "responsesReceived": 20,
+      "exactSelectionRate": 0.8,
+      "supportedCases": 16,
+      "supportedExactCases": 15,
+      "abstention": {
+        "expectedCases": 4,
+        "correctAbstentions": 1,
+        "falseAbstentions": 0,
+        "unsupportedSelections": 3
+      },
+      "validChoiceObjects": 20,
+      "byTask": {
+        "figures": {
+          "exactCases": 5,
+          "totalCases": 5
+        },
+        "risks": {
+          "exactCases": 4,
+          "totalCases": 5
+        },
+        "insights": {
+          "exactCases": 4,
+          "totalCases": 5
+        },
+        "summarize": {
+          "exactCases": 3,
+          "totalCases": 5
+        }
+      },
+      "medianRequestMs": 1404.274,
+      "p95RequestMs": 1958.6
+    },
+    {
+      "model": "Qwen3.5-2B-Q4_K_M.gguf",
+      "modelBytes": 1280835840,
+      "peakProcessRssBytes": 3139043328,
+      "definition": "Exact means HTTP 200 with a parsed object containing only an integer choice equal to the frozen gold; failed or missing responses count as unsuccessful",
+      "exactCases": 16,
+      "totalCases": 20,
+      "responsesReceived": 20,
+      "exactSelectionRate": 0.8,
+      "supportedCases": 16,
+      "supportedExactCases": 16,
+      "abstention": {
+        "expectedCases": 4,
+        "correctAbstentions": 0,
+        "falseAbstentions": 0,
+        "unsupportedSelections": 4
+      },
+      "validChoiceObjects": 20,
+      "byTask": {
+        "figures": {
+          "exactCases": 4,
+          "totalCases": 5
+        },
+        "risks": {
+          "exactCases": 4,
+          "totalCases": 5
+        },
+        "insights": {
+          "exactCases": 4,
+          "totalCases": 5
+        },
+        "summarize": {
+          "exactCases": 4,
+          "totalCases": 5
+        }
+      },
+      "medianRequestMs": 2614.013,
+      "p95RequestMs": 3230.831
+    }
+  ]
+}

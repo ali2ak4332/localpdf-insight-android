@@ -1,11 +1,12 @@
 # Apt Reader validation — 24 October 2026
 
-**Follow-up:** both Liquid candidates and Gemma have now been compared with a
-corrected host-test transport. Use [the Liquid comparison report](liquid-comparison/REPORT.md)
-for current comparative scores. Earlier Gemma diagnostic files below are
-historical and potentially affected by newline framing; the fresh rerun again
-achieved 0/32 exact selections. Release approval remains blocked. App runtime
-and Android signing checks below are unchanged by this test-only follow-up.
+**Follow-up:** use [the Hugging Face candidate report](hf-candidates/REPORT.md)
+for the latest model research, native-template diagnostics and the frozen
+20-case Qwen3.5 0.8B/2B holdout. Both Qwen variants scored 16/20 there; unsupported
+evidence remains a blocker. The earlier [Liquid comparison](liquid-comparison/REPORT.md)
+contains the corrected host-test transport and fresh Gemma baseline. Historical
+Gemma files below may be affected by newline framing. No Qwen model has been
+integrated into the app. App runtime and signing checks below are unchanged.
 
 **Release decision: BLOCKED. The current model fails task-relevance diagnostics.**
 No APK or source release package is approved for delivery. A signed internal
