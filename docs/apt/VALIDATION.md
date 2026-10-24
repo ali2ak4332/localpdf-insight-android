@@ -1,5 +1,12 @@
 # Apt Reader validation — 24 October 2026
 
+**Follow-up:** both Liquid candidates and Gemma have now been compared with a
+corrected host-test transport. Use [the Liquid comparison report](liquid-comparison/REPORT.md)
+for current comparative scores. Earlier Gemma diagnostic files below are
+historical and potentially affected by newline framing; the fresh rerun again
+achieved 0/32 exact selections. Release approval remains blocked. App runtime
+and Android signing checks below are unchanged by this test-only follow-up.
+
 **Release decision: BLOCKED. The current model fails task-relevance diagnostics.**
 No APK or source release package is approved for delivery. A signed internal
 candidate exists for development checks only. `main` remains unchanged.

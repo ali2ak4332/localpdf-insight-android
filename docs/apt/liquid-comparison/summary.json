@@ -1,0 +1,137 @@
+[
+  {
+    "model": "LFM2-350M-Extract-Q4_K_M.gguf",
+    "exactCases": 4,
+    "totalCases": 32,
+    "screeningScoreOutOf10": 1.25,
+    "exactSelectionRate": 0.125,
+    "acceptedPassagePrecision": 0.6666666666666666,
+    "relevantPassageRecall": 0.125,
+    "validArrayResponses": 22,
+    "failedResponses": 10,
+    "acceptedQuotes": 6,
+    "rejectedSelections": 10,
+    "invalidAcceptedCitations": 0,
+    "firstRequestMs": 881.142,
+    "medianRequestMs": 420.147,
+    "p95RequestMs": 2370.935,
+    "peakProcessRssBytes": 482611200,
+    "modelBytes": 229310080,
+    "byTask": {
+      "figures": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "risks": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "insights": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 2,
+        "falsePositives": 2
+      },
+      "summarize": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 2,
+        "falsePositives": 0
+      }
+    }
+  },
+  {
+    "model": "LFM2.5-350M-Q4_K_M.gguf",
+    "exactCases": 4,
+    "totalCases": 32,
+    "screeningScoreOutOf10": 1.25,
+    "exactSelectionRate": 0.125,
+    "acceptedPassagePrecision": 0.38596491228070173,
+    "relevantPassageRecall": 0.6875,
+    "validArrayResponses": 32,
+    "failedResponses": 0,
+    "acceptedQuotes": 57,
+    "rejectedSelections": 5,
+    "invalidAcceptedCitations": 0,
+    "firstRequestMs": 687.527,
+    "medianRequestMs": 436.064,
+    "p95RequestMs": 564.516,
+    "peakProcessRssBytes": 476520448,
+    "modelBytes": 229312224,
+    "byTask": {
+      "figures": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 7,
+        "falsePositives": 12
+      },
+      "risks": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 5,
+        "falsePositives": 7
+      },
+      "insights": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 4,
+        "falsePositives": 6
+      },
+      "summarize": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 6,
+        "falsePositives": 10
+      }
+    }
+  },
+  {
+    "model": "gemma-3-270m-it-qat-Q4_0.gguf",
+    "exactCases": 0,
+    "totalCases": 32,
+    "screeningScoreOutOf10": 0,
+    "exactSelectionRate": 0,
+    "acceptedPassagePrecision": 0.25,
+    "relevantPassageRecall": 0.125,
+    "validArrayResponses": 4,
+    "failedResponses": 28,
+    "acceptedQuotes": 16,
+    "rejectedSelections": 28,
+    "invalidAcceptedCitations": 0,
+    "firstRequestMs": 4335.023,
+    "medianRequestMs": 3883.309,
+    "p95RequestMs": 4335.023,
+    "peakProcessRssBytes": 510541824,
+    "modelBytes": 241410624,
+    "byTask": {
+      "figures": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "risks": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 2,
+        "falsePositives": 6
+      },
+      "insights": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "summarize": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 2,
+        "falsePositives": 6
+      }
+    }
+  }
+]

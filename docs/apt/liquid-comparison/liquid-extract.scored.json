@@ -1,0 +1,572 @@
+{
+  "scope": "32 synthetic source-selection cases, repeated templates/positions; not a representative-PDF benchmark",
+  "model": {
+    "repo": "LiquidAI/LFM2-350M-Extract-GGUF",
+    "revision": "b8f758b9ff37b0cad9bedfc5223cb71e31aebe9c",
+    "filename": "LFM2-350M-Extract-Q4_K_M.gguf",
+    "bytes": 229310080,
+    "sha256": "687a31c3e7864647aa181e1feb156e4e5da33978c174d7dbf0d289f6014a5621",
+    "quantization": "Q4_K_M"
+  },
+  "additionalFineTuningPerformed": false,
+  "runtimeCommit": "df9beac7153166550571c70cc667f270b745da49",
+  "host": "x86_64",
+  "contextTokens": 4096,
+  "maximumCpuThreads": 4,
+  "sampler": "greedy plus production JSON array grammar",
+  "maximumOutputTokens": 96,
+  "promptAndCaseSha256": "d34a864de2220a1e33e3c07e7a61fa89a36f0c1542ea6ac6bec6032b6f4ce267",
+  "peakProcessRssBytes": 482611200,
+  "memoryScope": "fresh-process getrusage of native child; host, not Android",
+  "responses": [
+    {
+      "case": 0,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "milliseconds": 881.142,
+      "sequence": 1,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 1,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "milliseconds": 491.75,
+      "sequence": 2,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 2,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "milliseconds": 2393.427,
+      "sequence": 3,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 3,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "milliseconds": 2001.05,
+      "sequence": 4,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 4,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "milliseconds": 386.391,
+      "sequence": 5,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 5,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "milliseconds": 386.01,
+      "sequence": 6,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 6,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "milliseconds": 2038.613,
+      "sequence": 7,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 7,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "milliseconds": 1799.207,
+      "sequence": 8,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 8,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "milliseconds": 385.996,
+      "sequence": 9,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 9,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "milliseconds": 420.147,
+      "sequence": 10,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 10,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "milliseconds": 407.397,
+      "sequence": 11,
+      "ok": true,
+      "text": "[3]\n",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 11,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "milliseconds": 2370.935,
+      "sequence": 12,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 12,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "milliseconds": 381.964,
+      "sequence": 13,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 13,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "milliseconds": 387.17,
+      "sequence": 14,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 14,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "milliseconds": 361.389,
+      "sequence": 15,
+      "ok": true,
+      "text": "[3]\n",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": true,
+      "rejected": 0
+    },
+    {
+      "case": 15,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "milliseconds": 469.124,
+      "sequence": 16,
+      "ok": true,
+      "text": "[3]",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": true,
+      "rejected": 0
+    },
+    {
+      "case": 16,
+      "task": "figures",
+      "expected": [
+        0
+      ],
+      "milliseconds": 382.68,
+      "sequence": 17,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 17,
+      "task": "risks",
+      "expected": [
+        0
+      ],
+      "milliseconds": 393.017,
+      "sequence": 18,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 18,
+      "task": "insights",
+      "expected": [
+        0
+      ],
+      "milliseconds": 2145.697,
+      "sequence": 19,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 19,
+      "task": "summarize",
+      "expected": [
+        0
+      ],
+      "milliseconds": 2200.905,
+      "sequence": 20,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 20,
+      "task": "figures",
+      "expected": [
+        1
+      ],
+      "milliseconds": 412.981,
+      "sequence": 21,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 21,
+      "task": "risks",
+      "expected": [
+        1
+      ],
+      "milliseconds": 375.303,
+      "sequence": 22,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 22,
+      "task": "insights",
+      "expected": [
+        1
+      ],
+      "milliseconds": 1904.967,
+      "sequence": 23,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 23,
+      "task": "summarize",
+      "expected": [
+        1
+      ],
+      "milliseconds": 2024.846,
+      "sequence": 24,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 24,
+      "task": "figures",
+      "expected": [
+        2
+      ],
+      "milliseconds": 380.894,
+      "sequence": 25,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 25,
+      "task": "risks",
+      "expected": [
+        2
+      ],
+      "milliseconds": 341.443,
+      "sequence": 26,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 26,
+      "task": "insights",
+      "expected": [
+        2
+      ],
+      "milliseconds": 393.823,
+      "sequence": 27,
+      "ok": true,
+      "text": "[3]\n",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 27,
+      "task": "summarize",
+      "expected": [
+        2
+      ],
+      "milliseconds": 2085.707,
+      "sequence": 28,
+      "ok": false,
+      "error": "Incomplete model selection; findings withheld",
+      "parsed": null,
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 1
+    },
+    {
+      "case": 28,
+      "task": "figures",
+      "expected": [
+        3
+      ],
+      "milliseconds": 456.548,
+      "sequence": 29,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 29,
+      "task": "risks",
+      "expected": [
+        3
+      ],
+      "milliseconds": 409.053,
+      "sequence": 30,
+      "ok": true,
+      "text": "[]\n",
+      "parsed": [],
+      "acceptedIndices": [],
+      "exact": false,
+      "rejected": 0
+    },
+    {
+      "case": 30,
+      "task": "insights",
+      "expected": [
+        3
+      ],
+      "milliseconds": 362.104,
+      "sequence": 31,
+      "ok": true,
+      "text": "[3]\n",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": true,
+      "rejected": 0
+    },
+    {
+      "case": 31,
+      "task": "summarize",
+      "expected": [
+        3
+      ],
+      "milliseconds": 438.742,
+      "sequence": 32,
+      "ok": true,
+      "text": "[3]",
+      "parsed": [
+        3
+      ],
+      "acceptedIndices": [
+        3
+      ],
+      "exact": true,
+      "rejected": 0
+    }
+  ],
+  "summary": {
+    "model": "LFM2-350M-Extract-Q4_K_M.gguf",
+    "exactCases": 4,
+    "totalCases": 32,
+    "screeningScoreOutOf10": 1.25,
+    "exactSelectionRate": 0.125,
+    "acceptedPassagePrecision": 0.6666666666666666,
+    "relevantPassageRecall": 0.125,
+    "validArrayResponses": 22,
+    "failedResponses": 10,
+    "acceptedQuotes": 6,
+    "rejectedSelections": 10,
+    "invalidAcceptedCitations": 0,
+    "firstRequestMs": 881.142,
+    "medianRequestMs": 420.147,
+    "p95RequestMs": 2370.935,
+    "peakProcessRssBytes": 482611200,
+    "modelBytes": 229310080,
+    "byTask": {
+      "figures": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "risks": {
+        "cases": 8,
+        "exact": 0,
+        "truePositives": 0,
+        "falsePositives": 0
+      },
+      "insights": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 2,
+        "falsePositives": 2
+      },
+      "summarize": {
+        "cases": 8,
+        "exact": 2,
+        "truePositives": 2,
+        "falsePositives": 0
+      }
+    }
+  }
+}
