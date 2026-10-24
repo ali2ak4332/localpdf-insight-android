@@ -186,7 +186,9 @@ def validate_report(report, model_id, docs, corpus_hash, issues):
         nonnegative_integer(assessment.get('findingsCount'), f'{model_id}/{key}/findingsCount')
         nonnegative_integer(assessment.get('exactQuoteCount'), f'{model_id}/{key}/exactQuoteCount')
         require(assessment.get('findingsCount') == len(findings), f'{model_id}/{key}: finding count differs')
-    if report.get('status') != 'completed' or len(rows) != 120:
+    # A fully attempted evaluation may contain retained transport/model failures.
+    # Completion of coverage is distinct from successful generation.
+    if report.get('status') not in ('completed', 'failed') or len(rows) != 120:
         issues.append(f'{model_id}: generation report {report.get("status")}, {len(rows)}/120 responses')
     return plans, rows
 
@@ -300,6 +302,8 @@ def raw_case_metadata(row, doc):
     valid = [f for f in findings if record_valid(f, task, pages)]
     exact = sum(bool(f['quote'].strip()) and f['quote'] in pages[f['page']] for f in valid)
     raw = row.get('rawContent', '')
+    if raw is None:  # Native timeout responses carry no message content.
+        raw = ''
     require(isinstance(raw, str), 'rawContent must be a string')
     flags = row['assessment']
     return {'rawOutputSha256': sha(raw), 'rawOutputCharacters': len(raw),
@@ -389,6 +393,12 @@ def sanitized_model(report):
         elif isinstance(value, str) and value.startswith('/'):
             arguments[index] = '<local-path>'
     return {'artifact': {k: model[k] for k in ('repo', 'revision', 'filename', 'bytes', 'sha256', 'quantization') if k in model},
+            'generationRunStatus': report.get('status'),
+            'failedGenerationCases': [{'documentId': r.get('documentId'), 'task': r.get('task'),
+                                       'httpStatus': r.get('api', {}).get('httpStatus'),
+                                       'finishReason': r.get('finish_reason')}
+                                      for r in report.get('responses', []) if not r.get('deterministicSkip') and
+                                      not all(r.get('assessment', {}).get(k) for k in ('schemaValid', 'httpSuccessful', 'completedWithinBudget'))],
             'verifiedModelSha256': report.get('verifiedModelSha256'),
             'runtime': {**{k: report.get(k) for k in ('serverBinarySha256', 'expectedRuntimeCommit', 'serverVersion')},
                         'host': {k: v for k, v in report.get('host', {}).items() if k in ('system', 'machine')},

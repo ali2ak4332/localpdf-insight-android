@@ -273,7 +273,8 @@ if(modelReportPaths.length){
   const file={path:reportPath,sha256:hash(raw),model:report.model??report.modelName??null,
    modelName:report.model?.filename||report.model?.name||report.modelName||(typeof report.model==='string'?report.model:null),
    sourceRunStatus:report.status??null,plannedResponses:Array.isArray(report.plan)?report.plan.length:null,
-   receivedResponses:rows.length,reportComplete:report.status==='completed'&&(!Array.isArray(report.plan)||rows.length===report.plan.length),
+   receivedResponses:rows.length,generationRunStatus:report.status,
+   reportComplete:['completed','failed'].includes(report.status)&&Array.isArray(report.plan)&&rows.length===report.plan.length,
    rows:[],summary:{findings:0,exactQuoteAccepted:0,exactQuoteAcceptedAtRequestedPage:0,
     exactQuoteWrongPage:0,quoteRejected:0,quoteTooShort:0,wholePageExactButIndexedSourceRejected:0,
     wholePageExactButTooShort:0,wholePageExactSourceBoundaryRejections:0}};

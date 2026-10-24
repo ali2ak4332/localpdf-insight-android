@@ -1,0 +1,249 @@
+{
+  "protocol": "cite-v1",
+  "baseCommit": "b450876df564148913c2f3183063daa64946febd",
+  "scope": "Test harness and pure modules only; no Android/model/APK/release changes",
+  "corpusSha256": "a566a2bc17c137880d559b70a392a4881e69771111c14ebfe0729c0e5241454f",
+  "goldSha256": "e20c5678071ed6ca8c1c42155e0df26da689cf263073f0a4a7b95debfe1599d3",
+  "productionModulesSha256": {
+    "apt_lines.mjs": "e865b4d7814ec60c8ba3e021fa97bf0949a6d3d3ffffbcaa75447996a3fd8702",
+    "apt_figures.mjs": "80f6fef65833aed841fb17ee2a4ca02a8fbc7841660d546e801cb5822775230c",
+    "five_task_cite.mjs": "8e7517b1b39cecc594163f46c931ce8e4ced83a18256c93d080cb9dcea383723"
+  },
+  "promptFit": {
+    "0.8b": {
+      "count": 111,
+      "maxPromptTokens": 5823,
+      "outputBudget": 512,
+      "context": 8192,
+      "allFit": true
+    },
+    "2b": {
+      "count": 111,
+      "maxPromptTokens": 5823,
+      "outputBudget": 512,
+      "context": 8192,
+      "allFit": true
+    }
+  },
+  "sameModelAndRuntimeAsBaseline": true,
+  "noResumeUsed": false,
+  "resumeProvenance": {
+    "phases": [
+      {
+        "timestamp": "2026-10-24T19:32:01.116358+00:00",
+        "model": "2b",
+        "priorGenerationCount": 106,
+        "priorModelCalls": 98,
+        "priorReportSha256": "23c70fdc8294058bebb8b04f523525f0ed8cf4dbc5158da459fb1518efefa0e3",
+        "preservedResponsesSha256": "173797d85a8744ba34b78d6a1f84baf76ba53f175e1918aad890a7aafa7abaf3",
+        "productionModulesSha256": {
+          "apt_lines.mjs": "e865b4d7814ec60c8ba3e021fa97bf0949a6d3d3ffffbcaa75447996a3fd8702",
+          "apt_figures.mjs": "80f6fef65833aed841fb17ee2a4ca02a8fbc7841660d546e801cb5822775230c",
+          "five_task_cite.mjs": "8e7517b1b39cecc594163f46c931ce8e4ced83a18256c93d080cb9dcea383723"
+        },
+        "verifiedModelSha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223",
+        "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+        "action": "Resume only subsequent cases at unchanged60secondtimeout; failed row retained and not retried",
+        "priorRunCreatedAt": "2026-10-24T18:40:15.368041+00:00"
+      },
+      {
+        "timestamp": "2026-10-24T19:35:16.149816+00:00",
+        "priorRunCreatedAt": "2026-10-24T19:32:03.225690+00:00",
+        "model": "2b",
+        "priorGenerationCount": 108,
+        "priorModelCalls": 100,
+        "priorReportSha256": "b97393e3bd38b544c47fe67399e21d04edca8c2a10ca880f2a0202cffa2c5e50",
+        "preservedResponsesSha256": "702dbb16477a7496a0102773d228388b7034a0d3dc7a1af6cd7d426b0f38dd38",
+        "productionModulesSha256": {
+          "apt_lines.mjs": "e865b4d7814ec60c8ba3e021fa97bf0949a6d3d3ffffbcaa75447996a3fd8702",
+          "apt_figures.mjs": "80f6fef65833aed841fb17ee2a4ca02a8fbc7841660d546e801cb5822775230c",
+          "five_task_cite.mjs": "8e7517b1b39cecc594163f46c931ce8e4ced83a18256c93d080cb9dcea383723"
+        },
+        "verifiedModelSha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223",
+        "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+        "action": "Resume only subsequent cases at unchanged60secondtimeout; failed row retained and not retried"
+      }
+    ],
+    "allPriorResponseHashesPreserved": true,
+    "allCasesAttempted": 120,
+    "failedCases": [
+      {
+        "documentId": "technical-07",
+        "task": "insights",
+        "error": "TimeoutError: timed out"
+      },
+      {
+        "documentId": "technical-07",
+        "task": "risks",
+        "error": "TimeoutError: timed out"
+      }
+    ]
+  },
+  "additionalFineTuning": false,
+  "responses": {
+    "0.8b": {
+      "status": "completed",
+      "summary": {
+        "plannedGenerations": 120,
+        "receivedGenerations": 120,
+        "modelCalls": 111,
+        "deterministicSkips": 9,
+        "schemaValid": 111,
+        "finishedStop": 111,
+        "http200": 111,
+        "modelFindings": 220,
+        "materializedFindings": 98,
+        "rejectedFindings": 122,
+        "exactQuotesOnCitedPages": 98,
+        "medianRequestMilliseconds": 16001.644,
+        "interpretation": "Exact quotes are guaranteed by construction; they say nothing about whether the cited lines support the claim."
+      },
+      "verifiedModelSha256": "bd258782e35f7f458f8aced1adc053e6e92e89bc735ba3be89d38a06121dc517",
+      "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+      "rawReportSha256": "40c2831aeead2aa70fc8a5ed1952fe1e59df16d61640cef27d381528ed9f132e"
+    },
+    "2b": {
+      "status": "failed",
+      "summary": {
+        "plannedGenerations": 120,
+        "receivedGenerations": 120,
+        "modelCalls": 111,
+        "deterministicSkips": 9,
+        "schemaValid": 109,
+        "finishedStop": 109,
+        "http200": 109,
+        "modelFindings": 217,
+        "materializedFindings": 149,
+        "rejectedFindings": 70,
+        "exactQuotesOnCitedPages": 149,
+        "medianRequestMilliseconds": 29620.351,
+        "interpretation": "Exact quotes are guaranteed by construction; they say nothing about whether the cited lines support the claim."
+      },
+      "verifiedModelSha256": "aaf42c8b7c3cab2bf3d69c355048d4a0ee9973d48f16c731c0520ee914699223",
+      "serverBinarySha256": "3e876d21cb42c0fd8a33e33731946c857e47395e9ba0662e5549ebf19e418a69",
+      "rawReportSha256": "aa349745af199a9a065632540bd9dbcdf815492359335c2d90192097a7015936"
+    }
+  },
+  "replay": {
+    "productionModulesSha256": {
+      "apt_lines.mjs": "e865b4d7814ec60c8ba3e021fa97bf0949a6d3d3ffffbcaa75447996a3fd8702",
+      "apt_figures.mjs": "80f6fef65833aed841fb17ee2a4ca02a8fbc7841660d546e801cb5822775230c",
+      "five_task_cite.mjs": "8e7517b1b39cecc594163f46c931ce8e4ced83a18256c93d080cb9dcea383723"
+    },
+    "corpusSha256": "a566a2bc17c137880d559b70a392a4881e69771111c14ebfe0729c0e5241454f",
+    "models": [
+      {
+        "modelSize": "0.8b",
+        "status": "completed",
+        "plansReplayed": 120,
+        "responseRowsReplayed": 120,
+        "allIdentical": true,
+        "reportSha256": "40c2831aeead2aa70fc8a5ed1952fe1e59df16d61640cef27d381528ed9f132e"
+      },
+      {
+        "modelSize": "2b",
+        "status": "failed",
+        "plansReplayed": 120,
+        "responseRowsReplayed": 120,
+        "allIdentical": true,
+        "reportSha256": "aa349745af199a9a065632540bd9dbcdf815492359335c2d90192097a7015936"
+      }
+    ],
+    "complete": true
+  },
+  "gradeFiles": {
+    "contractual": {
+      "cases": 80,
+      "sha256": "ca5a1a575e54f6ef00aa92c25b72a008984f3df481c52540d68377b07dd3ca07"
+    },
+    "financial": {
+      "cases": 80,
+      "sha256": "dbd920d21458c6ebabbf9343f36369bbedf8706775882fad3d5f2960ec58d804"
+    },
+    "technical": {
+      "cases": 80,
+      "sha256": "bce06f64944336bd04b4412600900764d77fd35b1b034187ce9ca276681d593c"
+    }
+  },
+  "sourceReview": "Blinded agent reviews, non-exhaustive pre-frozen reference anchors; no independent human expert validation",
+  "blindingCorrection": "A technical grader was interrupted before producing any grades after an inadvertent identity disclosure. Only a fresh blinded replacement supplied technical grades.",
+  "checks": {
+    "node": {
+      "passed": 45
+    },
+    "aggregation": {
+      "passed": 26
+    },
+    "fakeServer": {
+      "cases": 8,
+      "modelCalls": 7
+    },
+    "syntheticPDF": {
+      "checks": 51,
+      "documents": 8
+    },
+    "mutations": {
+      "mutations": [
+        {
+          "mutation": "percent-unit",
+          "caught": true
+        },
+        {
+          "mutation": "column-period",
+          "caught": true
+        },
+        {
+          "mutation": "source-value",
+          "caught": true
+        },
+        {
+          "mutation": "page-scale",
+          "caught": true
+        },
+        {
+          "mutation": "ambiguous-cells",
+          "caught": true
+        },
+        {
+          "mutation": "split-headers",
+          "caught": true
+        },
+        {
+          "mutation": "per-share-scale",
+          "caught": true
+        }
+      ],
+      "allCaught": true
+    },
+    "panel": {
+      "passed": 7
+    },
+    "androidBrowser": {
+      "passed": 21
+    }
+  },
+  "automaticFigureSkipsPerModel": {
+    "total": 9,
+    "correct": 7,
+    "false": 2,
+    "falseSkipDocuments": [
+      "contractual-08",
+      "contractual-23"
+    ]
+  },
+  "remainingLimitations": [
+    "False footnote suppression of parenthesized deadline quantities",
+    "Par-value scale exception absent",
+    "Percent/percentage-point/basis-point conflation",
+    "Duration-only return columns omit endpoint dates",
+    "Incomplete infographic and complex-table metadata",
+    "Exact source presence does not establish semantic support",
+    "Development sample informed extractor changes; not holdout validation",
+    "Phone/app integration, footprint and performance unmeasured"
+  ],
+  "validationArtifacts": {
+    "sourceVerifierSha256": "d6a37f0c9f9a727fb3d9decff299523d07a5729d09bb0b08e5639ad74531bb89",
+    "externalMonitorSha256": "7bfd84b6313ce7abfbbd589a2c7a8ea2544b11d430fc2c26c2d6c4b15fc89063",
+    "publicResultsSha256": "6e369d930e0f1a5c15c92f808eb34beb0736a29b46baab32aa680868d6724420"
+  }
+}

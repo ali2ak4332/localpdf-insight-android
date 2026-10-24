@@ -228,3 +228,41 @@ def test_cite_partial_rejection_is_reported_without_discarding_kept_finding(run_
         assert figures['materializationRejected'] == 1
         assert figures['numeric']['records'] == 29
         assert figures['strictPass']['count'] == 29
+
+
+def test_cite_finished_attempt_set_scores_retained_transport_failure(run_data):
+    work, _ = run_data
+    to_cite(work)
+    path = work / 'qwen35-2b.json'
+    data = json.load(open(path))
+    data['status'] = 'failed'
+    row = next(r for r in data['responses'] if (r['documentId'], r['task']) == ('technical-07', 'insights'))
+    row.update({'rawContent': None, 'parsedContent': None, 'materialized': {'findings': []},
+                'materializationRejected': [{'index': None, 'reason': 'Missing or malformed findings array.'}],
+                'api': {'httpStatus': None, 'transportError': 'TimeoutError: timed out'},
+                'finish_reason': None, 'tokenUsage': None})
+    row['assessment'].update({'schemaValid': False, 'httpSuccessful': False, 'completedWithinBudget': False,
+                              'findingsCount': 0, 'exactQuoteCount': 0})
+    save(path, data)
+    path = work / 'grades-technical.json'
+    grades = json.load(open(path))
+    g = next(g for g in grades['grades'] if (g['documentId'],g['candidate'],g['task']) == ('technical-07','A','insights'))
+    g.update({k: False for k in ('technicalComplete','factualCorrect','relevant','adequateCoverage','evidenceCorrect','strictPass')})
+    g['numeric'] = {k: 0 for k in g['numeric']}
+    g['quotes'] = {'records': 0, 'exactOnPage': 0}
+    g['unsupportedFindings'] = 0
+    save(path, grades)
+    path = work / 'verify-findings.json'
+    verification = json.load(open(path))
+    for file in verification['generatedFindingVerification']['files']:
+        if '2b' in file['path']:
+            next(r for r in file['rows'] if (r['documentId'],r['task']) == ('technical-07','insights'))['findings'] = []
+    save(path, verification)
+    refresh_fixture_verification(work)
+    result, output = execute(run_data)
+    assert result.returncode == 0, result.stderr
+    result = json.load(open(output))
+    assert result['status'] == 'completed'
+    assert result['models']['qwen35-2b']['overall']['technicalComplete']['count'] == 119
+    case = next(c for c in result['cases'] if (c['modelId'],c['documentId'],c['task']) == ('qwen35-2b','technical-07','insights'))
+    assert not case['contentPass'] and not case['strictPass']
